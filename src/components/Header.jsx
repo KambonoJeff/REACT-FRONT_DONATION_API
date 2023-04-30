@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Header = () => {
+const Header = ({ userinfo, onLogout }) => {
 
 
   return (
@@ -8,9 +8,8 @@ const Header = () => {
         
         <div>
             <ul className="flex box">
-                <li >login</li>
-                <li >register</li>
-                <li >logout</li>
+                <li >{ userinfo }</li>
+                <li ><a href="#" onClick={onLogout} className="btn">Logout</a></li>
             </ul>
         </div>
       
