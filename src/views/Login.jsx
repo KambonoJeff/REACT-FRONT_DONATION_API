@@ -9,7 +9,7 @@ export default function Login() {
     < >
     <br></br>
    <form align="center" onSubmit={onSubmit} method="post">
-   <h2>login form </h2>      
+   <h2>Login Form </h2>      
 
      <InputDetail label='Email' placeh='Email'/>
      <InputDetail label='Password' placeh='Password' type='password'/>
