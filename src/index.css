@@ -9,8 +9,45 @@
 body {
   font-family: 'Poppins', sans-serif;
   background-color: aliceblue;
-  
+}
 
+aside {
+  background-color: black;
+  padding: 10px;
+  width: 25%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: aliceblue;
+  overflow-y: auto;
+}
+/* Styles for links */
+a {
+  color: #333;
+  text-decoration: none;
+  list-style: none;
+}
+a:hover {
+  color: #ff6633;
+}
+/* Styles for main content */
+main {
+  padding: 20px;
+  margin-left: 30%;
+  display: block;
+}
+h1 {
+  font-size: 48px;
+  margin: 0;
+}
+h2 {
+  font-size: 24px;
+  margin-top: 20px;
+}
+p {
+  font-size: 16px;
+  line-height: 1.5;
 }
 .flex { 
   display: flex;
@@ -156,7 +193,11 @@ form{
   flex-wrap: wrap;
   margin-top: 1em;
 }
-
+.alert{
+  color: red;
+  font-size: 20px;
+  font-weight: bold;
+}
 .form-control label {
   display: flex;
   align-items: center;
@@ -181,44 +222,9 @@ form{
   padding: 1.8em;
   color: deepskyblue;
 }
-      /* Styles for header */
-
-      /* Styles for aside bar */
-      aside {
-        background-color: black;
-        padding: 10px;
-        width: 25%;
-        height: 100%;
-        position: fixed;
-        top: 0;
-        left: 0;
-        color: aliceblue;
-        overflow-y: auto;
-      }
-      /* Styles for links */
-      a {
-        color: #333;
-        text-decoration: none;
-        list-style: none;
-      }
-      a:hover {
-        color: #ff6633;
-      }
-      /* Styles for main content */
-      main {
-        padding: 20px;
-        margin-left: 30%;
-        display: block;
-      }
-      h1 {
-        font-size: 48px;
-        margin: 0;
-      }
-      h2 {
-        font-size: 24px;
-        margin-top: 20px;
-      }
-      p {
-        font-size: 16px;
-        line-height: 1.5;
-      }
+.form-control input::placeholder{
+  color: deepskyblue;
+  font-weight: 600;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 22px;
+}
