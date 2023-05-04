@@ -175,7 +175,23 @@ td:hover{
  letter-spacing: 2px;
 
 }
+.link{
+  color: deepskyblue;
+  margin: .6em ;
+  padding: 1.5em;
+  font-weight: 600;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 22px;
+  letter-spacing: 5px;
+  border-radius: .5em;
+  box-shadow: 0 1px 19px;
 
+  
+}
+Link:hover{
+  cursor: pointer;
+  color: #ff6633;
+}
 form{
   width: 90%;
   max-width: 40em;

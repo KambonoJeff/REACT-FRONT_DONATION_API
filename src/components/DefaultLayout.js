@@ -1,16 +1,14 @@
 import React from 'react'
 import { Navigate, Outlet } from 'react-router'
+import { Link } from 'react-router-dom'
 import { useStateContext } from './contexts/ContextProvider'
-import Users from '../views/Users'
 import Header from './Header'
-import LinkButton from './LinkButton'
-import Login from '../views/Login'
 
 
 export default function DefaultLayout() {
   const {user,token} = useStateContext()
   if(!token){
-    return <Login/>
+    return <Navigate to="/login"/>
   }
   const onLogout =(event)=>{
     event.preventDefault()
@@ -18,7 +16,7 @@ export default function DefaultLayout() {
   }
   return (
     <div className="flex">
-      <Header userinfo={user.name} onLogout={onLogout} />
+      <Header  onLogout={onLogout} />
     <aside>
 
       <nav>
@@ -28,12 +26,18 @@ export default function DefaultLayout() {
        <Button setter={setrequests}text='Requests'/> */}
 
        {/* <link to="/dashboard">dashboard</link> */}
-       <LinkButton link='/dashboard' text='Dashboard'/>
-       <LinkButton link='/users' text='Users'/>
+       {/* <LinkButton link='/dashboard' text='Dashboard'/> */}
+       {/* <LinkButton link='/users' text='Users'/> */}
+
+       <Link className='link' to="/Dashboard">Dashboard</Link>
+       <Link className='link' to="/users">Users</Link>
 
       </nav>
     </aside>
     <main>
+      <h3>default layout</h3>
+      <br></br>
+      <br></br>
       <Outlet/>
       
     </main>
