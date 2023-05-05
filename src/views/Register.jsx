@@ -45,9 +45,7 @@ export default function Register() {
     <>
     <form align="center" onSubmit={onSubmit} method="post">
     <h2 align="center">Register Now For Free</h2>
-      {
-        errors && 
-        <div className='alert'>
+
           {
             errors &&
             <div className="alert">
@@ -63,9 +61,6 @@ export default function Register() {
             </div>
             
           }
-        </div>
-      }
-
       <div className="form-control">
           <input ref={nameRef} type="text" placeholder='FullName'/>
           <input ref={emailRef} type="email" placeholder='Enter Email'/>
