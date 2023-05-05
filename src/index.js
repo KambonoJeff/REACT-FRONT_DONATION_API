@@ -6,12 +6,14 @@ import reportWebVitals from './reportWebVitals';
 import router from './router';
 import { RouterProvider } from 'react-router';
 import { ContextProvider } from './components/contexts/ContextProvider';
+import Dashboard from './views/Dashboard';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ContextProvider>
-      <RouterProvider router={router}/>
-    </ContextProvider>
+   <Dashboard/>
   </React.StrictMode>
 );
 reportWebVitals();
+{/* <ContextProvider>
+<RouterProvider router={router}/>
+</ContextProvider> */}

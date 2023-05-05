@@ -55,6 +55,13 @@ p {
   align-items: center;
  
 }
+.box{
+  max-width: 80%;
+  margin: auto;
+}
+.mg-t{
+  margin-top: 1.9em;
+}
 header {
   background-color: #333;
   position: fixed;
@@ -177,7 +184,7 @@ td:hover{
 }
 .link{
   color: deepskyblue;
-  width: ;
+  
   margin: .6em ;
   padding: 1.5em;
   font-weight: 600;
@@ -188,6 +195,21 @@ td:hover{
   box-shadow: 0 1px 19px;
 
   
+}
+.tabs{
+  
+  color: black;
+  width: 100%;
+  margin: .6em ;
+  padding: 1.1em;
+  font-weight: 600;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 20px;
+  letter-spacing: 3px;
+  border: 2.2px solid black;
+  border-radius: .1em;
+  box-shadow: 0 1px 19px;
+
 }
 Link:hover{
   cursor: pointer;
@@ -244,4 +266,18 @@ form{
   font-weight: 600;
   font-family: 'Courier New', Courier, monospace;
   font-size: 22px;
+}
+img {
+	width:13em;
+	height: 18em;
+	border: 3px solid orange;
+	border-radius: .4em;
+
+}
+img:hover{
+	width:14em;
+	height: 19em;
+	border: 3px solid black;
+	border-radius: 1em;
+
 }
