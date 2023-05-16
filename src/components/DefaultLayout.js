@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Navigate, Outlet } from 'react-router'
 import { Link } from 'react-router-dom'
 import { useStateContext } from './contexts/ContextProvider'
@@ -7,39 +7,43 @@ import axiosClient from '../axios-client'
 
 
 export default function DefaultLayout() {
-  const {user,token} = useStateContext()
-  const onLogout =(event)=>{
-    event.preventDefault()
-    localStorage.removeItem('ACCESS_TOKEN')
-    axiosClient.get('/showusers').then(({data})=>{
-      console.log(data)
-    }).catch((err)=>{
-      console.error(err)
-    })
-    
-
-  }
+  const {user,token, setToken, setUser} = useStateContext()
   if(!token){
     return <Navigate to="/login"/>
   }
+//   useEffect(()=>{
+
+//    axiosClient.get('/user')
+//    .then(({data})=>
+//    {
+//      console.log(data)
+//    }
+
+//  )
+//    },[]);
+
+  const onLogout =(event)=>{
+    event.preventDefault()
+    axiosClient.post('/logout')
+      .then(({data})=>{
+        setUser(null)
+        setToken(null)    
+      }).catch((err)=>{
+        console.error(err)
+      })
+      
+
+    
+    }
+
+
   return (
     <div className="flex">
-      <Header  onLogout={onLogout} />
+      <Header  onLogout={onLogout}  />
     <aside>
-
       <nav>
-       {/* <Button setter={foodie}text='Food'/>
-       <Button setter={ngoset}text='NGO'/>
-       <Button setter={userss}text='USER'/>
-       <Button setter={setrequests}text='Requests'/> */}
-
-       {/* <link to="/dashboard">dashboard</link> */}
-       {/* <LinkButton link='/dashboard' text='Dashboard'/> */}
-       {/* <LinkButton link='/users' text='Users'/> */}
-
        <Link className='link' to="/Dashboard">Dashboard</Link>
        <Link className='link' to="/users">Users</Link>
-
       </nav>
     </aside>
     <main>

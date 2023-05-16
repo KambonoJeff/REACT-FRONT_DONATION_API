@@ -21,6 +21,7 @@ export default function Login() {
       ({data})=>{
         setUser(data.user)
         setToken(data.token)
+        
       }
     ).catch(err=>{
       const res = err.response;
