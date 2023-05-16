@@ -46,7 +46,7 @@ export default function Register() {
     <form align="center" onSubmit={onSubmit} method="post">
     <h2 align="center">Register Now For Free</h2>
 
-          {
+    {
             errors &&
             <div className="alert">
               {

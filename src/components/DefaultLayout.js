@@ -43,7 +43,6 @@ export default function DefaultLayout() {
     <aside>
       <nav>
        <Link className='link' to="/Dashboard">Dashboard</Link>
-       <Link className='link' to="/users">Users</Link>
       </nav>
     </aside>
     <main>

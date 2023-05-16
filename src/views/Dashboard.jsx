@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
 
 export default function Dashboard() {
   return (
@@ -21,7 +23,8 @@ export default function Dashboard() {
               <p align="right">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, laudantium, quas voluptates ab ipsa nisi esse nobis iusto, fugit molestiae aliquid? Nostrum facilis dicta obcaecati velit non animi porro ut.</p>
           </div>
           <div className="flex box mg-t">
-            <div className="tabs">Donate</div>
+            <Link className='link' to="/users">Users</Link>
+            
             <div className="tabs">View</div>
             <div className="tabs">write</div>
 

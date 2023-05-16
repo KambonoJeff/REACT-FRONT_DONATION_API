@@ -26,7 +26,7 @@ export default function Login() {
     ).catch(err=>{
       const res = err.response;
       if(res && res.status === (401||403||404)){
-        setErrors(res.data.message)
+        setErrors(res.data.errors)
 
       }
     })
@@ -37,6 +37,21 @@ export default function Login() {
     <br></br>
    <form align="center" onSubmit={onSubmit} method="post">
    <h2>Login Form </h2>      
+   {
+            errors &&
+            <div className="alert">
+              {
+                Object.keys(errors).map(key =>(
+                  <h2 align="center" key={key}>
+                    {errors[key][0]}
+                  </h2>
+                ))
+              }
+
+
+            </div>
+            
+          }
           <div className="form-control">
             <h2 align="center">{errors}</h2>
           <input ref={emailRef} type="email" placeholder='Enter your Email' />

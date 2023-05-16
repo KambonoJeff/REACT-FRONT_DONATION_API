@@ -30,10 +30,7 @@ function App() {
     })
     .catch(err => console.error(err));
     // food bank
-     axios.get('http://127.0.0.1:8000/api/food').then((res)=>{
-      setFood(res.data[6])
-     })
-     .catch(err => console.error(err));
+
       axios.get('http://127.0.0.1:8000/api/food').then((res)=>{
       setMaths([
          res.data[0],
