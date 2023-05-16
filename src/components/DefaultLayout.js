@@ -3,13 +3,21 @@ import { Navigate, Outlet } from 'react-router'
 import { Link } from 'react-router-dom'
 import { useStateContext } from './contexts/ContextProvider'
 import Header from './Header'
+import axiosClient from '../axios-client'
 
 
 export default function DefaultLayout() {
   const {user,token} = useStateContext()
   const onLogout =(event)=>{
     event.preventDefault()
-    console.log("clicked")
+    localStorage.removeItem('ACCESS_TOKEN')
+    axiosClient.get('/showusers').then(({data})=>{
+      console.log(data)
+    }).catch((err)=>{
+      console.error(err)
+    })
+    
+
   }
   if(!token){
     return <Navigate to="/login"/>

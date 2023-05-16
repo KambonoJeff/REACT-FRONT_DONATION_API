@@ -17,17 +17,14 @@ export default function Login() {
       password: passwordRef.current.value,
 
     }
-    console.log([payload])
     axiosClient.post("/login",payload).then(
       ({data})=>{
-        console.log(data)
         setUser(data.user)
         setToken(data.token)
       }
     ).catch(err=>{
       const res = err.response;
       if(res && res.status === (401||403||404)){
-        console.log(res.data)
         setErrors(res.data.message)
 
       }
@@ -41,17 +38,6 @@ export default function Login() {
    <h2>Login Form </h2>      
           <div className="form-control">
             <h2 align="center">{errors}</h2>
-            {/* {
-              errors && 
-              <div className="alert">{
-              Object.keys(errors).map(key =>(
-                <h2 align="center" key={key}>
-                  {errors[key][0]}
-                </h2>
-              ))}
-
-              </div>
-            } */}
           <input ref={emailRef} type="email" placeholder='Enter your Email' />
           <input ref={passwordRef} type="password" placeholder='Enter your Password' />
 
