@@ -6,9 +6,10 @@ export default function Users() {
 
   const[users, setUsers]= useState([]);
   const[load, setLoad]=useState([]);
-  const[food ,setFood]=useState([]);
+  const[foods ,setFood]=useState([]);
   const caller =()=>{
     axiosClient.get('/food').then((res)=>{
+      console.log(res)
        setFood(res)
        }).catch(err => console.error(err));
   }
@@ -31,7 +32,7 @@ export default function Users() {
   return (
     <div>
       <h2>users</h2>
-      <Table food={food}/>
+      <Table food={foods.data.data}/>
     </div>
   )
 }

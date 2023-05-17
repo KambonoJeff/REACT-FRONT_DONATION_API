@@ -3,7 +3,7 @@ import Button from './Button'
 
 // users, ngo, requests, food,math,state
 
-const Table = ({ food  }) => {
+const Table = ({ foods  }) => {
     return (
         <>        
            <br/>            
@@ -25,7 +25,7 @@ const Table = ({ food  }) => {
            </thead>
                <tbody>
                    {
-                      food.map((data, index)=>(
+                      foods.map((data, index)=>(
                            <tr key={index}>
                                <td>{data.id}</td>
                                <td>{data.cereals}</td>
