@@ -8,7 +8,7 @@ const Table = ({ foods  }) => {
         <>        
            <br/>            
            <br/> 
-           <h2 align='center'>Food table</h2>
+           <h2 align='center'>Food Table</h2>
            <br/>   
                <table>
                <thead className="thead">             
