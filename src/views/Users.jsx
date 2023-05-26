@@ -10,7 +10,6 @@ export default function Users() {
   const caller =()=>{
     axiosClient.get('/food').then((res)=>{
       console.log(res)
-       setFood(res)
        }).catch(err => console.error(err));
   }
   const getUsers = ( )=>{
@@ -32,7 +31,7 @@ export default function Users() {
   return (
     <div>
       <h2>users</h2>
-      <Table food={foods.data.data}/>
+      <Table food={foods}/>
     </div>
   )
 }

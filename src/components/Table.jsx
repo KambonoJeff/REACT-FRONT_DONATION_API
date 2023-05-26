@@ -23,7 +23,7 @@ const Table = ({ foods  }) => {
                    <th>other</th>
                </tr>     
            </thead>
-               <tbody>
+               {/* <tbody>
                    {
                       foods.map((data, index)=>(
                            <tr key={index}>
@@ -42,7 +42,7 @@ const Table = ({ foods  }) => {
                        ))
                    }
        
-               </tbody>
+               </tbody> */}
                </table> 
                        
                       
