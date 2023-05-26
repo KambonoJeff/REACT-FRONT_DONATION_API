@@ -1,7 +1,6 @@
 import React from 'react'
 import Button from './Button'
 
-// users, ngo, requests, food,math,state
 
 const Table = ({ foods  }) => {
     return (
