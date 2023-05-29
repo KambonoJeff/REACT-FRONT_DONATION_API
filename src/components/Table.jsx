@@ -2,7 +2,6 @@ import React from 'react'
 import Button from './Button'
 
 
- foodTable(food)
 const Table = ({ food , state }) => {
  foodTable(food)
 
