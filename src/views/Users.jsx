@@ -31,18 +31,26 @@ const Users = ({ state })=>{
     .catch(err => console.error(err));
    }
   //######################################################
-  useEffect(()=>{
-     food();
-   },[]);
-  useEffect(()=>{
-     _ngo();
-   },[]);
-  useEffect(()=>{
-     _users();
-   },[]);
-  useEffect(()=>{
-     _requests();
-   },[]);
+    if(state === 'FOOD'){
+      useEffect(()=>{
+        food();
+      },[]);
+      }
+      else if(state === 'USERS'){
+        useEffect(()=>{
+          _users();
+        },[]);
+      }
+      else if(state === 'NGO'){
+        useEffect(()=>{
+          _ngo();
+        },[]);
+      }
+      else if(state === 'REQUESTS'){
+        useEffect(()=>{
+          _requests();
+        },[]);
+      }
    //###########################################################
   return (
     <div>
