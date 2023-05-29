@@ -2,8 +2,8 @@ import React from 'react'
 import Button from './Button'
 
 
-const Table = ({ food , state }) => {foodTable(food)}
-
+const Table = ({ food , state }) => { return (<><h2>wait</h2></>)}
+// foodTable(food)
 export default Table
 
 const foodTable =(food)=> {
@@ -51,31 +51,31 @@ const foodTable =(food)=> {
     
     )
 }
-const condition =(state)=>{
-    if(state === 'FOOD'){
-        return foodTable();
-    }
-    else if(state === 'USERS'){
-        return userRecords();
-    }
-    else if(state === 'NGO'){
-        return ngoRecords();
-    }
-    else if(state === 'REQUESTS'){
-        return requestsTable();
-    }
-    else{
-        return (
-            <div className="empty">
-                <br/>
-                <br/>
-                <br/>
-                <h1 align='center'>nothing to show</h1>
-            </div>
-        );
+// const condition =(state)=>{
+//     if(state === 'FOOD'){
+//         return foodTable();
+//     }
+//     else if(state === 'USERS'){
+//         return userRecords();
+//     }
+//     else if(state === 'NGO'){
+//         return ngoRecords();
+//     }
+//     else if(state === 'REQUESTS'){
+//         return requestsTable();
+//     }
+//     else{
+//         return (
+//             <div className="empty">
+//                 <br/>
+//                 <br/>
+//                 <br/>
+//                 <h1 align='center'>nothing to show</h1>
+//             </div>
+//         );
     
-    }
-}
+//     }
+// }
 
     // const userRecords =()=> {
     //     return(
