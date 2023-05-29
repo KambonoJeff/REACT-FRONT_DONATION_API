@@ -14,13 +14,12 @@ const Users = ({ state })=>{
    }
   const _users =()=>{
     axiosClient.get('/showusers').then((res)=>{
-    console.log(res.data)
     setUsers(res.data)})
     .catch(err => console.error(err));
    }
   const _ngo =()=>{
     axiosClient.get('/ngo/show').then((res)=>{
-    console.log(res.data)
+    setNgo(res.data)
     })
     .catch(err => console.error(err));
    }
