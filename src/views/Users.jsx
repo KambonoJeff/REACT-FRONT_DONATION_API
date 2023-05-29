@@ -5,6 +5,7 @@ const Users = ({ state })=>{
 
   const[load, setLoad]=useState([]);
   const[users ,setUsers]=useState([]);
+  const [ngo , setNgo] = useState([]);
   const[foods ,setFood]=useState([]);
   const food =()=>{
     axiosClient.get('/food').then((res)=>{
@@ -17,17 +18,27 @@ const Users = ({ state })=>{
     setUsers(res.data)})
     .catch(err => console.error(err));
    }
+  const _ngo =()=>{
+    axiosClient.get('/ngo/show').then((res)=>{
+    console.log(res.data)
+    })
+    .catch(err => console.error(err));
+   }
+  //######################################################
   useEffect(()=>{
      food();
    },[]);
   useEffect(()=>{
+     _ngo();
+   },[]);
+  useEffect(()=>{
      _users();
    },[]);
-
+   //###########################################################
   return (
     <div>
       <h2></h2>
-      <Table food={foods} users={users} state={state}/>
+      <Table food={foods} users={users} ngo={ngo} state={state}/>
     </div>
   )
 }

@@ -87,7 +87,7 @@ const userRecords =(users)=> {
 
 // This returns the table
 
-const Table = ({ food , state , users }) => {
+const Table = ({ food , state , users, ngo }) => {
     return userRecords(users)
 }
 export default Table
@@ -120,15 +120,11 @@ export default Table
 // }
 
 
-    // const ngoRecords =()=> {
+    // const ngoRecords =( ngo )=> {
     //     return(
     //         <>
     //         <br/>   
-    //         <div className="flex">
-    //         <Button text={math[0]}/>    
-    //         <Button text={math[1]}/>    
-               
-               
+    //         <div className="flex">          
     //     </div>    
     //     <br/> 
     //     <h2 align='center'>NGO table</h2>
