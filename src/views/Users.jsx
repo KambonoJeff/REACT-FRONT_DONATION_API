@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import axiosClient from '../axios-client';
 import Table from "../components/Table";
-
-export default function Users() {
+const Users = ({ state })=>{
 
   const[users, setUsers]= useState([]);
   const[load, setLoad]=useState([]);
   const[foods ,setFood]=useState([]);
   const caller =()=>{
     axiosClient.get('/food').then((res)=>{
-      console.log(res)
+      console.log(res.data)
+      setFood(res.data)
        }).catch(err => console.error(err));
   }
   const getUsers = ( )=>{
@@ -30,8 +30,13 @@ export default function Users() {
   },[]);
   return (
     <div>
-      <h2>users</h2>
-      <Table food={foods}/>
+      <h2></h2>
+      <Table food={foods} state={state}/>
     </div>
   )
 }
+
+
+export default Users
+
+  

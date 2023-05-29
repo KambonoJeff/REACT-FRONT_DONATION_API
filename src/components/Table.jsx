@@ -2,56 +2,59 @@ import React from 'react'
 import Button from './Button'
 
 
-const Table = ({ foods  }) => {
+const Table = ({ food , state }) => {foodTable(food)}
+
+export default Table
+
+const foodTable =(food)=> {
     return (
         <>        
-           <br/>            
-           <br/> 
-           <h2 align='center'>Food Table</h2>
-           <br/>   
-               <table>
-               <thead className="thead">             
-             <tr>
-                   <th>ID</th>
-                   <th>cereals</th>
-                   <th>proteins</th>
-                   <th>legumes</th>
-                   <th>breakfast</th>
-                   <th>snacks</th>
-                   <th>cash</th>
-                   <th>other</th>
-               </tr>     
-           </thead>
-               {/* <tbody>
-                   {
-                      foods.map((data, index)=>(
-                           <tr key={index}>
-                               <td>{data.id}</td>
-                               <td>{data.cereals}</td>
-                               <td>{data.proteins}</td>
-                               <td>{data.legumes}</td>
-                               <td>{data.breakfast}</td>
-                               <td>{data.snacks}</td>
-                               <td>{data.cash}</td>
-                               <td className='flex'>
-                                   <Button text='Edit'/>
-                                   <Button text='Del'/>
-                               </td>
-                           </tr>
-                       ))
-                   }
-       
-               </tbody> */}
-               </table> 
-                       
-                      
-                  
+            <br/>            
+            <br/> 
+            <h2 align='center'>Food Table</h2>
+            <br/>   
+                <table>
+                <thead className="thead">             
+                <tr>
+                    <th>ID</th>
+                    <th>cereals</th>
+                    <th>proteins</th>
+                    <th>legumes</th>
+                    <th>breakfast</th>
+                    <th>snacks</th>
+                    <th>cash</th>
+                    <th>other</th>
+                </tr>     
+            </thead>
+                <tbody>
+                    {
+                        food.map((data, index)=>(
+                            <tr key={index}>
+                                <td>{data.id}</td>
+                                <td>{data.cereals}</td>
+                                <td>{data.proteins}</td>
+                                <td>{data.legumes}</td>
+                                <td>{data.breakfast}</td>
+                                <td>{data.snacks}</td>
+                                <td>{data.cash}</td>
+                                <td className='flex'>
+                                    <Button text='Edit'/>
+                                    <Button text='Del'/>
+                                </td>
+                            </tr>
+                        ))
+                    }
+        
+                </tbody> 
+                </table> 
+                        
+                        
+                    
         </>
     
     )
-                  }
-export default Table
-  
+}
+
     // const userRecords =()=> {
     //     return(
     //         <>
@@ -149,14 +152,13 @@ export default Table
     //     </>            
     //     )
     // }
-    // const foodTable =()=> {
     //     return(
     //         <>
 
     //         console.log({food})
 
 
-    //         {/* <br/>   
+    //          <br/>   
     //           
                
     //     <br/> 
@@ -195,7 +197,7 @@ export default Table
     //             }
      
     //         </tbody>
-    //         </table> */}
+    //         </table> 
     //     </>            
     //     )
     // }
@@ -273,7 +275,7 @@ export default Table
     //     </>            
     //     )
     // }   
-    // const condition =()=>{
+    // const condition =(state)=>{
     //     if(state === 'foodie'){
     //         return foodTable();
     //     }
