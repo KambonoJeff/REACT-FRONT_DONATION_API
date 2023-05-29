@@ -1,58 +1,98 @@
 import React from 'react'
 import Button from './Button'
 
-
-const Table = ({ food , state }) => {
- return (
-    <>        
-        <br/>            
-        <br/> 
-        <h2 align='center'>Food Table</h2>
-        <br/>   
-            <table>
-            <thead className="thead">             
-            <tr>
-                <th>ID</th>
-                <th>cereals</th>
-                <th>proteins</th>
-                <th>legumes</th>
-                <th>breakfast</th>
-                <th>snacks</th>
-                <th>cash</th>
-                <th>other</th>
-            </tr>     
-        </thead>
-            <tbody>
-                {
-                    food.map((data, index)=>(
-                        <tr key={index}>
-                            <td>{data.id}</td>
-                            <td>{data.cereals}</td>
-                            <td>{data.proteins}</td>
-                            <td>{data.legumes}</td>
-                            <td>{data.breakfast}</td>
-                            <td>{data.snacks}</td>
-                            <td>{data.cash}</td>
-                            <td className='flex'>
-                                <Button text='Edit'/>
-                                <Button text='Del'/>
-                            </td>
-                        </tr>
-                    ))
-                }
+const foodTable =( food ) => {
+    return (
+        <>        
+            <h2 align='center'>Food Table</h2>
+            <br/>   
+                <table>
+                <thead className="thead">             
+                <tr>
+                    <th>ID</th>
+                    <th>cereals</th>
+                    <th>proteins</th>
+                    <th>legumes</th>
+                    <th>breakfast</th>
+                    <th>snacks</th>
+                    <th>cash</th>
+                    <th>other</th>
+                </tr>     
+            </thead>
+                <tbody>
+                    {
+                        food.map((data, index)=>(
+                            <tr key={index}>
+                                <td>{data.id}</td>
+                                <td>{data.cereals}</td>
+                                <td>{data.proteins}</td>
+                                <td>{data.legumes}</td>
+                                <td>{data.breakfast}</td>
+                                <td>{data.snacks}</td>
+                                <td>{data.cash}</td>
+                                <td className='flex'>
+                                    <Button text='Edit'/>
+                                    <Button text='Del'/>
+                                </td>
+                            </tr>
+                        ))
+                    }
+       
+                </tbody> 
+                </table>                    
+        </>
    
-            </tbody> 
-            </table>                    
-    </>
+    )
+}
+const userRecords =(users)=> {
+    return(
+        <>
+            <br/> 
+            <h2 align='center'>USERS table</h2>
+            <br/>   
+                <table>
+            
+                <thead className="thead">             
+                <tr>
+                    <th>ID</th>
+                    <th>name</th>
+                    <th>email</th>
+                    <th>type</th>
+                    <th>verifiedAT</th>
+                    <th>other</th>
+                </tr>     
+                </thead>
+                <tbody>
+                    {
+                        users.map((user, index)=>(
+                            <tr key={index}>
+                                <td>{user.id}</td>
+                                <td>{user.name}</td>
+                                <td>{user.email}</td>
+                                <td>{user.type}</td>
+                                <td>{user.email_verified_at}</td>
+                                <td className='flex'>
+                                    <Button text='Edit'/>
+                                    <Button text='Del'/>
+                                </td>
+                            </tr>
+                        ))
+                    }
 
-)
+                </tbody>
+                </table>
+        </>            
+    )
+}
 
+// This returns the table
+
+const Table = ({ food , state , users }) => {
+    return userRecords(users)
 }
 export default Table
 
- const foodTable =( food ) => {
-    
-}
+
 // const condition =(state)=>{
 //     if(state === 'FOOD'){
 //         return foodTable();
@@ -79,56 +119,7 @@ export default Table
 //     }
 // }
 
-    // const userRecords =()=> {
-    //     return(
-    //         <>
-    //         <br/>   
-    //         <div className="flex">
-    //         <Button text={math[0]}/>    
-    //         <Button text={math[1]}/>    
-    //         <Button text={math[2]}/>    
-    //         <Button text={math[3]}/>    
-    //         <Button text={math[4]}/>    
-    //         <Button text={math[5]}/>    
-               
-    //     </div>    
-    //     <br/> 
-    //     <h2 align='center'>USERS table</h2>
-    //     <br/>   
-    //         <table>
-            
-    //         <thead className="thead">             
-    //         <tr>
-    //             <th>ID</th>
-    //             <th>name</th>
-    //             <th>email</th>
-    //             <th>type</th>
-    //             <th>verifiedAT</th>
-    //             <th>other</th>
-    //         </tr>     
-    //         </thead>
-    //         <tbody>
-    //             {
-    //                 users.map((user, index)=>(
-    //                     <tr key={index}>
-    //                         <td>{user.id}</td>
-    //                         <td>{user.name}</td>
-    //                         <td>{user.email}</td>
-    //                         <td>{user.type}</td>
-    //                         <td>{user.email_verified_at}</td>
-    //                         <td className='flex'>
-    //                             <Button text='Edit'/>
-    //                             <Button text='Del'/>
-    //                         </td>
-    //                     </tr>
-    //                 ))
-    //             }
-     
-    //         </tbody>
-    //         </table>
-    //     </>            
-    //     )
-    // }
+
     // const ngoRecords =()=> {
     //     return(
     //         <>
