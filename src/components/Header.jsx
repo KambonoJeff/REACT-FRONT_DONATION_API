@@ -8,7 +8,6 @@ const Header = ({ user, onLogout }) => {
 
   const getUsers = ( )=>{
     axiosClient.get('/user').then(({data})=>{
-      console.log(data)
       setUsers(data)
     }).catch((err)=>{
       console.error(err)

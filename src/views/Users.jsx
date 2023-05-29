@@ -5,16 +5,12 @@ const Users = ({ state })=>{
 
   const[load, setLoad]=useState([]);
   const[foods ,setFood]=useState([]);
-
-   const caller =()=>{
+  const caller =()=>{
      axiosClient.get('/food').then((res)=>{
        setFood(res.data)
         }).catch(err => console.error(err));
    }
-
-
-
-   useEffect(()=>{
+  useEffect(()=>{
      caller();
    },[]);
 
