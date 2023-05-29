@@ -1,24 +1,29 @@
-import React, { useState } from 'react'
+import React, { useState , useCallback} from 'react'
 import { Link } from 'react-router-dom'
 
 
 export default function Dashboard() {
-  const [state , setState]= useState([])
-  const _food = ()=>{
-    let a = 1
-    setState(a)
+  const [state , setState]= useState('FOOD');
+  const _food = useCallback(()=>{
+    setState('FOOD');
     console.log(state)
 
-  }
-  const _ngo = ()=>{
-    setState('NGO')
-  }
-  const _users = ()=>{
-    setState('USERS')
-  }
-  const _requests = ()=>{
-    setState('REQUEST')
-  }
+    },[])
+  const _ngo = useCallback(()=>{
+    setState('NGO');
+    console.log(state)
+
+    },[])
+  const _users = useCallback(()=>{
+    setState('USERS');
+    console.log(state)
+
+    },[])
+  const _requests = useCallback(()=>{
+    setState('REQUESTS');
+    console.log(state)
+
+    },[])
   return (
     <div>
       <br />
