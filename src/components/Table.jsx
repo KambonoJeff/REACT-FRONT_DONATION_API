@@ -46,13 +46,35 @@ const foodTable =(food)=> {
                     }
         
                 </tbody> 
-                </table> 
-                        
-                        
-                    
+                </table>                    
         </>
     
     )
+}
+const condition =(state)=>{
+    if(state === 'FOOD'){
+        return foodTable();
+    }
+    else if(state === 'USERS'){
+        return userRecords();
+    }
+    else if(state === 'NGO'){
+        return ngoRecords();
+    }
+    else if(state === 'REQUESTS'){
+        return requestsTable();
+    }
+    else{
+        return (
+            <div className="empty">
+                <br/>
+                <br/>
+                <br/>
+                <h1 align='center'>nothing to show</h1>
+            </div>
+        );
+    
+    }
 }
 
     // const userRecords =()=> {
@@ -275,28 +297,4 @@ const foodTable =(food)=> {
     //     </>            
     //     )
     // }   
-    // const condition =(state)=>{
-    //     if(state === 'foodie'){
-    //         return foodTable();
-    //     }
-    //     else if(state === 'userss'){
-    //         return userRecords();
-    //     }
-    //     else if(state === 'ngoset'){
-    //         return ngoRecords();
-    //     }
-    //     else if(state === 'setrequests'){
-    //         return requestsTable();
-    //     }
-    //     else{
-    //         return (
-    //             <div className="empty">
-    //                 <br/>
-    //                 <br/>
-    //                 <br/>
-    //                 <h1 align='center'>nothing to show</h1>
-    //             </div>
-    //         );
-            
-    //     }
-    // }
+
