@@ -4,6 +4,18 @@ import { Link } from 'react-router-dom'
 
 export default function Dashboard() {
   const [state , setState]= useState([])
+  const _food = ()=>{
+    setState('FOOD')
+  }
+  const _ngo = ()=>{
+    setState('NGO')
+  }
+  const _users = ()=>{
+    setState('USERS')
+  }
+  const _requests = ()=>{
+    setState('REQUEST')
+  }
   return (
     <div>
       <br />
@@ -24,10 +36,10 @@ export default function Dashboard() {
               <p align="right">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, laudantium, quas voluptates ab ipsa nisi esse nobis iusto, fugit molestiae aliquid? Nostrum facilis dicta obcaecati velit non animi porro ut.</p>
           </div>
           <div className="flex box mg-t">
-            <Link className='link' to="/users" onClick={setState('FOOD')} state={state}>Food </Link>
-            <Link className='link' to="/users" onClick={setState('USERS')} state={state}>Users</Link>
-            <Link className='link' to="/users" onClick={setState('NGO')} state={state}>Ngo</Link>
-            <Link className='link' to="/users" onClick={setState('REQUESTS')} state={state}>Requests</Link>
+            <Link className='link' to="/users" onClick={_food} state={state}>Food </Link>
+            <Link className='link' to="/users" onClick={_users} state={state}>Users</Link>
+            <Link className='link' to="/users" onClick={_ngo} state={state}>Ngo</Link>
+            <Link className='link' to="/users" onClick={_requests} state={state}>Requests</Link> 
             
 
           </div>
