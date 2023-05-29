@@ -127,36 +127,36 @@ const ngoRecords =( ngo )=> {
 // This returns the table
 
 const Table = ({ food , state , users, ngo, requests }) => {
-    return requestsTable(requests)
+    return condition(state , food, users, ngo, requests)
 }
 export default Table
 
 
-// const condition =(state)=>{
-//     if(state === 'FOOD'){
-//         return foodTable();
-//     }
-//     else if(state === 'USERS'){
-//         return userRecords();
-//     }
-//     else if(state === 'NGO'){
-//         return ngoRecords();
-//     }
-//     else if(state === 'REQUESTS'){
-//         return requestsTable();
-//     }
-//     else{
-//         return (
-//             <div className="empty">
-//                 <br/>
-//                 <br/>
-//                 <br/>
-//                 <h1 align='center'>nothing to show</h1>
-//             </div>
-//         );
+ const condition =(state , food, users, ngo, requests)=>{
+     if(state === 'FOOD'){
+         return foodTable(food);
+     }
+     else if(state === 'USERS'){
+         return userRecords(users);
+     }
+     else if(state === 'NGO'){
+         return ngoRecords(ngo);
+     }
+     else if(state === 'REQUESTS'){
+         return requestsTable(requests);
+     }
+     else{
+         return (
+             <div className="empty">
+                 <br/>
+                 <br/>
+                 <br/>
+                 <h1 align='center'>nothing to show</h1>
+             </div>
+         );
     
-//     }
-// }
+     }
+ }
             
 
      const requestsTable =( requests )=> {

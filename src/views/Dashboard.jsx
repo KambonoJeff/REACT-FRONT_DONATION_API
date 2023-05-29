@@ -5,7 +5,10 @@ import { Link } from 'react-router-dom'
 export default function Dashboard() {
   const [state , setState]= useState([])
   const _food = ()=>{
-    setState('FOOD')
+    let a = 1
+    setState(a)
+    console.log(state)
+
   }
   const _ngo = ()=>{
     setState('NGO')

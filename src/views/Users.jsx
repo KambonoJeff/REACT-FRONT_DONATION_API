@@ -32,24 +32,16 @@ const Users = ({ state })=>{
    }
   //######################################################
     if(state === 'FOOD'){
-      useEffect(()=>{
         food();
-      },[]);
       }
       else if(state === 'USERS'){
-        useEffect(()=>{
           _users();
-        },[]);
       }
       else if(state === 'NGO'){
-        useEffect(()=>{
           _ngo();
-        },[]);
       }
       else if(state === 'REQUESTS'){
-        useEffect(()=>{
           _requests();
-        },[]);
       }
    //###########################################################
   return (
