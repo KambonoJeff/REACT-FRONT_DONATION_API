@@ -7,21 +7,11 @@ import axiosClient from '../axios-client'
 
 
 export default function DefaultLayout() {
+
   const {user,token, setToken, setUser} = useStateContext()
   if(!token){
     return <Navigate to="/login"/>
   }
-//   useEffect(()=>{
-
-//    axiosClient.get('/user')
-//    .then(({data})=>
-//    {
-//      console.log(data)
-//    }
-
-//  )
-//    },[]);
-
   const onLogout =(event)=>{
     event.preventDefault()
     axiosClient.post('/logout')
@@ -31,9 +21,6 @@ export default function DefaultLayout() {
       }).catch((err)=>{
         console.error(err)
       })
-      
-
-    
     }
 
 
@@ -49,7 +36,7 @@ export default function DefaultLayout() {
       <h3>default layout</h3>
       <br></br>
       <br></br>
-      <Outlet/>
+      <Outlet />
       
     </main>
 

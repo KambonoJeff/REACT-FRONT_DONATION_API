@@ -1,7 +1,6 @@
 import React, { useState , useCallback} from 'react'
 import { Link } from 'react-router-dom'
 
-
 export default function Dashboard() {
   const [state , setState]= useState('FOOD');
   const _food = useCallback(()=>{
@@ -44,7 +43,7 @@ export default function Dashboard() {
               <p align="right">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, laudantium, quas voluptates ab ipsa nisi esse nobis iusto, fugit molestiae aliquid? Nostrum facilis dicta obcaecati velit non animi porro ut.</p>
           </div>
           <div className="flex box mg-t">
-            <Link className='link' to="/users" onClick={_food} state={state}>Food </Link>
+            <Link className='link' to="/users"  state={state} onClick={_food}>Food </Link>
             <Link className='link' to="/users" onClick={_users} state={state}>Users</Link>
             <Link className='link' to="/users" onClick={_ngo} state={state}>Ngo</Link>
             <Link className='link' to="/users" onClick={_requests} state={state}>Requests</Link> 

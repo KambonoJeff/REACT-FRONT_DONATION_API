@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import axiosClient from '../axios-client';
 import Table from "../components/Table";
-const Users = ({ state })=>{
+import Dashboard from './Dashboard';
+
+const Users = ()=>{
+  const [state, setState] = useState('FOOD')
 
   const[load, setLoad]=useState([]);
   const [requests , setRequests] =useState([]);
@@ -32,7 +35,10 @@ const Users = ({ state })=>{
    }
   //######################################################
     if(state === 'FOOD'){
-        food();
+         useCallback(()=>{
+         food();
+
+         },[])
       }
       else if(state === 'USERS'){
           _users();

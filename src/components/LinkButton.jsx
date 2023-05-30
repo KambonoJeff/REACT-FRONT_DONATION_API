@@ -1,8 +1,8 @@
 import React from 'react'
 
-const LinkButton = ({ text, link }) => {
+const LinkButton = ({ text, link, state }) => {
   return (
-    <button className="btn"><a href={ link }/>{text}</button>
+    <button className="btn" statet={state}><a href={ link }/>{text}</button>
   )
 }
 
