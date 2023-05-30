@@ -1,6 +1,7 @@
 import React from 'react'
 import InputDetail from './InputDetail'
 import Button from './Button'
+import {useRef, useState} from 'react'
 
 const Form = ({  }) => {
   const Login=()=>{
@@ -71,18 +72,27 @@ const Form = ({  }) => {
 
     )
   }
-  const hospitality = ()=>{
+  const Hospitality = ()=>{
     const user_idRef = useRef();
     const foodRef = useRef();
     const quantityRef = useRef();
     const beneficiariesRef = useRef();
     const locationRef = useRef();
-    const [errors, seErrors] = useState()
+    const statusRef = useRef();
+
+    const [errors, setErrors] = useState()
     const onSubmit=(event)=>{
       event.preventDefault()
       const payload = {
-        user_id: user_id.current.value,
+        user_id: user_idRef.current.value,
+        food: foodRef.current.value,
+        quantity: quantityRef.current.value,
+        beneficiaries: beneficiariesRef.current.value,
+        location: locationRef.current.value,
+        status: statusRef.current.value,
       }
+      console.log(payload)
+      
     }
     return(
       <>
@@ -96,7 +106,7 @@ const Form = ({  }) => {
           <InputDetail ref={beneficiariesRef} label='beneficiaries ' placeh='beneficiaries '/>
           <InputDetail ref={locationRef} label='location ' placeh='location '/>
           <InputDetail ref={statusRef} label='status ' placeh='status '/>
-          <Button text='POST'/>
+          <button type="submit" className="btn"> POST</button>
         </form>
 
     </>
@@ -126,7 +136,7 @@ const Form = ({  }) => {
     
   }
   return (            
-      <div>{hospitality()}</div>  
+      <div>{Hospitality()}</div>  
   )
   
 }
