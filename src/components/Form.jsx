@@ -26,20 +26,25 @@ const Form = () => {
       console.log(payload)
       
     }
+  try{Hospitality();}
+  catch(e){
+    console.error(e)
+  }
+  
     return(
       <>
       <h2> Hospitality Based institutions</h2>
      
         <form action="" onSubmit={Hospitality} method="post">
           <input ref={user_idRef} type="text" name="user_id" id="user_id" placeholder='Enter The User Id'/>
-          <input ref={} type="email" name="email" id="email" />
-          <InputDetail ref={user_idRef} label='user_id' placeh='user_id'/>
-          <InputDetail ref={foodRef} label='Type of Food' placeh='Fruits, Legumes,cereals, proteins,vitamins'/>
-          <InputDetail ref={quantityRef} label='Quantity' placeh='Quantity '/>
-          <InputDetail ref={beneficiariesRef} label='beneficiaries ' placeh='beneficiaries '/>
-          <InputDetail ref={locationRef} label='location ' placeh='location '/>
-          <InputDetail ref={statusRef} label='status ' placeh='status '/>
+          <input ref={foodRef} type="text" name="FoodType" placeholder='Fruits, Legumes,cereals, proteins,vitamins' />
+          <input type="number" name="number" ref={quantityRef}placeholder='Quantity' />
+          <input type="text" name="beneficiaries" id="beneficiaries" placeholder='beneficiaries' ref={beneficiariesRef} />
+          <input type="text" name="location" id="location" placeholder='location' ref={locationRef} />
+          <input type="text" name="status" id="status" ref={statusRef} />
 
+
+          
           <button type="submit" onClick={Hospitality()} className="btn"> POST</button>
         </form>
 
@@ -50,6 +55,7 @@ const Form = () => {
   return (            
       <div>{Hospitality()}</div>  
   )
+  
   
 }
 
