@@ -30,12 +30,30 @@ const Form = () => {
     <h2> Hospitality Based institutions</h2>
    
       <form action="" onSubmit={onSubmit} method="post">
+        <div className="form-control">
         <input ref={user_idRef} type="text" name="user_id" id="user_id" placeholder='Enter The User Id'/>
+
+        </div>
+        <div className="form-control">
         <input ref={foodRef} type="text" name="FoodType" placeholder='Fruits, Legumes,cereals, proteins,vitamins' />
+
+        </div>
+        <div className="form-control">
         <input type="number" name="number" ref={quantityRef}placeholder='Quantity' />
+
+        </div>
+        <div className="form control">
         <input type="text" name="beneficiaries" id="beneficiaries" placeholder='beneficiaries' ref={beneficiariesRef} />
+
+        </div>
+        <div className="form-control">
         <input type="text" name="location" id="location" placeholder='location' ref={locationRef} />
+
+        </div>
+        <div className="form-control">
         <input type="text" name="status" id="status" ref={statusRef} />
+
+        </div>
 
 
         
