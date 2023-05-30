@@ -4,74 +4,8 @@ import Button from './Button'
 import {useRef, useState} from 'react'
 
 const Form = ({  }) => {
-  const Login=()=>{
-    return(
-      <>
-         <br></br>
-        <h2>login form </h2>      
-        <form action="" method="post">
-          <InputDetail label='Email' placeh='Email'/>
-          <InputDetail label='Password' placeh='Password' type='password'/>
-          <Button text='Login'/>
-        </form>
-      </>
-   
-    )        
-  }
-  const ngoLogin=()=>{
-    return(
-      <>
-         <br></br>
-        <h2>login form </h2>      
-        <form action="" method="post">
-          <InputDetail label='Email' placeh='Email'/>
-          <InputDetail label='licenseNo' placeh='licenseNo' type='password'/>
-          <Button text='Login'/>
-        </form>
-      </>
-   
-    )        
-  }
-  const register =()=>{
-    return(
-      
-    <>
-    <br></br>
-      <h2> register form</h2>
-   
-    <form action="" method="post">
 
-      <InputDetail label='fullname' placeh='First Name'/>
 
-      <InputDetail label='Email' placeh='Email' type='email'/>
-      <InputDetail label='Password' placeh='Password' type='password'/>
-      <InputDetail label='Confirm password' placeh='Confirm password' type='password'/>
-      <Button text='Register'/>
-    </form>    
-  </> 
-    )
-  }
-  const ngoRequest=()=>{
-    return(
-      <>
-      <br></br>
-      <h2> Food Requesting Form</h2>
-  
-     
-      <form action="" method="post">
-      <InputDetail label='user_id' placeh='user_id'/>
-          <InputDetail label='Type of Food' placeh='Fruits, Legumes,cereals, proteins,vitamins'/>
-          <InputDetail label='Quantity' placeh='Quantity '/>
-          <InputDetail label='beneficiaries ' placeh='beneficiaries '/>
-          <InputDetail label='location ' placeh='location '/>
-          <InputDetail label='status ' placeh='status '/>
-        <Button text='Request'/>
-      </form>
-
-    </>
-
-    )
-  }
   const Hospitality = ()=>{
     const user_idRef = useRef();
     const foodRef = useRef();
@@ -106,7 +40,7 @@ const Form = ({  }) => {
           <InputDetail ref={beneficiariesRef} label='beneficiaries ' placeh='beneficiaries '/>
           <InputDetail ref={locationRef} label='location ' placeh='location '/>
           <InputDetail ref={statusRef} label='status ' placeh='status '/>
-          <button type="submit" className="btn"> POST</button>
+          <button type="submit" onClick={Hospitality()} className="btn"> POST</button>
         </form>
 
     </>
@@ -142,3 +76,74 @@ const Form = ({  }) => {
 }
 
 export default Form
+
+
+
+const Login=()=>{
+  return(
+    <>
+       <br></br>
+      <h2>login form </h2>      
+      <form action="" method="post">
+        <InputDetail label='Email' placeh='Email'/>
+        <InputDetail label='Password' placeh='Password' type='password'/>
+        <Button text='Login'/>
+      </form>
+    </>
+ 
+  )        
+}
+const ngoLogin=()=>{
+  return(
+    <>
+       <br></br>
+      <h2>login form </h2>      
+      <form action="" method="post">
+        <InputDetail label='Email' placeh='Email'/>
+        <InputDetail label='licenseNo' placeh='licenseNo' type='password'/>
+        <Button text='Login'/>
+      </form>
+    </>
+ 
+  )        
+}
+const register =()=>{
+  return(
+    
+  <>
+  <br></br>
+    <h2> register form</h2>
+ 
+  <form action="" method="post">
+
+    <InputDetail label='fullname' placeh='First Name'/>
+
+    <InputDetail label='Email' placeh='Email' type='email'/>
+    <InputDetail label='Password' placeh='Password' type='password'/>
+    <InputDetail label='Confirm password' placeh='Confirm password' type='password'/>
+    <Button text='Register'/>
+  </form>    
+</> 
+  )
+}
+const ngoRequest=()=>{
+  return(
+    <>
+    <br></br>
+    <h2> Food Requesting Form</h2>
+
+   
+    <form action="" method="post">
+    <InputDetail label='user_id' placeh='user_id'/>
+        <InputDetail label='Type of Food' placeh='Fruits, Legumes,cereals, proteins,vitamins'/>
+        <InputDetail label='Quantity' placeh='Quantity '/>
+        <InputDetail label='beneficiaries ' placeh='beneficiaries '/>
+        <InputDetail label='location ' placeh='location '/>
+        <InputDetail label='status ' placeh='status '/>
+      <Button text='Request'/>
+    </form>
+
+  </>
+
+  )
+}
