@@ -1,10 +1,7 @@
 import React from 'react'
-import InputDetail from './InputDetail'
-import Button from './Button'
-import {useRef, useState} from 'react'
+import {useRef} from 'react'
 
 const Form = () => {
-  const Hospitality = ()=>{
     const user_idRef = useRef();
     const foodRef = useRef();
     const quantityRef = useRef();
@@ -12,7 +9,6 @@ const Form = () => {
     const locationRef = useRef();
     const statusRef = useRef();
 
-    const [errors, setErrors] = useState()
     const onSubmit=(event)=>{
       event.preventDefault()
       const payload = {
@@ -25,36 +21,30 @@ const Form = () => {
       }
       console.log(payload)
       
-    }
-  try{Hospitality();}
-  catch(e){
-    console.error(e)
-  }
-  
-    return(
-      <>
-      <h2> Hospitality Based institutions</h2>
-     
-        <form action="" onSubmit={Hospitality} method="post">
-          <input ref={user_idRef} type="text" name="user_id" id="user_id" placeholder='Enter The User Id'/>
-          <input ref={foodRef} type="text" name="FoodType" placeholder='Fruits, Legumes,cereals, proteins,vitamins' />
-          <input type="number" name="number" ref={quantityRef}placeholder='Quantity' />
-          <input type="text" name="beneficiaries" id="beneficiaries" placeholder='beneficiaries' ref={beneficiariesRef} />
-          <input type="text" name="location" id="location" placeholder='location' ref={locationRef} />
-          <input type="text" name="status" id="status" ref={statusRef} />
-
-
-          
-          <button type="submit" onClick={Hospitality()} className="btn"> POST</button>
-        </form>
-
-    </>
-    )
     
   }
-  return (            
-      <div>{Hospitality()}</div>  
+ 
+  
+  return(
+    <>
+    <h2> Hospitality Based institutions</h2>
+   
+      <form action="" onSubmit={onSubmit} method="post">
+        <input ref={user_idRef} type="text" name="user_id" id="user_id" placeholder='Enter The User Id'/>
+        <input ref={foodRef} type="text" name="FoodType" placeholder='Fruits, Legumes,cereals, proteins,vitamins' />
+        <input type="number" name="number" ref={quantityRef}placeholder='Quantity' />
+        <input type="text" name="beneficiaries" id="beneficiaries" placeholder='beneficiaries' ref={beneficiariesRef} />
+        <input type="text" name="location" id="location" placeholder='location' ref={locationRef} />
+        <input type="text" name="status" id="status" ref={statusRef} />
+
+
+        
+        <button type="submit"  className="btn"> POST</button>
+      </form>
+
+  </>
   )
+
   
   
 }
