@@ -3,8 +3,8 @@ import axiosClient from '../axios-client';
 import Table from "../components/Table";
 import Dashboard from './Dashboard';
 
-const Users = ()=>{
-  const [state, setState] = useState('FOOD')
+const Users = ({state})=>{
+  // const [state, setState] = useState('FOOD')
 
   const[load, setLoad]=useState([]);
   const [requests , setRequests] =useState([]);
@@ -35,10 +35,8 @@ const Users = ()=>{
    }
   //######################################################
     if(state === 'FOOD'){
-         useCallback(()=>{
          food();
 
-         },[])
       }
       else if(state === 'USERS'){
           _users();

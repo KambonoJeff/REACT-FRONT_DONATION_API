@@ -216,7 +216,7 @@ Link:hover{
   color: #ff6633;
 }
 form{
-  width: 90%;
+  width: 100%;
   max-width: 40em;
   border: 1px solid deepskyblue;
   border-radius: 8px;
@@ -228,7 +228,7 @@ form{
   margin-top: 5em;
 }
 .form-control {
-  width: 90%;
+  width: 100%;
   flex-wrap: wrap;
   margin-top: 1em;
 }

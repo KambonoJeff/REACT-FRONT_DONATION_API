@@ -30,6 +30,7 @@ export default function DefaultLayout() {
     <aside>
       <nav>
        <Link className='link' to="/Dashboard">Dashboard</Link>
+       <Link className='link' to="/form">Contribute</Link>
       </nav>
     </aside>
     <main>

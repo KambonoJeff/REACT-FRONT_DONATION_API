@@ -6,6 +6,7 @@ import Notfound from './views/Notfound';
 import DefaultLayout from './components/DefaultLayout';
 import GeustLayout from './components/GeustLayout';
 import Dashboard from './views/Dashboard'
+import Form from './components/Form'
 
 const router = createBrowserRouter([
     {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
             {
                 path:'/Dashboard',
                 element: <Dashboard/>
+            },
+            {
+                path:'/form',
+                element: <Form/>
             },
         ]
 

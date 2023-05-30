@@ -74,7 +74,6 @@ const Form = ({  }) => {
   const hospitality = ()=>{
     return(
       <>
-      <br></br>
       <h2> Hospitality Based institutions</h2>
      
         <form action="" method="post">
