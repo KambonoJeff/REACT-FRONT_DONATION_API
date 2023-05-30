@@ -72,18 +72,30 @@ const Form = ({  }) => {
     )
   }
   const hospitality = ()=>{
+    const user_idRef = useRef();
+    const foodRef = useRef();
+    const quantityRef = useRef();
+    const beneficiariesRef = useRef();
+    const locationRef = useRef();
+    const [errors, seErrors] = useState()
+    const onSubmit=(event)=>{
+      event.preventDefault()
+      const payload = {
+        user_id: user_id.current.value,
+      }
+    }
     return(
       <>
       <h2> Hospitality Based institutions</h2>
      
         <form action="" method="post">
 
-          <InputDetail label='user_id' placeh='user_id'/>
-          <InputDetail label='Type of Food' placeh='Fruits, Legumes,cereals, proteins,vitamins'/>
-          <InputDetail label='Quantity' placeh='Quantity '/>
-          <InputDetail label='beneficiaries ' placeh='beneficiaries '/>
-          <InputDetail label='location ' placeh='location '/>
-          <InputDetail label='status ' placeh='status '/>
+          <InputDetail ref={user_idRef} label='user_id' placeh='user_id'/>
+          <InputDetail ref={foodRef} label='Type of Food' placeh='Fruits, Legumes,cereals, proteins,vitamins'/>
+          <InputDetail ref={quantityRef} label='Quantity' placeh='Quantity '/>
+          <InputDetail ref={beneficiariesRef} label='beneficiaries ' placeh='beneficiaries '/>
+          <InputDetail ref={locationRef} label='location ' placeh='location '/>
+          <InputDetail ref={statusRef} label='status ' placeh='status '/>
           <Button text='POST'/>
         </form>
 
