@@ -47,28 +47,6 @@ const Form = ({  }) => {
     )
     
   }
-  const ngoRegister =()=>{
-    return(
-      <>
-      <br></br>
-      <h2>NGO- Register-Form</h2>
-       
-        <form action="" method="post">
-          <InputDetail label='Organisation name' placeh='Organisation Name'/>
-          <InputDetail label='Email' placeh='Email'/>
-          <InputDetail label='Location' placeh='Location'/>
-          <InputDetail label='Total Number of Beneficiaries' placeh='Number'/>
-          <InputDetail label='Consumption Amount Per Week' placeh='Consumption Amount Per Week'/>
-          <InputDetail label='Phonenumber' placeh='Phonenumber'/>
-          <InputDetail label='licenseNo' placeh='licenseNo'/>
-          <Button text='POST'/>
-
-        </form>
-    
-    </>
-    )
-    
-  }
   return (            
       <div>{Hospitality()}</div>  
   )
@@ -146,4 +124,27 @@ const ngoRequest=()=>{
   </>
 
   )
+}
+
+const ngoRegister =()=>{
+  return(
+    <>
+    <br></br>
+    <h2>NGO- Register-Form</h2>
+     
+      <form action="" method="post">
+        <InputDetail label='Organisation name' placeh='Organisation Name'/>
+        <InputDetail label='Email' placeh='Email'/>
+        <InputDetail label='Location' placeh='Location'/>
+        <InputDetail label='Total Number of Beneficiaries' placeh='Number'/>
+        <InputDetail label='Consumption Amount Per Week' placeh='Consumption Amount Per Week'/>
+        <InputDetail label='Phonenumber' placeh='Phonenumber'/>
+        <InputDetail label='licenseNo' placeh='licenseNo'/>
+        <Button text='POST'/>
+
+      </form>
+  
+  </>
+  )
+  
 }
