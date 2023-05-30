@@ -24,7 +24,6 @@ export default function Register() {
       password: passwordRef.current.value,
       password_confirmation: passwordConfirmationRef.current.value,
     }
-    console.log(payload);
     axiosClient.post('/register',payload).then(({data})=>{
       console.log(data)
       setUser(data.user)
