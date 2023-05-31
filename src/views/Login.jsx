@@ -19,6 +19,8 @@ export default function Login() {
     }
     axiosClient.post("/login",payload).then(
       ({data})=>{
+    console.log(data.user)
+
         setUser(data.user)
         setToken(data.token)
         
@@ -26,6 +28,8 @@ export default function Login() {
     ).catch(err=>{
       const res = err.response;
       if(res && res.status === (401||403||404)){
+    console.log(res)
+
         setErrors(res.data.errors)
 
       }
