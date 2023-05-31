@@ -17,6 +17,7 @@ export default function Login() {
       password: passwordRef.current.value,
 
     }
+    console.log(payload)
     axiosClient.post("/login",payload).then(
       ({data})=>{
     console.log(data.user)
