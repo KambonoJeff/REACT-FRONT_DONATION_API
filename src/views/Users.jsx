@@ -52,7 +52,11 @@ const Users = ({state})=>{
   return (
     <div>
       <br />
+      <div align='right'>
+
       <Button text='Add User'/>
+
+      </div>
       <br />
       <Table food={foods} users={users} requests={requests} ngo={ngo} state={state}/>
     </div>
