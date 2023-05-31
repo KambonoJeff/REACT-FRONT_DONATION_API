@@ -22,13 +22,7 @@ const router = createBrowserRouter([
             {
                 path:'/users',
                 element: <Users/>,
-                children:[
-                    {
-                        path: '/users/adduser',
-                        element: <AddUser/>
-                
-                }
-                ]
+      
             },
             {
                 path:'/Dashboard',
@@ -37,6 +31,11 @@ const router = createBrowserRouter([
             {
                 path:'/form',
                 element: <Form/>
+            },
+            {
+                path: '/adduser',
+                element: <AddUser/>
+        
             },
         ]
 

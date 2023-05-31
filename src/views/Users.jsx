@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import axiosClient from '../axios-client';
 import Table from "../components/Table";
-import Button from '../components/Button';
-import { Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 const Users = ({state})=>{
   // const [state, setState] = useState('FOOD')
 
@@ -48,8 +48,14 @@ const Users = ({state})=>{
           _requests();
       }
 
-    const onClick= ()=>{
-      return <Navigate to="/adduser"/>
+    const onClick= (event)=>{
+      event.preventDefault();
+      let a = true
+      if(a){
+    return <Link className='btn' to="/users/adduser"/>
+        
+      }
+      
     }
    //###########################################################
   return (
@@ -57,8 +63,7 @@ const Users = ({state})=>{
       <br />
       <div align='right'>
 
-      <Button onClick={onClick} text='Add User'/>
-
+    <button value='Add User' onClick={onClick} className='btn'><p>Add User</p></button>
       </div>
       <br />
       <Table food={foods} users={users} requests={requests} ngo={ngo} state={state}/>
