@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react'
 import axiosClient from '../axios-client';
 import Table from "../components/Table";
 import Dashboard from './Dashboard';
+import Button from '../components/Button';
 
 const Users = ({state})=>{
   // const [state, setState] = useState('FOOD')
@@ -50,7 +51,9 @@ const Users = ({state})=>{
    //###########################################################
   return (
     <div>
-      <h2></h2>
+      <br />
+      <Button text='Add User'/>
+      <br />
       <Table food={foods} users={users} requests={requests} ngo={ngo} state={state}/>
     </div>
   )
