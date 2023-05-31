@@ -8,6 +8,8 @@ import GeustLayout from './components/GeustLayout';
 import Dashboard from './views/Dashboard'
 import Form from './components/Form'
 
+import AddUser from './components/AddUser'
+
 const router = createBrowserRouter([
     {
         path:'/',
@@ -19,7 +21,14 @@ const router = createBrowserRouter([
             },
             {
                 path:'/users',
-                element: <Users/>
+                element: <Users/>,
+                children:[
+                    {
+                        path: '/users/adduser',
+                        element: <AddUser/>
+                
+                }
+                ]
             },
             {
                 path:'/Dashboard',

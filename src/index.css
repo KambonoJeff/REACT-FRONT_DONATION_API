@@ -226,7 +226,10 @@ Link:hover{
   font-size: 20px;
   font-weight: bold;
 }
-/*  */
+form{
+  margin: auto;
+  width:40em;
+}
 
 .form-control input {
   width: 100%;
