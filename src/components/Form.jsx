@@ -27,7 +27,20 @@ const _requests = ()=>{
       status: statusRef.current.value,
     }
     console.log(payload)
-    
+    axiosClient.post('/register',payload).then(({data})=>{
+      console.log(data)
+      setUser(data.user)
+      setToken(data.token)
+    }).catch
+    (err=>{
+      const response = err.response;
+      if(response && response.status === (422 || 500 || 404) ){
+        console.log(response.data.errors)
+        setErrors(response.data.errors)
+
+      };
+    })
+
   
 }
   return (
