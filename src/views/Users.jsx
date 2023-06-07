@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState } from 'react'
 import axiosClient from '../axios-client';
-import Table from "../components/Table";
 import { Link } from 'react-router-dom';
 
 const Users = ({state})=>{
@@ -10,12 +9,6 @@ const Users = ({state})=>{
   const [requests , setRequests] =useState([]);
   const[users ,setUsers]=useState([]);
   const [ngo , setNgo] = useState([]);
-  const[foods ,setFood]=useState([]);
-  const food =()=>{
-    axiosClient.get('/food').then((res)=>{
-      setFood(res.data)})
-      .catch(err => console.error(err));
-   }
   const _users =()=>{
     axiosClient.get('/showusers').then((res)=>{
     setUsers(res.data)})
@@ -34,20 +27,6 @@ const Users = ({state})=>{
     .catch(err => console.error(err));
    }
   //######################################################
-    if(state === 'FOOD'){
-         food();
-
-      }
-      else if(state === 'USERS'){
-          _users();
-      }
-      else if(state === 'NGO'){
-          _ngo();
-      }
-      else if(state === 'REQUESTS'){
-          _requests();
-      }
-
 
    //###########################################################
   return (
@@ -60,7 +39,6 @@ users.jsx
         <Link className='btn' to="/users/adduser">Add User</Link>
       </div>
       <br />
-      <Table food={foods} users={users} requests={requests} ngo={ngo} state={state}/>
     </div>
   )
 }

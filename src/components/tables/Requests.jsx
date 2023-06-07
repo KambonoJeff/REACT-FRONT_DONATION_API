@@ -1,4 +1,6 @@
 import React from 'react'
+import Button from '../Button'
+
 
 const Requests = (requests) => {
     const getRowStyle=(value)=>{

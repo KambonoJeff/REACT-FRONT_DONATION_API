@@ -10,6 +10,10 @@ import Form from './components/Form'
 
 import AddUser from './components/AddUser'
 import UserForm from "./views/UserForm";
+import Food from "./components/tables/Food";
+import Ngo from "./components/tables/Ngo";
+import Requests from "./components/tables/Requests";
+import UserTable from "./components/tables/UserTable";
 
 const router = createBrowserRouter([
     {
@@ -26,6 +30,26 @@ const router = createBrowserRouter([
       
             },
             {
+                path:'/users/food',
+                element: <Food/>,
+      
+            },
+            {
+                path:'/users/ngo',
+                element: <Ngo/>,
+      
+            },
+            {
+                path:'/users/requests',
+                element: <Requests/>,
+      
+            },
+            {
+                path:'/users/user',
+                element: <UserTable/>,
+      
+            },
+            {
                 path:'/Dashboard',
                 element: <Dashboard/>
             },
@@ -33,11 +57,7 @@ const router = createBrowserRouter([
                 path:'/form',
                 element: <Form/>
             },
-            {
-                path: '/users/new',
-                element: <UserForm/>
-        
-            },
+           
             {
                 path: '/users/new',
                 element: <UserForm key="create"/>
