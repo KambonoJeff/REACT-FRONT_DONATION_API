@@ -27,8 +27,12 @@ const _requests = ()=>{
       location: locationRef.current.value,
       status: statusRef.current.value,
     }
-
-  
+    console.log(payload)
+  axiosClient.post('/PostRequest',payload).then(({data})=>{
+    console.log(data)
+  }).catch((err)=>{
+    console.log(err)
+  })
 }
   return (
     <>

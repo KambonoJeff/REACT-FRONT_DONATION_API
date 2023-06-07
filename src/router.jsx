@@ -9,6 +9,7 @@ import Dashboard from './views/Dashboard'
 import Form from './components/Form'
 
 import AddUser from './components/AddUser'
+import UserForm from "./views/UserForm";
 
 const router = createBrowserRouter([
     {
@@ -35,6 +36,16 @@ const router = createBrowserRouter([
             {
                 path: '/adduser',
                 element: <AddUser/>
+        
+            },
+            {
+                path: '/users/new',
+                element: <UserForm key="create"/>
+        
+            },
+            {
+                path: '/users/:id',
+                element: <UserForm key="update"/>
         
             },
         ]
