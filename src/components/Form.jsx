@@ -1,5 +1,6 @@
 import React from 'react'
 import {useRef} from 'react'
+import axiosClient from '../axios-client';
 
 const Form = () => { 
   return(
@@ -26,20 +27,6 @@ const _requests = ()=>{
       location: locationRef.current.value,
       status: statusRef.current.value,
     }
-    console.log(payload)
-    axiosClient.post('/register',payload).then(({data})=>{
-      console.log(data)
-      setUser(data.user)
-      setToken(data.token)
-    }).catch
-    (err=>{
-      const response = err.response;
-      if(response && response.status === (422 || 500 || 404) ){
-        console.log(response.data.errors)
-        setErrors(response.data.errors)
-
-      };
-    })
 
   
 }
@@ -102,7 +89,17 @@ const _requests = ()=>{
         snacks: snacksRef.current.value,
         cash: cashRef.current.value,
       }
-      console.log(payload);
+      axiosClient.post('/food',payload).then(({data})=>{
+        console.log(data)
+      }).catch
+      (err=>{
+        const response = err.response;
+        if(response && response.status === (422 || 500 || 404) ){
+          console.log(response.data.errors)
+  
+        };
+      })
+  
 
       
       
