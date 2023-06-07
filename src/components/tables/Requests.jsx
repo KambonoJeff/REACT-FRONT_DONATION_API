@@ -1,8 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Button from '../Button'
+import axiosClient from '../../axios-client';
+import { Link } from 'react-router-dom';
 
 
-const Requests = (requests) => {
+const Requests = () => {
+  const [requests , setRequests] =useState([]);
+  const _requests =()=>{
+    axiosClient.get('/PostRequest').then((res)=>{
+    console.log(res.data)
+    setRequests(res.data)})
+    .catch(err => console.error(err));
+   }
+   useEffect(()=>{
+    _requests()
+   },[])
     const getRowStyle=(value)=>{
         if(value === 'NotApproved' ){
             return {
@@ -65,7 +77,7 @@ const Requests = (requests) => {
                                   <td>{data.location}</td>
                                   <td style={getRowStyle((data.status))}>{data.status}</td>
                                   <td className='flex'>
-                                      <Button text='Edit'/>
+                                  <Link className='btn' to='/users/data.id'>Edit</Link>
                                       <Button text='Del'/>
                                   </td>
                               </tr>

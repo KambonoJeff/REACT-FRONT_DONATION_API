@@ -1,20 +1,13 @@
 import React, { useState } from 'react'
-import axiosClient from '../axios-client';
 import { Link } from 'react-router-dom';
 
 const Users = ({state})=>{
   // const [state, setState] = useState('FOOD')
 
   const[load, setLoad]=useState([]);
-  const [requests , setRequests] =useState([]);
 
 
-  const _requests =()=>{
-    axiosClient.get('/PostRequest').then((res)=>{
-    console.log(res.data)
-    setRequests(res.data)})
-    .catch(err => console.error(err));
-   }
+
   //######################################################
 
    //###########################################################

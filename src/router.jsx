@@ -8,12 +8,13 @@ import GeustLayout from './components/GeustLayout';
 import Dashboard from './views/Dashboard'
 import Form from './components/Form'
 
-import AddUser from './components/AddUser'
 import UserForm from "./views/UserForm";
 import Food from "./components/tables/Food";
 import Ngo from "./components/tables/Ngo";
 import Requests from "./components/tables/Requests";
 import UserTable from "./components/tables/UserTable";
+import FoodRequest from "./components/forms/FoodRequest";
+import Request from "./components/forms/Request";
 
 const router = createBrowserRouter([
     {
@@ -57,6 +58,15 @@ const router = createBrowserRouter([
                 path:'/form',
                 element: <Form/>
             },
+            {
+                path:'/form/Food',
+                element: <FoodRequest/>
+            },
+            {
+                path:'/form/NgoRequest',
+                element: <Request/>
+            },
+            
            
             {
                 path: '/users/new',
