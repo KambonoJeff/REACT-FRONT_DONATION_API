@@ -34,8 +34,8 @@ const router = createBrowserRouter([
                 element: <Form/>
             },
             {
-                path: '/adduser',
-                element: <AddUser/>
+                path: '/users/new',
+                element: <UserForm/>
         
             },
             {

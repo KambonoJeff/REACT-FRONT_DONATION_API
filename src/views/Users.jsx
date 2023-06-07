@@ -48,22 +48,16 @@ const Users = ({state})=>{
           _requests();
       }
 
-    const onClick= (event)=>{
-      event.preventDefault();
-      let a = true
-      if(a){
-    return <Link className='btn' to="/users/adduser"/>
-        
-      }
-      
-    }
+
    //###########################################################
   return (
     <div>
       <br />
-      <div align='right'>
-
-    <button value='Add User' onClick={onClick} className='btn'><p>Add User</p></button>
+<h1>
+users.jsx
+  
+  </h1>      <div align='right'>
+        <Link className='btn' to="/users/adduser">Add User</Link>
       </div>
       <br />
       <Table food={foods} users={users} requests={requests} ngo={ngo} state={state}/>
