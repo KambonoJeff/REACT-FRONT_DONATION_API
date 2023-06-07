@@ -1,7 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Button from '../Button'
+import axiosClient from '../../axios-client';
+import { Link } from 'react-router-dom';
 
-const Ngo = (ngo) => {
+const Ngo = () => {
+  const [ngo , setNgo] = useState([]);
+  const _ngo =()=>{
+    axiosClient.get('/ngo/show').then((res)=>{
+    setNgo(res.data)
+    })
+    .catch(err => console.error(err));
+   }
+   useEffect(()=>{
+    _ngo()
+   },[])
   return (
     <>
               <h2 align='center'>NGO table</h2>
@@ -28,7 +40,7 @@ const Ngo = (ngo) => {
                             <td>{data.location}</td>
                             <td>{data.beneficiaries}</td>
                             <td className='flex'>
-                                <Button text='Edit'/>
+                            <Link className='btn' to='/users/data.id'>Edit</Link>
                                 <Button text='Del'/>
                             </td>
                         </tr>

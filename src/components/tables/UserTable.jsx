@@ -1,7 +1,18 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Button from '../Button'
+import axiosClient from '../../axios-client';
+import { Link } from 'react-router-dom';
 
-const UserTable = (users) => {
+const UserTable = () => {
+  const[users ,setUsers]=useState([]);
+  const _users =()=>{
+    axiosClient.get('/showusers').then((res)=>{
+    setUsers(res.data)})
+    .catch(err => console.error(err));
+   }
+   useEffect(()=>{
+    _users()
+   },[])
   return (
     <>
           <br/> 
@@ -29,7 +40,7 @@ const UserTable = (users) => {
                                 <td>{user.type}</td>
                                 <td>{user.email_verified_at}</td>
                                 <td className='flex'>
-                                    <Button text='Edit'/>
+                                <Link className='btn' to='/users/data.id'>Edit</Link>
                                     <Button text='Del'/>
                                 </td>
                             </tr>
