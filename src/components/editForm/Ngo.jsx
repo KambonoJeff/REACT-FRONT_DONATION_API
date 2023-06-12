@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Ngo = () => {
+const Ngo_ = () => {
   return (
     <div>
-      
+      NGO_ EDIT
     </div>
   )
 }
 
-export default Ngo
+export default Ngo_

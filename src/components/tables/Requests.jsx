@@ -14,6 +14,14 @@ const Requests = () => {
    useEffect(()=>{
     _requests()
    },[])
+   const onDelete=(data)=>{
+    if(!window.confirm('Are You Sure You Want to delete?')){
+        return
+    }else{
+        axiosClient.delete(`/PostRequest/${data.id}`).then((res)=>{console.log(res); _requests();}).catch((Err)=>{console.log(Err)})
+    }
+
+   }
     const getRowStyle=(value)=>{
         if(value === 'NotApproved' ){
             return {
@@ -77,7 +85,7 @@ const Requests = () => {
                                   <td style={getRowStyle((data.status))}>{data.status}</td>
                                   <td className='flex'>
                                   <Link className='btn' to={'/PostRequest/'+ data.id}>Edit</Link>
-                                      <Button text='Del'/>
+                                    <button onClick={event=>onDelete(data)} className='btn'>DELETE</button>
                                   </td>
                               </tr>
                           ))

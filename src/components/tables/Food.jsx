@@ -41,7 +41,7 @@ const Food = () => {
                                 <td>{data.snacks}</td>
                                 <td>{data.cash}</td>
                                 <td className='flex'>
-                                    <Link className='btn' to={'/users/'+data.id}>Edit</Link>
+                                    <Link className='btn' to={'/food/'+data.id}>Edit</Link>
                                     <Button text='Del'/>
                                 </td>
                             </tr>

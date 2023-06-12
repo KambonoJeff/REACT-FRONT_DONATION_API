@@ -9,6 +9,9 @@ import Dashboard from './views/Dashboard'
 import Form from './components/Form'
 
 import UserForm from "./components/editForm/UserForm";
+import Food_ from "./components/editForm/Food";
+import Ngo_ from "./components/editForm/Ngo";
+import Requests_ from "./components/editForm/Requests";
 import Food from "./components/tables/Food";
 import Ngo from "./components/tables/Ngo";
 import Requests from "./components/tables/Requests";
@@ -76,6 +79,21 @@ const router = createBrowserRouter([
             {
                 path: '/users/:id',
                 element: <UserForm key="update"/>
+        
+            },
+            {
+                path: '/food/:id',
+                element: <Food_/>
+        
+            },
+            {
+                path: '/ngo/show/:id',
+                element: <Ngo_/>
+        
+            },
+            {
+                path: '/PostRequest/:id',
+                element: <Requests_/>
         
             },
         ]
