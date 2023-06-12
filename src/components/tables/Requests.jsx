@@ -8,8 +8,7 @@ const Requests = () => {
   const [requests , setRequests] =useState([]);
   const _requests =()=>{
     axiosClient.get('/PostRequest').then((res)=>{
-    console.log(res.data)
-    setRequests(res.data)})
+    setRequests(res.data.data)})
     .catch(err => console.error(err));
    }
    useEffect(()=>{
@@ -77,7 +76,7 @@ const Requests = () => {
                                   <td>{data.location}</td>
                                   <td style={getRowStyle((data.status))}>{data.status}</td>
                                   <td className='flex'>
-                                  <Link className='btn' to='/users/data.id'>Edit</Link>
+                                  <Link className='btn' to={'/users/'+ data.id}>Edit</Link>
                                       <Button text='Del'/>
                                   </td>
                               </tr>

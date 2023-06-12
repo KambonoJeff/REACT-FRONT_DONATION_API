@@ -6,7 +6,7 @@ const Food = () => {
   const[foods ,setFood]=useState([]);
   const food =()=>{
     axiosClient.get('/food').then((res)=>{
-      setFood(res.data)})
+      setFood(res.data.data)})
       .catch(err => console.error(err));
    }
    useEffect(()=>{

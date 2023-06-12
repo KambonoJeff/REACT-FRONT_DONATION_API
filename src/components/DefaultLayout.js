@@ -35,6 +35,7 @@ export default function DefaultLayout() {
     </aside>
     <main>
       <h3>default layout</h3>
+            
       <br></br>
       <br></br>
       <Outlet />

@@ -7,7 +7,8 @@ const UserTable = () => {
   const[users ,setUsers]=useState([]);
   const _users =()=>{
     axiosClient.get('/showusers').then((res)=>{
-    setUsers(res.data)})
+
+    setUsers(res.data.data)})
     .catch(err => console.error(err));
    }
    useEffect(()=>{

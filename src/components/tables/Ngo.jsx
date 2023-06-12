@@ -7,7 +7,8 @@ const Ngo = () => {
   const [ngo , setNgo] = useState([]);
   const _ngo =()=>{
     axiosClient.get('/ngo/show').then((res)=>{
-    setNgo(res.data)
+
+    setNgo(res.data.data)
     })
     .catch(err => console.error(err));
    }
