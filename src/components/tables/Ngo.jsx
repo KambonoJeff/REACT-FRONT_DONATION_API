@@ -15,6 +15,15 @@ const Ngo = () => {
    useEffect(()=>{
     _ngo()
    },[])
+   const onDelete=(data)=>{
+    if(!window.confirm('Are You sure You want to delete this!?')){
+        return
+    }else{
+        axiosClient.delete(`/ngo/show/ ${data.id}`).then((res)=>{console.log(res); _ngo();}).catch((err)=>{
+            console.log(err)
+        })
+    }
+   }
   return (
     <>
               <h2 align='center'>NGO table</h2>
@@ -42,7 +51,8 @@ const Ngo = () => {
                             <td>{data.beneficiaries}</td>
                             <td className='flex'>
                             <Link className='btn' to={'/ngo/show/'+data.id}>Edit</Link>
-                                <Button text='Del'/>
+                                <button onClick={event=>onDelete(data)} className='btn'>Delete</button>
+
                             </td>
                         </tr>
                     ))

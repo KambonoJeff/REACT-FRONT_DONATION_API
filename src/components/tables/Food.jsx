@@ -42,7 +42,6 @@ const Food = () => {
                                 <td>{data.cash}</td>
                                 <td className='flex'>
                                     <Link className='btn' to={'/food/'+data.id}>Edit</Link>
-                                    <Button text='Del'/>
                                 </td>
                             </tr>
                         ))
