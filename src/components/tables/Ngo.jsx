@@ -2,9 +2,12 @@ import React, { useEffect, useState } from 'react'
 import Button from '../Button'
 import axiosClient from '../../axios-client';
 import { Link } from 'react-router-dom';
+import { useStateContext } from '../contexts/ContextProvider';
 
 const Ngo = () => {
   const [ngo , setNgo] = useState([]);
+const {admin} = useStateContext()
+
   const _ngo =()=>{
     axiosClient.get('/ngo/show').then((res)=>{
 
@@ -19,14 +22,14 @@ const Ngo = () => {
     if(!window.confirm('Are You sure You want to delete this!?')){
         return
     }else{
-        axiosClient.delete(`/ngo/show/ ${data.id}`).then((res)=>{console.log(res); _ngo();}).catch((err)=>{
+        axiosClient.delete(`/ngo/delete/ ${data.id}`).then((res)=>{console.log(res); _ngo();}).catch((err)=>{
             console.log(err)
         })
     }
    }
   return (
     <>
-              <h2 align='center'>NGO table</h2>
+              <h2 align='center'>NGO {admin}</h2>
         <br/>   
             <table>
         

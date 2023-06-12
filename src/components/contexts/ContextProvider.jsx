@@ -3,11 +3,13 @@ import { createContext, useContext, useState } from "react"
 const StateContext = createContext({
     user:null,
     token:null,
+    admin:null,
     setUser:()=>{},
     setToken:()=>{}
 })
 export const ContextProvider = ({children})=>{
     const [user,setUser]= useState();
+    const [admin , setAdmin] = useState("Kambono");
     const [token, _setToken]= useState(localStorage.getItem('ACCESS_TOKEN'));
     const setToken =(token)=>{
         _setToken(token)
@@ -24,6 +26,8 @@ export const ContextProvider = ({children})=>{
         <StateContext.Provider value={{
             user,
             token,
+            admin,
+
             setUser,
             setToken
         }}>

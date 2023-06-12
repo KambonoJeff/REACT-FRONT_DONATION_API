@@ -3,7 +3,7 @@ import React from 'react'
 function Food_() {
   return (
     <div>
-Food_ Edit
+ <h1> Food_ Edit </h1>
     </div>
   )
 }

@@ -1,9 +1,13 @@
 import React, { useState,useEffect } from 'react'
-import Button from '../Button'
 import axiosClient from '../../axios-client';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
+import { useStateContext } from '../contexts/ContextProvider';
+
+
 const Food = () => {
   const[foods ,setFood]=useState([]);
+const {admin} = useStateContext()
+
   const food =()=>{
     axiosClient.get('/food').then((res)=>{
       setFood(res.data.data)})
@@ -40,9 +44,15 @@ const Food = () => {
                                 <td>{data.breakfast}</td>
                                 <td>{data.snacks}</td>
                                 <td>{data.cash}</td>
-                                <td className='flex'>
-                                    <Link className='btn' to={'/food/'+data.id}>Edit</Link>
-                                </td>
+                               
+                                        <td className='flex'>
+                                        <button className='btn' >Edit</button>
+                                    </td>
+                                
+                               
+                                        
+                                
+                                        
                             </tr>
                         ))
                     }
