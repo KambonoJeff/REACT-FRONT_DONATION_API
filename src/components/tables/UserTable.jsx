@@ -14,6 +14,13 @@ const UserTable = () => {
    useEffect(()=>{
     _users()
    },[])
+   const onDelete=(user)=>{
+    if(!window.confirm('Are You Sure You want to Delete')){
+        return
+    }else{
+        axiosClient.delete(`/showusers/${user.id}`).then((res)=>{console.log(res); _users();}).catch((err)=>{console.log(err)})
+    }
+   }
   return (
     <>
           <br/> 
@@ -42,7 +49,7 @@ const UserTable = () => {
                                 <td>{user.email_verified_at}</td>
                                 <td className='flex'>
                                 <Link className='btn' to={'/showusers/'+ user.id}>Edit</Link>
-                                    <Button text='Del'/>
+                                    <button onClick={event=>onDelete(user)} className='btn'>Delete</button>
                                 </td>
                             </tr>
                         ))
