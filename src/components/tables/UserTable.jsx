@@ -41,7 +41,7 @@ const UserTable = () => {
                                 <td>{user.type}</td>
                                 <td>{user.email_verified_at}</td>
                                 <td className='flex'>
-                                <Link className='btn' to='/users/data.id'>Edit</Link>
+                                <Link className='btn' to={'/showusers/'+ user.id}>Edit</Link>
                                     <Button text='Del'/>
                                 </td>
                             </tr>

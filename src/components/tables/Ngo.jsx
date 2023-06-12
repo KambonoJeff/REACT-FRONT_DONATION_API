@@ -41,7 +41,7 @@ const Ngo = () => {
                             <td>{data.location}</td>
                             <td>{data.beneficiaries}</td>
                             <td className='flex'>
-                            <Link className='btn' to='/users/data.id'>Edit</Link>
+                            <Link className='btn' to={'/ngo/show/'+data.id}>Edit</Link>
                                 <Button text='Del'/>
                             </td>
                         </tr>

@@ -8,7 +8,7 @@ import GeustLayout from './components/GeustLayout';
 import Dashboard from './views/Dashboard'
 import Form from './components/Form'
 
-import UserForm from "./views/UserForm";
+import UserForm from "./components/editForm/UserForm";
 import Food from "./components/tables/Food";
 import Ngo from "./components/tables/Ngo";
 import Requests from "./components/tables/Requests";

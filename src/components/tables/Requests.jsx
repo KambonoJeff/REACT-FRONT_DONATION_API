@@ -76,7 +76,7 @@ const Requests = () => {
                                   <td>{data.location}</td>
                                   <td style={getRowStyle((data.status))}>{data.status}</td>
                                   <td className='flex'>
-                                  <Link className='btn' to={'/users/'+ data.id}>Edit</Link>
+                                  <Link className='btn' to={'/PostRequest/'+ data.id}>Edit</Link>
                                       <Button text='Del'/>
                                   </td>
                               </tr>
