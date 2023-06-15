@@ -29,7 +29,9 @@ const Request_ = ()=>{
   }
     return (
       <>
-      <h2> Add a Request as NGO</h2>
+      <br />
+      <div className="brd">
+      <h2 align='center'> Add a Request as NGO</h2>
      
         <form action="" onSubmit={onSubmit} method="post">
           <div className="form-control">
@@ -64,7 +66,7 @@ const Request_ = ()=>{
           <button align='center' type="submit"  className="btn"> POST</button>
           <Link className='btn' to='/users/requests'>Back</Link>
         </form>
-  
+        </div>
     </>
     )
   }

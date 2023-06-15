@@ -1,6 +1,7 @@
 import React from 'react'
 import {useRef} from 'react'
 import axiosClient from '../../axios-client';
+import { Link } from 'react-router-dom';
 
 const Food_ = ()=>{
     const user_idRef = useRef();
@@ -27,8 +28,9 @@ const Food_ = ()=>{
     })
   }
     return (
-      <>
-      <h2> Hospitality Based institutions</h2>
+      <><br />
+      <div className="brd">
+      <h2 align='center'> Donate </h2>
      
         <form action="" onSubmit={onSubmit} method="post">
           <div className="form-control">
@@ -61,9 +63,9 @@ const Food_ = ()=>{
   
           </div>    
           <button type="submit"  className="btn"> POST</button>
-  
+          <Link className='btn' to={'/users/food'}> Back </Link>
         </form>
-  
+        </div>
     </>
     )
   }
