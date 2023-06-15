@@ -82,6 +82,11 @@ const router = createBrowserRouter([
         
             },
             {
+                path: '/food/new',
+                element: <Food_/>
+        
+            },
+            {
                 path: '/food/:id',
                 element: <Food_/>
         

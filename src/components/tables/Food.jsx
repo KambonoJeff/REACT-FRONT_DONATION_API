@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from 'react'
 import axiosClient from '../../axios-client';
 import { useStateContext } from '../contexts/ContextProvider';
+import { Link } from 'react-router-dom';
 
 
 const Food = () => {
@@ -19,6 +20,9 @@ const {admin} = useStateContext()
     <>
                   <h2 align='center'>Food Table</h2>
             <br/>   
+            <Link className='btn' to={'/food/new'}>Donate</Link>
+            <br />
+            <br />
                 <table>
                 <thead className="thead">             
                 <tr>
