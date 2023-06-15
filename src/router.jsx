@@ -92,6 +92,11 @@ const router = createBrowserRouter([
         
             },
             {
+                path: '/PostRequest/new',
+                element: <Requests_/>
+        
+            },
+            {
                 path: '/PostRequest/:id',
                 element: <Requests_/>
         

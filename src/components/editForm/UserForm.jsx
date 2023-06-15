@@ -61,8 +61,8 @@ export default function UserForm() {
       <input ref={nameRef} placeholder='Enter Name' type="text"  />
       <input ref={emailRef} placeholder='Enter email' type="email" />
       <input ref={typeOfRef} placeholder='Enter typeOf user' type="text" />
-      <input ref={passwordRef} placeholder='Enter password' type="paasword"  />
-      <input ref={passwordConfirmationRef} placeholder='Enter passwordConfirmation' type="paasword"  />
+      <input ref={passwordRef} placeholder='Enter password' type="password"  />
+      <input ref={passwordConfirmationRef} placeholder='Enter passwordConfirmation' type="password"  />
       </div>
       <button className='btn' type="submit">Add User</button>
       <Link className='btn' to="/users/user">Back</Link>
