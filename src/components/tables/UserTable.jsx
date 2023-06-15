@@ -48,7 +48,7 @@ const UserTable = () => {
                                 <td>{user.type}</td>
                                 <td>{user.email_verified_at}</td>
                                 <td className='flex'>
-                                <Link className='btn' to={'/showusers/'+ user.id}>Edit</Link>
+                                <Link className='btn' to={'/users/'+ user.id}>Edit</Link>
                                     <button onClick={event=>onDelete(user)} className='btn'>Delete</button>
                                 </td>
                             </tr>
