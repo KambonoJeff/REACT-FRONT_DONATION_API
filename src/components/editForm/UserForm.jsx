@@ -37,6 +37,9 @@ export default function UserForm() {
   }
   return (
     <>
+    <br />
+    <br />
+    <div className="brd">
       <form align='center' action="" onSubmit={onSubmit} method="post">
       <h2 align="center">Add User</h2>
       {
@@ -66,6 +69,7 @@ export default function UserForm() {
 
       
       </form>
+      </div>
     </>
   )
 }
