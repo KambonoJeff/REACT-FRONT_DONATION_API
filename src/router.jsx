@@ -92,12 +92,12 @@ const router = createBrowserRouter([
         
             },
             {
-                path: '/PostRequest/new',
+                path: '/PostRequest/:id',
                 element: <Requests_/>
         
             },
             {
-                path: '/PostRequest/:id',
+                path: '/PostRequest/new',
                 element: <Requests_/>
         
             },
