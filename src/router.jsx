@@ -92,6 +92,11 @@ const router = createBrowserRouter([
         
             },
             {
+                path: '/ngo/show/new',
+                element: <Ngo_/>
+        
+            },
+            {
                 path: '/PostRequest/:id',
                 element: <Requests_/>
         
