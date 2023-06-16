@@ -60,7 +60,13 @@ export default function UserForm() {
       <div className="form-control">
       <input ref={nameRef} placeholder='Enter Name' type="text"  />
       <input ref={emailRef} placeholder='Enter email' type="email" />
-      <input ref={typeOfRef} placeholder='Enter typeOf user' type="text" />
+      <select className='form-control' ref={typeOfRef} name="type" id="type">
+                <option  value="Hospitality">Hospitality</option>
+                <option value="NGO">NGO</option>
+                <option value="Admin">Admin</option>
+                <option value="Voluntary">Voluntary</option>
+               
+              </select>
       <input ref={passwordRef} placeholder='Enter password' type="password"  />
       <input ref={passwordConfirmationRef} placeholder='Enter passwordConfirmation' type="password"  />
       </div>

@@ -52,16 +52,16 @@ export default function Ngo() {
        </div>
 
        <div className="form-control">
-       <input type="text" name="beneficiaries" id="beneficiaries" placeholder='beneficiaries' ref={beneficiariesRef} />
+       <input type="number" name="beneficiaries" id="beneficiaries" placeholder='beneficiaries' ref={beneficiariesRef} />
 
        </div>
        <div className="form-control">
-       <input type="text" name="phonenumber" id="phonenumber" placeholder='phonenumber' ref={phonenumberRef} />
+       <input type="number" name="phonenumber" id="phonenumber" placeholder='phonenumber' ref={phonenumberRef} />
 
        </div>
        <div className="form-control">
-       <input type="text" name="licenseNo" id="licenseNo" placeholder='licenseNo' ref={licenseNoRef} />
-       <input type="text" name="licenseNo_confirmation" id="licenseNo_confirmation" placeholder='licenseNo_confirmation' ref={licenseNo_confirmationRef} />
+       <input type="password" name="licenseNo" id="licenseNo" placeholder='licenseNo' ref={licenseNoRef} />
+       <input type="password" name="licenseNo_confirmation" id="licenseNo_confirmation" placeholder='licenseNo_confirmation' ref={licenseNo_confirmationRef} />
 
        </div>
   

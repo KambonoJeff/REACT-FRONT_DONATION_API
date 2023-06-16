@@ -1,15 +1,14 @@
 import React, { useState,useEffect } from 'react'
 import axiosClient from '../../axios-client';
-import { useStateContext } from '../contexts/ContextProvider';
 import { Link } from 'react-router-dom';
 
 
 const Food = () => {
   const[foods ,setFood]=useState([]);
-const {admin} = useStateContext()
 
   const food =()=>{
     axiosClient.get('/food').then((res)=>{
+      console.log(res);
       setFood(res.data.data)})
       .catch(err => console.error(err));
    }
