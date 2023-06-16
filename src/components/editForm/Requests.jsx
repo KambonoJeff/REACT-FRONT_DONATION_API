@@ -35,12 +35,19 @@ const Request_ = ()=>{
      
         <form action="" onSubmit={onSubmit} method="post">
           <div className="form-control">
-          <input ref={user_idRef} type="text" name="user_id" id="user_id" placeholder='Enter The User Id'/>
+          <input ref={user_idRef} type="number" name="user_id" id="user_id" placeholder='Enter The User Id'/>
   
           </div>
   
           <div className="form-control">
-          <input ref={foodRef} type="text" name="typeoffood" placeholder='Fruits, Legumes,cereals, proteins,vitamins' />
+          <input ref={foodRef} type="text" name="typeoffood" placeholder='Fruits, Legumes,cereals, proteins,vitamins' /><select className="form-control" ref={foodRef} name="type" id="type">
+                <option  value="Cereals">Cereals</option>
+                <option value="snacks">snacks</option>
+                <option value="legumes">legumes</option>
+                <option value="proteins">proteins</option>
+                <option value="breakfast">breakfast</option>
+                <option value="cash">cash</option>
+              </select>
   
           </div>
   
@@ -50,7 +57,7 @@ const Request_ = ()=>{
           </div>
   
           <div className="form-control">
-          <input type="text" name="beneficiaries" id="beneficiaries" placeholder='beneficiaries' ref={beneficiariesRef} />
+          <input type="number" name="beneficiaries" id="beneficiaries" placeholder='beneficiaries' ref={beneficiariesRef} />
   
           </div>
   
@@ -60,7 +67,12 @@ const Request_ = ()=>{
           </div>
   
           <div className="form-control">
-          <input type="text" name="status" id="status" ref={statusRef} placeholder='Status' />
+          <select className="form-control" ref={statusRef} name="type" id="type">
+                <option  value="Approved">Approved</option>
+                <option value="Not Approved">Not Approved</option>
+                <option value="Pending">Pending</option>
+               
+              </select>
   
           </div>    
           <button align='center' type="submit"  className="btn"> POST</button>

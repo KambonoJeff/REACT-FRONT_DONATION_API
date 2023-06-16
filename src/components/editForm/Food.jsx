@@ -34,7 +34,7 @@ const Food_ = ()=>{
      
         <form action="" onSubmit={onSubmit} method="post">
           <div className="form-control">
-          <input ref={user_idRef} type="text" name="user_id" id="user_id" placeholder='Enter The User Id'/>
+          <input ref={user_idRef} type="number" name="user_id" id="user_id" placeholder='Enter The User Id'/>
   
           </div>
   
@@ -56,7 +56,7 @@ const Food_ = ()=>{
           </div>
   
           <div className="form-control">
-          <input type="text" name="beneficiaries" id="beneficiaries" placeholder='beneficiaries' ref={beneficiariesRef} />
+          <input type="number" name="beneficiaries" id="beneficiaries" placeholder='beneficiaries' ref={beneficiariesRef} />
   
           </div>
   

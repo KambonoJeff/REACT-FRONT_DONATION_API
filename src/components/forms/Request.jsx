@@ -44,26 +44,26 @@ const Request=()=>{
       <h2 align='center'> Food Requesting Form</h2>   
       <form action="" onSubmit={onSubmit}  method="post">
        <div className="form-control">
-         <input type="text" name="Cereals" id="Cereals" ref={cerealsRef} placeholder='Cereals' />
+         <input type="number" name="Cereals" id="Cereals" ref={cerealsRef} placeholder='Cereals' />
        </div>
        <div className="form-control">
-         <input type="text" name="Proteins" id="Proteins" ref={proteinsRef} placeholder='Proteins' />
+         <input type="number" name="Proteins" id="Proteins" ref={proteinsRef} placeholder='Proteins' />
 
        </div>
        <div className="form-control">
-         <input type="text" name="Legumes" id="Legumes" ref={legumesRef} placeholder='Legumes' />
+         <input type="number" name="Legumes" id="Legumes" ref={legumesRef} placeholder='Legumes' />
 
        </div>
        <div className="form-control">
-         <input type="text" name="BreakFast" id="BreakFast" ref={breakFastRef} placeholder='BreakFast' />
+         <input type="number" name="BreakFast" id="BreakFast" ref={breakFastRef} placeholder='BreakFast' />
 
        </div>
        <div className="form-control">
-         <input type="text" name="Snacks" id="Snacks" ref={snacksRef} placeholder='Snacks' />
+         <input type="number" name="Snacks" id="Snacks" ref={snacksRef} placeholder='Snacks' />
 
        </div>
        <div className="form-control">
-         <input type="text" name="Cash" id="Cash" ref={cashRef} placeholder='USD|EUR|GBP' />
+         <input type="number" name="Cash" id="Cash" ref={cashRef} placeholder='USD|EUR|GBP' />
 
        </div>
        <button type="submit"  className="btn"> SUBMIT</button>
