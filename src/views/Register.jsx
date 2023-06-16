@@ -62,7 +62,13 @@ export default function Register() {
       <div className="form-control">
           <input ref={nameRef} type="text" placeholder='FullName'/>
           <input ref={emailRef} type="email" placeholder='Enter Email'/>
-          <input ref={typeRef} type="text" placeholder='Type of user?[ HOspitality || Other]'/>
+          <select ref={typeRef} name="type" id="type">
+                <option  value="Hospitality">Hospitality</option>
+                <option value="NGO">NGO</option>
+                <option value="Admin">Admin</option>
+                <option value="Voluntary">Voluntary</option>
+               
+              </select>
           <input ref={passwordRef} type="password" placeholder='Password'/>
           <input ref={passwordConfirmationRef} type="password" placeholder='Password Confirmation'/>
       </div>
