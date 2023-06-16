@@ -55,7 +55,7 @@ const FoodRequest = ()=>{
   
           </div>
           <div className="form-control">
-              <select ref={foodRef} name="type" id="type">
+              <select className="form-control" ref={foodRef} name="type" id="type">
                 <option  value="Cereals">Cereals</option>
                 <option value="snacks">snacks</option>
                 <option value="legumes">legumes</option>
