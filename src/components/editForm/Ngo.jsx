@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import axiosClient from '../../axios-client';
-import { Link } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 
 export default function Ngo() {
   const nameRef = useRef();
@@ -10,6 +10,8 @@ export default function Ngo() {
   const phonenumberRef = useRef();
   const licenseNoRef = useRef();
   const licenseNo_confirmationRef = useRef();
+  let navigate = useNavigate();
+
 
   const onSubmit = (event)=>{
     event.preventDefault()
@@ -66,8 +68,10 @@ export default function Ngo() {
        </div>
   
        <button align='center' type="submit"  className="btn"> Add Ngo </button>
-       <Link className='btn' to='/users/requests'>Back</Link>
+       <button className='btn' onClick={()=>navigate(-1)}>Back</button>
      </form>
+     <br />
+
      </div>
     </>
   )

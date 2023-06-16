@@ -1,7 +1,7 @@
 import React from 'react'
 import {useRef} from 'react'
 import axiosClient from '../../axios-client';
-import { Link, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 
 const Food_ = ()=>{
     const user_idRef = useRef();
@@ -78,10 +78,9 @@ const Food_ = ()=>{
   
           </div>    
           <button type="submit"  className="btn"> POST</button>
-          <Link className='btn' to={'/users/food'}> Back </Link>
+          <button className='btn' onClick={()=>navigate(-1)}>Back</button>
         </form>
-        <br />
-        <button className='btn' onClick={()=>navigate(-1)}>Back</button>
+
         </div>
     </>
     )

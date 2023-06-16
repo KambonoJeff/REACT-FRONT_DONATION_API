@@ -10,7 +10,7 @@ const FoodRequest = ()=>{
     const beneficiariesRef = useRef();
     const locationRef = useRef();
     const statusRef = useRef();
-    let navigation =useNavigate();
+    let navigate =useNavigate();
 
 
 
@@ -80,10 +80,10 @@ const FoodRequest = ()=>{
   
           </div>    
           <button type="submit"  className="btn"> POST</button>
-  
+          <button className='btn' onClick={()=>navigate(-1)}>Back</button>
         </form>
         <br />
-        <button className='btn' onClick={()=>navigate(-1)}>Back</button>
+
         </div>
     </>
     )

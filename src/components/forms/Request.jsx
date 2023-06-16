@@ -70,10 +70,10 @@ const Request=()=>{
 
        </div>
        <button type="submit"  className="btn"> SUBMIT</button>
-
+       <button className='btn' onClick={()=>navigate(-1)}>Back</button>
       </form>
       <br />
-      <button className='btn' onClick={()=>navigate(-1)}>Back</button>
+
       </div>
     </>
 

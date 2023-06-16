@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import axiosClient from '../../axios-client';
-import {  Link, Navigate } from 'react-router-dom';
+import {  Link, Navigate, useNavigate } from 'react-router-dom';
 ///////////////////////////////////////////////////
 export default function UserForm() {
   const nameRef = useRef();
@@ -8,7 +8,8 @@ export default function UserForm() {
   const typeOfRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmationRef = useRef();
-  const [errors, setErrors] = useState()
+  let navigate = useNavigate();
+  const [errors, setErrors] = useState();
 
   const onSubmit =(event)=>{
     event.preventDefault()
@@ -71,7 +72,8 @@ export default function UserForm() {
       <input ref={passwordConfirmationRef} placeholder='Enter passwordConfirmation' type="password"  />
       </div>
       <button className='btn' type="submit">Add User</button>
-      <Link className='btn' to="/users/user">Back</Link>
+   
+      <button className='btn' onClick={()=>navigate(-1)}>Back</button>
 
       
       </form>
