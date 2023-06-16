@@ -1,6 +1,7 @@
 import React from 'react'
 import {useRef} from 'react'
 import axiosClient from '../../axios-client';
+import { useNavigate } from 'react-router-dom';
 
 const FoodRequest = ()=>{
     const user_idRef = useRef();
@@ -9,6 +10,10 @@ const FoodRequest = ()=>{
     const beneficiariesRef = useRef();
     const locationRef = useRef();
     const statusRef = useRef();
+    let navigation =useNavigate();
+
+
+
     const onSubmit=(event)=>{
       event.preventDefault()
       const payload = {
@@ -77,6 +82,8 @@ const FoodRequest = ()=>{
           <button type="submit"  className="btn"> POST</button>
   
         </form>
+        <br />
+        <button className='btn' onClick={()=>navigate(-1)}>Back</button>
         </div>
     </>
     )
