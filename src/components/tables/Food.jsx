@@ -1,11 +1,11 @@
 import React, { useState,useEffect } from 'react'
 import axiosClient from '../../axios-client';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const Food = () => {
   const[foods ,setFood]=useState([]);
-
+  let navigate = useNavigate();
   const food =()=>{
     axiosClient.get('/food').then((res)=>{
       console.log(res);
@@ -60,7 +60,10 @@ const Food = () => {
                     }
        
                 </tbody> 
-                </table>                    
+                </table>  
+                <br />
+
+                <button className='btn' onClick={()=>navigate(-1)}>Back</button>                  
     </>
   )
 }

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import Button from '../Button'
 import axiosClient from '../../axios-client';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const UserTable = () => {
   const[users ,setUsers]=useState([]);
+  let navigate = useNavigate();
   const _users =()=>{
     axiosClient.get('/showusers').then((res)=>{
 
@@ -61,6 +62,8 @@ const UserTable = () => {
 
                 </tbody>
                 </table>
+                <br />
+                <button className='btn' onClick={()=>navigate(-1)}>Back</button>
     </>
   )
 }

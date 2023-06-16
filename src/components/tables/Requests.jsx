@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import Button from '../Button'
 import axiosClient from '../../axios-client';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const Requests = () => {
   const [requests , setRequests] =useState([]);
+  let navigate = useNavigate();
   const _requests =()=>{
     axiosClient.get('/PostRequest').then((res)=>{
     setRequests(res.data.data)})
@@ -55,7 +55,6 @@ const Requests = () => {
     <>
       <br/>   
               
-              <br/> 
               <h2 align='center'>Requests table</h2>
 
               <Link className='btn' to={'/PostRequest/new'}>Add Request</Link>
@@ -96,6 +95,9 @@ const Requests = () => {
           
                   </tbody>
                   </table>
+                  <br />
+                  
+                <button className='btn' onClick={()=>navigate(-1)}>Back</button>  
      
     </>
   )

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import Button from '../Button'
 import axiosClient from '../../axios-client';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useStateContext } from '../contexts/ContextProvider';
 
 const Ngo = () => {
   const [ngo , setNgo] = useState([]);
 const {admin} = useStateContext()
-
+let navigate = useNavigate();
   const _ngo =()=>{
     axiosClient.get('/ngo/show').then((res)=>{
 
@@ -64,7 +64,8 @@ const {admin} = useStateContext()
 
             </tbody>
             </table>
-
+            <br />
+            <button className='btn' onClick={()=>navigate(-1)}>Back</button> 
     </>
   )
 }
