@@ -14,12 +14,9 @@ const Users = ({state})=>{
   return (
     <div>
       <br />
-<h1>
-users.jsx
-  
-  </h1>      <div align='right'>
-        <Link className='btn' to="/users/adduser">Add UasFcsdfvczsdfser</Link>
-      </div>
+<h1 align='center'>
+Home page  
+  </h1>      
       <br />
     </div>
   )

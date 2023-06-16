@@ -20,26 +20,25 @@ const FoodRequest = ()=>{
         status: statusRef.current.value,
       }
       console.log(payload)
-    axiosClient.post('/debugtest',payload).then(({data})=>{
-      console.log(data)
-    }).catch((err)=>{
-      console.log(err)
-    })
+    // axiosClient.post('/debugtest',payload).then(({data})=>{
+    //   console.log(data)
+    // }).catch((err)=>{
+    //   console.log(err)
+    // })
   }
     return (
       <>
-      <h2> Hospitality Based institutions</h2>
+      <br />
+      <br />
+      <div className="brd">
+      <h2 align='center'> Hospitality Based institutions</h2>
      
         <form action="" onSubmit={onSubmit} method="post">
           <div className="form-control">
           <input ref={user_idRef} type="text" name="user_id" id="user_id" placeholder='Enter The User Id'/>
   
           </div>
-  
-          <div className="form-control">
-          <input ref={foodRef} type="text" name="typeoffood" placeholder='Fruits, Legumes,cereals, proteins,vitamins' />
-  
-          </div>
+
   
           <div className="form-control">
           <input type="number" name="quantity" ref={quantityRef}placeholder='Quantity' />
@@ -55,15 +54,30 @@ const FoodRequest = ()=>{
           <input type="text" name="location" id="location" placeholder='location' ref={locationRef} />
   
           </div>
-  
           <div className="form-control">
-          <input type="text" name="status" id="status" ref={statusRef} placeholder='Status' />
+              <select ref={foodRef} name="type" id="type">
+                <option  value="Cereals">Cereals</option>
+                <option value="snacks">snacks</option>
+                <option value="legumes">legumes</option>
+                <option value="proteins">proteins</option>
+                <option value="breakfast">breakfast</option>
+                <option value="cash">cash</option>
+              </select>
+  
+          </div>
+          <div className="form-control">
+          <select ref={statusRef} name="type" id="type">
+                <option  value="Approved">Approved</option>
+                <option value="Not Approved">Not Approved</option>
+                <option value="Pending">Pending</option>
+               
+              </select>
   
           </div>    
           <button type="submit"  className="btn"> POST</button>
   
         </form>
-  
+        </div>
     </>
     )
   }

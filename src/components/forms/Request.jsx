@@ -38,7 +38,10 @@ const Request=()=>{
 
     return(
       <>
-      <h2> Food Requesting Form</h2>   
+      <br />
+      <br />
+      <div className="brd">
+      <h2 align='center'> Food Requesting Form</h2>   
       <form action="" onSubmit={onSubmit}  method="post">
        <div className="form-control">
          <input type="text" name="Cereals" id="Cereals" ref={cerealsRef} placeholder='Cereals' />
@@ -66,7 +69,7 @@ const Request=()=>{
        <button type="submit"  className="btn"> SUBMIT</button>
 
       </form>
-
+      </div>
     </>
 
     )
