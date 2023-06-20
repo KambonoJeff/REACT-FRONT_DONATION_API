@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import axiosClient from '../../axios-client';
 
 export default function FoodUpdate() {
     const {id} = useParams();
-    const [load,setLoad] = useState();
+    const [load,setLoad] = useState(false);
 
     const [user,setUser] =useState({
       user_id:null,
@@ -15,35 +15,35 @@ export default function FoodUpdate() {
       status:''
     });
      if(id){
-
-        axiosClient.get(`/food/${id}`).then(({data})=>{
-          setLoad(false);
-          setUser(data)
-    
-          }).catch((err)=>{
-            setLoad(false)
-          })
+        useEffect(()=>{
+            setLoad(true);
+            axiosClient.get(`/food/${id}`).then(({data})=>{
+                setLoad(false);
+                console.log(data);
+                setUser(data)
+          
+                }).catch((err)=>{
+                  setLoad(false)
+                })
+        },[])
+        
     
       
     }
+    const onSubmit = ()=>{
+        axiosClient.put(`/food/${id}`).then(({data})=>{
 
+        }).catch((err)=>{
+
+        })
+    }
   return (
     <>
+        {user.id && <h2 align='center'> Food ID  {user.id}</h2>}
+        {load &&  <h3 align='center'>Loading . . . </h3>}
         <form onSubmit={onSubmit}>
             <div className="form-control">
-            <select placeholder='Food Type'  value={user.typeoffood} onChange={event => setUser({...user, typeoffood: event.target.value})}>
-                <option  value="Cereals">Cereals</option>
-                <option value="snacks">snacks</option>
-                <option value="legumes">legumes</option>
-                <option value="proteins">proteins</option>
-                <option value="breakfast">breakfast</option>
-                <option value="cash">cash</option>
-              </select>
-            <input value={user.quantity} onChange={event=> setUser({...user, quantity: event.target.value})} />
-            <input value={user.beneficiaries} onChange={event=> setUser({...user, beneficiaries: event.target.value})} />
-            <input value={user.location} onChange={event=> setUser({...user, location: event.target.value})} />
-            <input value={user.status} onChange={event=> setUser({...user, status: event.target.value})} />
-            
+            input
             <button className='btn' align='center'> SAVE </button>
             </div>
         
