@@ -1,38 +1,20 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {useRef} from 'react'
 import axiosClient from '../../axios-client';
 import {  useNavigate, useParams } from 'react-router-dom';
 
 const Food_ = ()=>{
-    const {id} = useParams();
-    const [user,setUser] =useState({
-      user_id:null,
-      typeoffood:'',
-      quantity:'',
-      beneficiaries:'',
-      location:'',
-      status:''
-    });
-    const [load,setLoad] = useState();
+    
     const user_idRef = useRef();
     const foodRef = useRef();
     const quantityRef = useRef();
     const beneficiariesRef = useRef();
     const locationRef = useRef();
     const statusRef = useRef();
-  let navigate=useNavigate();
+  let navigate = useNavigate();
 
 
-    if(id){
-      axiosClient.get(`/food/${id}`).then(({data})=>{
-      setLoad(true);
-      setUser(data)
-
-      }).catch((err)=>{
-        setLoad(false)
-      })
-
-    }
+   
     const onSubmit=(event)=>{
       event.preventDefault()
       const payload = {
@@ -43,7 +25,8 @@ const Food_ = ()=>{
         location: locationRef.current.value,
         status: statusRef.current.value,
       }
-      console.log(payload)
+
+
     axiosClient.post('/debugtest',payload).then(({data})=>{
       console.log(data)
     }).catch((err)=>{
