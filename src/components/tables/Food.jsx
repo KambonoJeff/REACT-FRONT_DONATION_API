@@ -57,7 +57,7 @@ const Food = () => {
                                 <td>{data.cash}</td>
                                
                                         <td className='flex'>
-                                        <button className='btn' >Edit</button>
+                                        <Link className='btn' to={'/food/'+data.id}>Edit</Link>
                                     </td>
                                 
                                

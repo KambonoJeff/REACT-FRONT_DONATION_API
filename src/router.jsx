@@ -18,6 +18,7 @@ import Requests from "./components/tables/Requests";
 import UserTable from "./components/tables/UserTable";
 import FoodRequest from "./components/forms/FoodRequest";
 import Request from "./components/forms/Request";
+import FoodUpdate from "./components/update/FoodUpdate";
 
 const router = createBrowserRouter([
     {
@@ -88,7 +89,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/food/:id',
-                element: <Food_/>
+                element: <FoodUpdate/>
         
             },
             {
