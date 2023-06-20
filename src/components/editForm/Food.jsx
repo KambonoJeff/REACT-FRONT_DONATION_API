@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {useRef} from 'react'
 import axiosClient from '../../axios-client';
-import {  useNavigate } from 'react-router-dom';
+import {  useNavigate, useParams } from 'react-router-dom';
 
 const Food_ = ()=>{
+    const {id} = useParams();
+    const [user,setUser] =useState({
+      user_id:null,
+      typeoffood:'',
+      quantity:'',
+      beneficiaries:'',
+      location:'',
+      status:''
+    });
+    const [load,setLoad] = useState();
     const user_idRef = useRef();
     const foodRef = useRef();
     const quantityRef = useRef();
@@ -13,6 +23,16 @@ const Food_ = ()=>{
   let navigate=useNavigate();
 
 
+    if(id){
+      axiosClient.get(`/food/${id}`).then(({data})=>{
+      setLoad(true);
+      setUser(data)
+
+      }).catch((err)=>{
+        setLoad(false)
+      })
+
+    }
     const onSubmit=(event)=>{
       event.preventDefault()
       const payload = {

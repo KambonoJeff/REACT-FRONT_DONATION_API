@@ -5,14 +5,17 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const Food = () => {
   const[foods ,setFood]=useState([]);
+  const [load, setLoad] = useState()
   let navigate = useNavigate();
   const food =()=>{
     axiosClient.get('/food').then((res)=>{
+      setLoad(false)
       console.log(res);
       setFood(res.data.data)})
-      .catch(err => console.error(err));
+      .catch(err =>{ setLoad(false); console.error(err)});
    }
    useEffect(()=>{
+    setLoad(true)
     food()
    },[])
   return (
@@ -35,7 +38,13 @@ const Food = () => {
                     <th>other</th>
                 </tr>     
             </thead>
+            {load &&<tbody>
+              <tr>
+                <td colSpan='8' align='center'><h3>Loading . . .</h3></td>
+              </tr>
+            </tbody>}
                 <tbody>
+                
                     {
                         foods.map((data, index)=>(
                             <tr key={index}>
