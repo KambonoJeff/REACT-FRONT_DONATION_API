@@ -15,9 +15,10 @@ export default function FoodUpdate() {
       snacks:'',
       cash:''
     });
-     if(id){
-        useEffect(()=>{
-            setLoad(true);
+    useEffect(()=>{
+        console.log('useEffect');
+        setLoad(true);
+        if(id){
             axiosClient.get(`/food/${id}`).then(({data})=>{
                 setLoad(false);
                 console.log(data);
@@ -26,20 +27,23 @@ export default function FoodUpdate() {
                 }).catch((err)=>{
                   setLoad(false)
                 })
-        },[])
+        }
         
-    
-      
-    }
+    },[])
+
     const onSubmit = ()=>{
-        axiosClient.put(`/food/${id}`).then(({data})=>{
+        console.log(user)
+        axiosClient.put(`/food/${id}`, user).then(({data})=>{
+            console.log(data);
+            return navigate('/users/food');
 
         }).catch((err)=>{
-
+            console.log(err)
         })
     }
   return (
     <>
+    <br />
         {user.id && <h2 align='center'> Food ID  {user.id}</h2>}
         {load &&  <h3 align='center'>Loading . . . </h3>}
         <form onSubmit={onSubmit}>
