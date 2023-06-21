@@ -29,7 +29,7 @@ let navigate = useNavigate();
    }
   return (
     <>
-        <Link className='btn' to={'/ngo/show/new'}>Add NGO</Link>
+        <Link className='btn-green' to={'/ngo/show/new'}>Add NGO</Link>
               <h2 align='center'>NGO {admin}</h2>
         <br/>   
             <table>
@@ -55,7 +55,7 @@ let navigate = useNavigate();
                             <td>{data.beneficiaries}</td>
                             <td className='flex'>
                             <Link className='btn' to={'/ngo/show/'+data.id}>Edit</Link>
-                                <button onClick={event=>onDelete(data)} className='btn'>Delete</button>
+                            <button onClick={event=>onDelete(data)} className='btn-red'>Delete</button>
 
                             </td>
                         </tr>

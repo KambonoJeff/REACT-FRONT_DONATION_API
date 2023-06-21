@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import axiosClient from '../../axios-client';
 
 export default function FoodUpdate() {
@@ -55,8 +55,7 @@ export default function FoodUpdate() {
             <input placeholder='snacks' value={user.snacks} onChange={event => setUser({...user , snacks: event.target.value})} />
             <input placeholder='cash' value={user.cash} onChange={event => setUser({...user , cash: event.target.value})} />
             <button className='btn' align='center'> SAVE </button>
-            
-            <button className='btn' onClick={()=>navigate(-1)}> Back </button>  
+            <Link to='/users/food' className='btn'> Back </Link> 
             </div>
         
         

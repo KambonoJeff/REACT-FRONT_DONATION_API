@@ -22,7 +22,7 @@ const Food = () => {
     <>
                   <h2 align='center'>Food Table</h2>
             <br/>   
-            <Link className='btn' to={'/food/new'}>Donate</Link>
+            <Link className='btn-green' to={'/food/new'}>Donate</Link>
             <br />
             <br />
                 <table>
