@@ -19,6 +19,7 @@ import UserTable from "./components/tables/UserTable";
 import FoodRequest from "./components/forms/FoodRequest";
 import Request from "./components/forms/Request";
 import FoodUpdate from "./components/update/FoodUpdate";
+import NgoUpdate from "./components/update/NgoUpdate";
 
 const router = createBrowserRouter([
     {
@@ -94,7 +95,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/ngo/show/:id',
-                element: <Ngo_/>
+                element: <NgoUpdate/>
         
             },
             {

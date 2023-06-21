@@ -1,27 +1,39 @@
-import React, { useState } from 'react'
-import { useParams } from 'react-router-dom';
+import React, { useCallback, useState } from 'react'
+import { Link, useParams } from 'react-router-dom';
 import axiosClient from '../../axios-client';
 
 export default function NgoUpdate() {
-    const id = useParams();
-    const ngo = {
-        id:null,
-        name:'',
-        email:'',
-        location:'',
-        beneficiaries:'',
-
-    }
+    const {id} = useParams();
+    const [ngo , setNgo] = useState(
+        {
+            id:null,
+            name:'',
+            email:'',
+            location:'',
+            beneficiaries:'',
+    
+        }
+    );
     const [load ,setLoad]= useState(false);
-    if(id){
-        setLoad(true)
-        axiosClient.get(`/showngo/${id}`).then(({data})=>{
-            setLoad(false)
-            console.log(data)
-        }).catch((err)=>{
-            setLoad(false)
-            console.log(err)
-        })
+    
+    useCallback(()=>{
+        if({id}){
+            setLoad(true)
+            axiosClient.get(`/showngo/${id}`).then(({data})=>{
+                setLoad(false)
+                console.log(data)
+            }).catch((err)=>{
+                setLoad(false)
+                console.log(err)
+            })
+
+        }
+
+    },[])
+    
+   
+    const onSubmit=(event)=>{
+        event.preventDefault()
     }
   return (
     <>
@@ -30,11 +42,10 @@ export default function NgoUpdate() {
         {load &&  <h3 align='center'>  Loading . . . </h3>}
         <form onSubmit={onSubmit}>
             <div className="form-control">
-            <input placeholder='cereals' value={ngo.cereals} onChange={event => setngo({...ngo , cereals: event.target.value})} />
-            <input placeholder='proteins' value={ngo.proteins} onChange={event => setngo({...ngo , proteins: event.target.value})} />
-            <input placeholder='legumes' value={ngo.legumes} onChange={event => setngo({...ngo , legumes: event.target.value})} />
-            <input placeholder='breakfast' value={ngo.breakfast} onChange={event => setngo({...ngo , breakfast: event.target.value})} />
-            <input placeholder='snacks' value={ngo.snacks} onChange={event => setngo({...ngo , snacks: event.target.value})} />
+            <input placeholder='name' value={ngo.name} onChange={event => setNgo({...ngo , name: event.target.value})} />
+            <input placeholder='email' value={ngo.email} onChange={event => setNgo({...ngo , email: event.target.value})} />
+            <input placeholder='location' value={ngo.location} onChange={event => setNgo({...ngo , location: event.target.value})} />
+            <input placeholder='beneficiaries' value={ngo.breakfast} onChange={event => setNgo({...ngo , breakfast: event.target.value})} />
             <button className='btn' align='center'> SAVE </button>
             <Link to='/ngos/ngo' className='btn'> Back </Link> 
             </div>
