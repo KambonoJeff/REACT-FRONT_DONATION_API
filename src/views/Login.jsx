@@ -20,18 +20,17 @@ export default function Login() {
     console.log(payload)
     axiosClient.post("/login",payload).then(
       ({data})=>{
-    console.log(data.user)
+    console.log(data);
 
-        setUser(data.user)
-        setToken(data.token)
+        setUser(data.user);
+        setToken(data.token);
         
       }
     ).catch(err=>{
       const res = err.response;
       if(res && res.status === (401||403||404)){
-    console.log(res)
+      console.log('401401041')
 
-        setErrors(res.data.errors)
 
       }
     })
@@ -62,8 +61,7 @@ export default function Login() {
           <input ref={emailRef} type="email" placeholder='Enter your Email' />
           <input ref={passwordRef} type="password" placeholder='Enter your Password' />
 
-
-          <Button align="center" text='Login'/>
+          <button  className="btn" type="submit"> Login </button>
           <p align="center">
             Not Registered ? <a href="/register">Register Now</a>
           </p>

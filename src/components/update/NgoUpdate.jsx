@@ -15,21 +15,21 @@ export default function NgoUpdate() {
         }
     );
     const [load ,setLoad]= useState(false);
+    if({id}){
     
-    useCallback(()=>{
-        if({id}){
-            setLoad(true)
-            axiosClient.get(`/showngo/${id}`).then(({data})=>{
-                setLoad(false)
-                console.log(data)
-            }).catch((err)=>{
-                setLoad(false)
-                console.log(err)
-            })
+        useCallback(()=>{
+                setLoad(true)
+                axiosClient.get(`/showngo/${id}`).then(({data})=>{
+                    setLoad(false)
+                    console.log(data)
+                }).catch((err)=>{
+                    setLoad(false)
+                    console.log(err)
+                })
 
-        }
 
-    },[])
+        },[])
+    }
     
    
     const onSubmit=(event)=>{
