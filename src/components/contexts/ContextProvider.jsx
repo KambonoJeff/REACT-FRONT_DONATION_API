@@ -4,6 +4,7 @@ const StateContext = createContext({
     user:null,
     token:null,
     admin:null,
+    ngo:null,
     setUser:()=>{},
     setToken:()=>{},
     setAdmin:()=>{},
@@ -11,7 +12,7 @@ const StateContext = createContext({
 })
 export const ContextProvider = ({children})=>{
     const [user,setUser]= useState();
-    const [ngo ,setNgo] = useState();
+    const [ngo ,setNgo] = useState("Ngo panel");
     const [admin , setAdmin] = useState("Admin Kambono panel");
     const [token, _setToken]= useState(localStorage.getItem('ACCESS_TOKEN'));
     const setToken =(token)=>{

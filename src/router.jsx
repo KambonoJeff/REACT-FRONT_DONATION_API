@@ -20,6 +20,8 @@ import FoodRequest from "./components/forms/FoodRequest";
 import Request from "./components/forms/Request";
 import FoodUpdate from "./components/update/FoodUpdate";
 import NgoUpdate from "./components/update/NgoUpdate";
+import Admin from "./Admin/Admin";
+import NgoLogin from "./Ngo/NgoLogin";
 
 const router = createBrowserRouter([
     {
@@ -127,6 +129,14 @@ const router = createBrowserRouter([
             {
                 path:'/register',
                 element: <Register/>
+            },
+            {
+                path:'/ngo/register',
+                element: <Admin/>
+            },
+            {
+                path:'/admin/register',
+                element: <NgoLogin/>
             },
         ]
     },    
