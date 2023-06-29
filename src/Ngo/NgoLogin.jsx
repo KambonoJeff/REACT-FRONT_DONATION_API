@@ -1,15 +1,26 @@
 import React, { useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useStateContext } from '../components/contexts/ContextProvider';
+import axiosClient from '../axios-client';
 
 export default function NgoLogin() {
   let navigate = useNavigate();
   const {setNgo,setToken} = useStateContext();
-  const emailRef = useRef();
+  const nameRef = useRef();
   const passwordRef = useRef();
 
   const onSubmit=(event)=>{
     event.preventDefault()
+    const payload = {
+      name:nameRef.current.value,
+      licenseNo: passwordRef.current.value,
+    }
+    console.log(payload);
+    axiosClient.post('/ngo/register',payload).then(({date})=>{
+      console.log(data)
+    }).catch((err)=>{
+      console.log(err)
+    })
   }
 
 
@@ -25,8 +36,8 @@ export default function NgoLogin() {
    <h2>Ngo Login Form </h2>      
    
           <div className="form-control">
-          <input ref={emailRef} type="email" placeholder='Enter your Email' />
-          <input ref={passwordRef} type="password" placeholder='Enter your Password' />
+          <input ref={nameRef} type="text" placeholder='Enter your name' />
+          <input ref={passwordRef} type="password" placeholder='Enter your License Number' />
 
           <button  className="btn" type="submit"> Login </button>
           <button className='btn' onClick={()=>{navigate(-1)}}> Back </button>
