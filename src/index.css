@@ -332,3 +332,11 @@ img:hover{
   box-shadow: 0 1px 19px;
   padding: .3em;
 }
+.brd-w{
+  width:50%;
+  margin: auto;
+  border: 1.5px solid black;
+  border-radius: 5px;
+  box-shadow: 0 1px 19px;
+  padding: .3em;
+}

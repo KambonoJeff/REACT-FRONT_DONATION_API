@@ -20,7 +20,6 @@ export default function Login() {
     console.log(payload)
     axiosClient.post("/login",payload).then(
       ({data})=>{
-    console.log(data);
 
         setUser(data.user);
         setToken(data.token);
@@ -39,6 +38,8 @@ export default function Login() {
   return (
     < >
     <br></br>
+    <div className="brd-w">
+      
    <form align="center" onSubmit={onSubmit} method="post">
    <h2>Login Form </h2>      
    {
@@ -68,6 +69,8 @@ export default function Login() {
           </div>
           
    </form>
+   
+   </div>
  </>
   )
 }
