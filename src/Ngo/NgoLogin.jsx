@@ -16,8 +16,9 @@ export default function NgoLogin() {
       licenseNo: passwordRef.current.value,
     }
     console.log(payload);
-    axiosClient.post('/ngo/register',payload).then(({date})=>{
-      console.log(data)
+    axiosClient.post('/ngo/login',payload).then(({data})=>{
+      setNgo(data.name);
+      setToken(data.token);
     }).catch((err)=>{
       console.log(err)
     })
@@ -26,7 +27,7 @@ export default function NgoLogin() {
 
   return (
     <>
-             <br></br>
+    <br></br>
     <br></br>
     <br></br>
     <br></br>
