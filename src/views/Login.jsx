@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
-import Button from '../components/Button'
 import axiosClient from '../axios-client';
 import { useStateContext } from '../components/contexts/ContextProvider'
+import { Link } from 'react-router-dom';
 
 
 export default function Login() {
@@ -28,8 +28,7 @@ export default function Login() {
     ).catch(err=>{
       const res = err.response;
       if(res && res.status === (401||403||404)){
-      console.log('401401041')
-
+        setErrors(res);
 
       }
     })
@@ -37,6 +36,9 @@ export default function Login() {
   }
   return (
     < >
+    <br></br>
+    <br></br>
+    <br></br>
     <br></br>
     <div className="brd-w">
       
@@ -63,11 +65,17 @@ export default function Login() {
           <input ref={passwordRef} type="password" placeholder='Enter your Password' />
 
           <button  className="btn" type="submit"> Login </button>
-          <p align="center">
+          <br />
+          <h3 align="center">
             Not Registered ? <a href="/register">Register Now</a>
-          </p>
+          </h3>
           </div>
-          
+          <br />
+          <div>
+
+          <Link className='btn' to='/admin/register'> Admin </Link>
+          <Link className='btn' to='/ngo/register'> Ngo </Link>
+          </div>
    </form>
    
    </div>
