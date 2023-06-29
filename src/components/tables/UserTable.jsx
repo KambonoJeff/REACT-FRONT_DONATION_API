@@ -28,7 +28,7 @@ const UserTable = () => {
             <h2 align='center'>USERS table</h2>
             <br/>   
 
-            <Link  align='right' className='btn' to={'/users/new'}>Add User</Link>
+            <Link  align='right' className='btn-green' to={'/users/new'}>Add User</Link>
             <br/>   
             <br/>   
                 <table>

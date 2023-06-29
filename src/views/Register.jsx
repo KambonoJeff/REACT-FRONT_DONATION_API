@@ -41,6 +41,10 @@ export default function Register() {
   }
   return (
     <>
+    <br />
+    <br />
+    <br />
+    <br />
     <div className="brd-w">
     <form align="center" onSubmit={onSubmit} method="post">
     <h2 align="center">Register Now For Free</h2>
@@ -76,9 +80,9 @@ export default function Register() {
       
       <Button align="center" text='Register'/>
 
-      <p align="center">Already have an account? 
+      <h3 align="center">Already have an account?   
         <a href="/login">Login </a>
-      </p>
+      </h3>
     </form> 
     </div>   
   </> 

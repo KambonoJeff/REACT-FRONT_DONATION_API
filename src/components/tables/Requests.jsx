@@ -57,7 +57,7 @@ const Requests = () => {
               
               <h2 align='center'>Requests table</h2>
 
-              <Link className='btn' to={'/PostRequest/new'}>Add Request</Link>
+              <Link className='btn-green' to={'/PostRequest/new'}>Add Request</Link>
               <br/>   
               <br/>   
                   <table>
