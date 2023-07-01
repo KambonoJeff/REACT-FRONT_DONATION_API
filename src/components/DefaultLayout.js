@@ -8,7 +8,7 @@ import axiosClient from '../axios-client'
 
 export default function DefaultLayout() {
 
-  const {user,token, setToken, setUser} = useStateContext()
+  const {user, admin,ngo,token, setToken,setAdmin,setNgo, setUser} = useStateContext()
   if(!token){
     return <Navigate to="/login"/>
   }
