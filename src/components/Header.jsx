@@ -1,28 +1,24 @@
 import React from 'react'
 import axiosClient from '../axios-client';
 import { useEffect,useState } from 'react';
+import { useStateContext } from './contexts/ContextProvider';
 
 
-const Header = ({ user, onLogout }) => {
-  const[users, setUsers]= useState([]);
-
-  const getUsers = ( )=>{
-    axiosClient.get('/user').then(({data})=>{
-      setUsers(data)
-    }).catch((err)=>{
-      console.error(err)
-    })
-  }
-  useEffect(()=>{
-    getUsers();
-  },[]);
+const Header = ({  onLogout }) => {
+  const {
+    user,
+    admin,
+    ngo,
+  }=useStateContext();
 
   return (
     <header>
         
         <div>
             <ul className="flex box">
-                <li ><a href="#" className="btn">{ users }</a></li>
+                <li > <h4> {?
+                    user = null: () 
+                  } </h4></li>
                 <li ><a href="#" onClick={onLogout} className="btn">Logout</a></li>
             </ul>
         </div>
