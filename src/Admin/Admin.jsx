@@ -9,6 +9,8 @@ export default function Admin() {
   const nameRef = useRef();
   const emailRef=useRef();
   const passwordRef = useRef();
+  const passwordConfirmationRef = useRef();
+
   const {setAdmin, setToken} = useStateContext();
   const  [error , setError] = useState();
 
@@ -19,12 +21,13 @@ export default function Admin() {
         name: nameRef.current.value,
         email: emailRef.current.value,
         password:passwordRef.current.value,
+        password_confirmation: passwordConfirmationRef.current.value,
       }
       console.log(payload)
       axiosClient.post('/admin/login', payload).then(({data})=>{
         console.log(data)
-        setAdmin("Admin :: ", data);
-        setToken("TOKEN ::", data);
+        setAdmin("Admin :: ", data.name);
+        setToken("TOKEN ::", data.token);
 
       }).catch((err)=>{
         console.log(err)
@@ -48,6 +51,7 @@ export default function Admin() {
           <input ref={emailRef} type="email" placeholder='Enter your Email' />
           <input ref={nameRef} type="name" placeholder='Enter your name' />
           <input ref={passwordRef} type="password" placeholder='Enter your Password' />
+          <input ref={passwordConfirmationRef} type="password" placeholder='Enter your Password' />
 
           <button  className="btn" type="submit"> Login </button>
           <button className='btn' onClick={()=>{navigate(-1)}}> Back </button>
