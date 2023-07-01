@@ -16,9 +16,7 @@ const Header = ({  onLogout }) => {
         
         <div>
             <ul className="flex box">
-                <li > <h4> {?
-                    user = null: () 
-                  } </h4></li>
+                <li > <h4> user name</h4></li>
                 <li ><a href="#" onClick={onLogout} className="btn">Logout</a></li>
             </ul>
         </div>
