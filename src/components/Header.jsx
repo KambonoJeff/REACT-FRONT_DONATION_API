@@ -8,7 +8,7 @@ export default function Header({ onLogout }) {
     admin,
     ngo,
   }=useStateContext();
-  // let navigation = useNavigate();
+   let navigation = useNavigate();
 
     if(admin){
       console.log('somthing else')
