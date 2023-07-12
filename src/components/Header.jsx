@@ -1,7 +1,6 @@
 import { useStateContext } from './contexts/ContextProvider';
 
 import React from 'react'
-import { useNavigate } from 'react-router-dom';
 
 export default function Header({ onLogout }) {
   const {
@@ -20,7 +19,7 @@ export default function Header({ onLogout }) {
         
         <div>
             <ul className="flex box">
-                <li > <h4> {[user , admin , ngo]}</h4></li>
+                <li > <h4> {admin}</h4></li>
                 <li ><a href="#" onClick={onLogout} className="btn">Logout</a></li>
             </ul>
         </div>
