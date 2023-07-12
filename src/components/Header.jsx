@@ -11,7 +11,7 @@ export default function Header({ onLogout }) {
   // let navigation = useNavigate();
 
     if(admin){
-      console.log(true)
+      console.log('somthing else')
     }
 
   return (
