@@ -3,7 +3,7 @@ import image from '../Assets/img/image1.jpg'
 export default function Dashboard() {
 
   return (
-    <div>
+    <div className='my-element'>
       <br />
       <div className="box">
           <h3 align="center">Dashboard</h3>

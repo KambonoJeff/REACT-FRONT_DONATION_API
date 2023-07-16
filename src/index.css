@@ -10,6 +10,13 @@ body {
   font-family: 'Poppins', sans-serif;
   background-color: aliceblue;
 }
+.my-element {
+  background-image: url('./Assets/img/image10.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+}
 
 aside {
   background-color: black;
