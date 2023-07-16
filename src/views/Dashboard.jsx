@@ -9,7 +9,7 @@ export default function Dashboard() {
           <h3 align="center">Dashboard</h3>
           <h3 align="center">Hello user welcome to the food donation management system we are happy to have you here and would wish to tell you alittle about us</h3>
           <div className="flex box mg-t">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, laudantium, quas voluptates ab ipsa nisi esse nobis iusto, fugit molestiae aliquid? Nostrum facilis dicta obcaecati velit non animi porro ut.</p>
+            <p>Your donation has the power to make a real difference in the lives of those in need. By contributing to this just cause, you have the opportunity to bring hope, support, and positive change. Together, we can create a brighter future and alleviate suffering. Your generosity matters, and every dollar counts towards building a more compassionate and equitable world. Join us in making a profound impact by donating today.</p>
               <div className="image">
               <img src={image} alt="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, odio?" />
           </div>
