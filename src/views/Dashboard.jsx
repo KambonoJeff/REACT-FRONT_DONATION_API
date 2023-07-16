@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
-import image from '../Assets/img/image1.jpg'
+import image from '../Assets/img/pic3.jpg'
+import image2 from '../Assets/img/pic2.jpg'
 import { useStateContext } from '../components/contexts/ContextProvider'
 export default function Dashboard() {
   const {user,admin,ngo}=useStateContext();
@@ -7,8 +8,8 @@ export default function Dashboard() {
     <section className='my-element'>
       <br />
       <div className="box">
-          <h3 align="center">Dashboard</h3>
-          <h3 align="center">Hello {admin} . Welcome to our donation app, where every act of generosity has the power to ignite positive change. Join us in making a difference today</h3>
+        <h2 align="center"> Hello {admin} . </h2>
+          <h3 align="center">Welcome to our donation app, where every act of generosity has the power to ignite positive change. Join us in making a difference today</h3>
           <div className="flex box box mg-t">
             <p>I hope this message finds you well. I want to share an incredible opportunity to make a lasting impact in our world. By donating to this just cause, you have the chance to be a catalyst for change. Your contribution will provide essential resources, uplift marginalized communities, and promote equality and justice. Every dollar you give has the power to transform lives, restore hope, and create a brighter future for those who need it most. Together, let's stand up for what is right and make a difference that resonates for generations to come. Please consider donating and being part of this extraordinary journey toward a more compassionate and equitable society.
               <br />
@@ -21,13 +22,28 @@ export default function Dashboard() {
               <img src={image} alt="This is an image of a desert" />
           </div>
           </div>
-                 
-          <div className="flex box mg-t">
+          <div className="box">
+          <div className="flex box box mg-t">
+          <div className="image">
+              <img src={image2} alt="This is an image of a desert" />
+              </div>
+
+            <p>I hope this message finds you well. I want to share an incredible opportunity to make a lasting impact in our world. By donating to this just cause, you have the chance to be a catalyst for change. Your contribution will provide essential resources, uplift marginalized communities, and promote equality and justice. Every dollar you give has the power to transform lives, restore hope, and create a brighter future for those who need it most. Together, let's stand up for what is right and make a difference that resonates for generations to come. Please consider donating and being part of this extraordinary journey toward a more compassionate and equitable society.
+              <br />
+              <br /></p>
+
+
+          </div>
+          </div>
+          <div align='center'>
+          <div className="box mg-t">
             
 
             <Link className='btn' to="/users/requests">Requests</Link>
             <Link className='btn' to="/users/user">User</Link>
           </div>
+          </div>
+          
       </div>
     </section>
   )
