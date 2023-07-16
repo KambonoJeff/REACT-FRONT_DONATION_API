@@ -8,15 +8,17 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: aliceblue;
+  color: aliceblue;
+  font-weight: 500;
+  background-image:linear-gradient(rgba(0, 0, 0, 0.534)50%,rgba(0, 0, 0, 0.534)50%), url('./Assets/img/image222.jpeg');
+  
+  background:opacity(50%);
+  background-repeat: no-repeat ;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
 }
-.my-element {
-  background-image: url('./Assets/img/image10.jpg');
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-position: center;
-	background-size: cover;
-}
+
 
 aside {
   background-color: black;

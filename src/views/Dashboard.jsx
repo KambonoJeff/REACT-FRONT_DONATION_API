@@ -3,7 +3,7 @@ import image from '../Assets/img/image1.jpg'
 export default function Dashboard() {
 
   return (
-    <div className='my-element'>
+    <section className='my-element'>
       <br />
       <div className="box">
           <h3 align="center">Dashboard</h3>
@@ -12,7 +12,7 @@ export default function Dashboard() {
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, laudantium, quas voluptates ab ipsa nisi esse nobis iusto, fugit molestiae aliquid? Nostrum facilis dicta obcaecati velit non animi porro ut.</p>
               <div className="image">
               <img src={image} alt="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, odio?" />
-</div>
+          </div>
           </div>
           <div className="flex box mg-t">
 
@@ -29,7 +29,7 @@ export default function Dashboard() {
             <Link className='btn' to="/users/user">User</Link>
           </div>
       </div>
-    </div>
+    </section>
   )
 }
  
