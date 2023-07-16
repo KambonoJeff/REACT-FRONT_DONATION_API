@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-
+import image from '../Assets/img/image1.jpg'
 export default function Dashboard() {
 
   return (
@@ -17,7 +17,7 @@ export default function Dashboard() {
           <div className="flex box mg-t">
 
               <div className="image">
-                <img src="../Assets/img/image1.jpg" alt="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, odio?" />
+                <img src={image} alt="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, odio?" />
               </div>
               <p align="right">Lorem ipsm dolor sit amet consectetur adipisicing elit. Ducimus, laudantium, quas voluptates ab ipsa nisi esse nobis iusto, fugit molestiae aliquid? Nostrum facilis dicta obcaecati velit non animi porro ut.</p>
           </div>
