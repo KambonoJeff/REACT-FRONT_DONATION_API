@@ -36,11 +36,12 @@ const FoodRequest = ()=>{
       <br />
       <br />
       <div className="brd">
-      <h2 align='center'> Hospitality Based institutions</h2>
+      <h2 align='center'>NGO</h2>
+      <h4 align='center'>The Ngo will use this to post his requests for food.</h4>
      
         <form action="" onSubmit={onSubmit} method="post">
           <div className="form-control">
-          <input ref={user_idRef} type="number" name="user_id" id="user_id" placeholder='Enter The User Id'/>
+          <input ref={user_idRef} type="number" name="user_id" id="user_id" placeholder='Enter The NGO Id'/>
   
           </div>
 
