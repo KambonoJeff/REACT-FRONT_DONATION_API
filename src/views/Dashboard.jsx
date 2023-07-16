@@ -23,7 +23,7 @@ export default function Dashboard() {
           </div>
           <div className="flex box mg-t">
             
-            <Link className='btn' to="/users/food">Food</Link>
+            <Link className='btn' to="/form/Food">Food</Link>
             <Link className='btn' to="/users/ngo">Ngo</Link>
             <Link className='btn' to="/users/requests">Requests</Link>
             <Link className='btn' to="/users/user">User</Link>
