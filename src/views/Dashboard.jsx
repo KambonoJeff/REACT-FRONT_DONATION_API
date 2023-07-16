@@ -8,18 +8,19 @@ export default function Dashboard() {
       <div className="box">
           <h3 align="center">Dashboard</h3>
           <h3 align="center">Hello user welcome to the food donation management system we are happy to have you here and would wish to tell you alittle about us</h3>
-          <div className="flex box mg-t">
-            <p>Your donation has the power to make a real difference in the lives of those in need. By contributing to this just cause, you have the opportunity to bring hope, support, and positive change. Together, we can create a brighter future and alleviate suffering. Your generosity matters, and every dollar counts towards building a more compassionate and equitable world. Join us in making a profound impact by donating today.</p>
-              <div className="image">
-              <img src={image} alt="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, odio?" />
-          </div>
-          </div>
-          <div className="box mg-t">
-
+          <div className="flex box box mg-t">
+            <p>I hope this message finds you well. I want to share an incredible opportunity to make a lasting impact in our world. By donating to this just cause, you have the chance to be a catalyst for change. Your contribution will provide essential resources, uplift marginalized communities, and promote equality and justice. Every dollar you give has the power to transform lives, restore hope, and create a brighter future for those who need it most. Together, let's stand up for what is right and make a difference that resonates for generations to come. Please consider donating and being part of this extraordinary journey toward a more compassionate and equitable society.
+              <br />
+              <br />
             <Link align="center" className='btn btn-w' to="/form/NgoRequest"> Donate </Link>
-          </div>
 
-         
+</p>
+
+              <div className="image">
+              <img src={image} alt="This is an image of a desert" />
+          </div>
+          </div>
+                 
           <div className="flex box mg-t">
             
 
