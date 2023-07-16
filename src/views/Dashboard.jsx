@@ -16,17 +16,10 @@ export default function Dashboard() {
           </div>
           <div className="box mg-t">
 
-          <Link className='btn' to="/form/Food">Food</Link>
-            <Link className='btn' to="/form/NgoRequest">Ngo</Link>
+            <Link align="center" className='btn btn-w' to="/form/NgoRequest"> Donate </Link>
           </div>
 
-          <div className="flex box mg-t">
-
-              <div className="image">
-                <img src={image} alt="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, odio?" />
-              </div>
-              <p align="right">Lorem ipsm dolor sit amet consectetur adipisicing elit. Ducimus, laudantium, quas voluptates ab ipsa nisi esse nobis iusto, fugit molestiae aliquid? Nostrum facilis dicta obcaecati velit non animi porro ut.</p>
-          </div>
+         
           <div className="flex box mg-t">
             
 
