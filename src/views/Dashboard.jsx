@@ -14,6 +14,12 @@ export default function Dashboard() {
               <img src={image} alt="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, odio?" />
           </div>
           </div>
+          <div className="box mg-t">
+
+          <Link className='btn' to="/form/Food">Food</Link>
+            <Link className='btn' to="/form/NgoRequest">Ngo</Link>
+          </div>
+
           <div className="flex box mg-t">
 
               <div className="image">
@@ -23,8 +29,7 @@ export default function Dashboard() {
           </div>
           <div className="flex box mg-t">
             
-            <Link className='btn' to="/form/Food">Food</Link>
-            <Link className='btn' to="/users/ngo">Ngo</Link>
+
             <Link className='btn' to="/users/requests">Requests</Link>
             <Link className='btn' to="/users/user">User</Link>
           </div>

@@ -62,6 +62,34 @@ p {
 img{
   margin: .7em;
 }
+select {
+  /* Customizing the dropdown arrow */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  /* background-image: url('path/to/custom-arrow.png');
+  background-repeat: no-repeat;
+  background-position: right center; */
+  padding-right: 20px; /* Adjust as needed */
+
+  /* Customizing the dropdown style */
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 16px;
+  color: #333;
+  width: 200px; /* Adjust as needed */
+
+  /* Add any other desired styles */
+}
+
+/* Styling the dropdown options */
+select option {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
 .flex { 
   display: flex;
   justify-content: space-between;
