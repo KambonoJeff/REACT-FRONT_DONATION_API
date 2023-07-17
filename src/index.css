@@ -356,7 +356,7 @@ img {
 	width:16em;
 	height: 19em;
 	border: 3px solid orange;
-	border-radius: .4em;
+	border-radius: 0.4em;
 
 }
 img:hover{
