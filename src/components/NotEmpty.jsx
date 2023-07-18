@@ -5,9 +5,9 @@ import { useStateContext } from './contexts/ContextProvider'
 
 export default function NotEmpty() {
   const {user, admin,ngo} = useStateContext();
-  
 
-   const details = {'adminO': admin,
+
+   const detail = {'adminO': admin,
    'UserO': user,
    'adminO' : admin}
 
