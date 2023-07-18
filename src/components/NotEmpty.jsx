@@ -2,11 +2,21 @@ import React from 'react'
 import { useStateContext } from './contexts/ContextProvider'
 
 export default function NotEmpty() {
-  const {user, admin,ngo}=useStateContext();
-  console.log('return v')
+  const {user, admin,ngo} = useStateContext();
+
+  
+
+  for(const data of constants ){
+    if(data = true){
+      return data;
+    }
+  }
+
+
+  console.log('return :',user);
   return (
     <div>
-      
+      <h1>{user}</h1>
     </div>
   )
 }
