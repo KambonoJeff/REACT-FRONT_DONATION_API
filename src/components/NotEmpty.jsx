@@ -11,11 +11,16 @@ export default function NotEmpty() {
    'adminO' : admin}
 
 
-  for(const data of constants ){
+const check=()=>{
+  for(const data of details ){
     if(data = true){
       return data;
     }
   }
+  res = 'All empty';
+  return res;
+}
+  
 
 
   console.log('return :',user);
