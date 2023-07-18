@@ -8,7 +8,6 @@ export default function NotEmpty() {
    'UserO': user,
    'adminO' : admin}
 
-
 const check=()=>{
   for(const data of details ){
     if(data = true){
