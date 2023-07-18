@@ -26,7 +26,7 @@ const check=()=>{
   console.log('return :',user);
   return (
     <div>
-      <h1>{user}</h1>
+      <h1>{check}</h1>
     </div>
   )
 }
