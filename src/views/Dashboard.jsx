@@ -31,7 +31,7 @@ export default function Dashboard() {
             <p>Through the selfless act of donation, a life was saved. In the darkest hour, compassion prevailed, providing vital resources and a second chance. It's a reminder that each contribution, no matter how small, holds the power to transform and bring hope where it's needed most.
               <br />
               <br />
-              <div className="box mg-t">
+              <div className="flex box mg-t">
             
               <Link className='btn btn-w' to="/users/requests">Requests</Link>
             <Link className='btn btn-w' to="/users/user">User</Link>
