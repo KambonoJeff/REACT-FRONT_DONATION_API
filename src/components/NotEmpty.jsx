@@ -4,9 +4,9 @@ import { useStateContext } from './contexts/ContextProvider'
 export default function NotEmpty() {
   const {user, admin,ngo} = useStateContext();
 
-   const details = {'adminO': admin,
-   'UserO': user,
-   'adminO' : admin}
+   const details = [ admin,
+  user,
+admin]
 
 const check=()=>{
   for(const data of details ){
@@ -24,7 +24,7 @@ const check=()=>{
   return (
     <div>
       <h2>not empty function</h2>
-      <h1>{check}</h1>
+      <h1>{check()}</h1>
     </div>
   )
 }
