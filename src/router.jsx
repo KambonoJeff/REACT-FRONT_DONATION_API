@@ -22,6 +22,7 @@ import FoodUpdate from "./components/update/FoodUpdate";
 import NgoUpdate from "./components/update/NgoUpdate";
 import Admin from "./Admin/Admin";
 import NgoLogin from "./Ngo/NgoLogin";
+import NotEmpty from "./components/NotEmpty";
 
 const router = createBrowserRouter([
     {
@@ -113,6 +114,11 @@ const router = createBrowserRouter([
             {
                 path: '/PostRequest/new',
                 element: <Requests_/>
+        
+            },
+            {
+                path: '/Notempty',
+                element: <NotEmpty/>
         
             },
         ]
