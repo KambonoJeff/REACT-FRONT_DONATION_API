@@ -14,7 +14,7 @@ const check=()=>{
       return data;
     }
   }
-  res = 'All empty';
+  const res = 'All empty';
   return res;
 }
   
