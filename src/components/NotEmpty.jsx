@@ -23,6 +23,7 @@ const check=()=>{
   console.log('return :',user);
   return (
     <div>
+      <h2>not empty function</h2>
       <h1>{check}</h1>
     </div>
   )
