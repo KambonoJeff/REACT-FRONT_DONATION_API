@@ -33,8 +33,8 @@ export default function Dashboard() {
               <br />
               <div className="flex box mg-t">
             
-              <Link className='btn btn-w' to="/users/requests">Requests</Link>
-            <Link className='btn btn-w' to="/users/user">User</Link>
+              <Link align='center' className='btn btn-w' to="/users/requests">Requests</Link>
+            <Link align='center' className='btn btn-w' to="/users/user">User</Link>
 
           </div>
           </p>
