@@ -40,11 +40,11 @@ const Food = () => {
             </thead>
             {load &&<tbody>
               <tr>
-                <td colSpan='8' align='center'><h3>Loading .  . . .</h3></td>
+                <td colSpan='8' align='center'><h3>Loading . . . .</h3></td>
               </tr>
             </tbody>}
                 <tbody>
-                    {
+                    {srfgvsdfgsdfg
                         foods.map((data, index)=>(
                             <tr key={index}>
                                 <td>{data.id}</td>
