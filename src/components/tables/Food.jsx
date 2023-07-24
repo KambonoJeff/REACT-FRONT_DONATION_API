@@ -66,7 +66,7 @@ const Food = () => {
                             </tr>
                         ))
                     }
-       fbglxblxfnkb
+       
                 </tbody> 
                 </table>  
                 <br />
