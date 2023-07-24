@@ -63,9 +63,9 @@ const Food = () => {
                                         
                                 
                                         
-                            </tr>
+                            </tr>gvkgvkgv
                         ))
-                    }kjsdnvksdjnv
+                    }
        
                 </tbody> 
                 </table>  
