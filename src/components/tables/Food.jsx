@@ -44,7 +44,6 @@ const Food = () => {
               </tr>
             </tbody>}
                 <tbody>
-                {/* fasdfasd */}
                     {
                         foods.map((data, index)=>(
                             <tr key={index}>
