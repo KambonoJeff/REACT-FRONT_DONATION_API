@@ -63,7 +63,7 @@ const Food = () => {
                                         
                                 
                                         
-                            </tr>gvkgvkgv
+                            </tr>
                         ))
                     }
        
