@@ -53,9 +53,7 @@ export default function NgoLogin() {
           <button  className="btn" type="submit"> Login </button>
           <button className='btn' onClick={()=>{navigate(-1)}}> Back </button>
           <br />
-           <h3 align="center">
-            Not Registered ? <a href="/ngo/show/new">Register Now</a>
-          </h3>
+          
           <br />
           
           </div>
