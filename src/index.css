@@ -281,7 +281,7 @@ select {
   border-radius: 8px;
   padding: 1.5em;
   background-color: #000;
-  font-size: 1.2em;
+  font-size: 1.5em;
   letter-spacing: 2px;
   color: deepskyblue;
   font-family: 'Courier New', Courier, monospace;
@@ -297,9 +297,8 @@ select {
     border: .7px solid whitesmoke;
     border-radius: 8px;
     padding: 1.5em;
-  
-    padding: 1.5em;
-
+  font-size: 1.2em;
+  letter-spacing: 2px;
 
     color: deepskyblue;
     font-family: 'Courier New', Courier, monospace;
