@@ -63,21 +63,20 @@ img{
   margin: 1em;
 }
 select {
-  /* Customizing the dropdown arrow */
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+margin: 9px;
+height: 40px;
 
-  padding: 1.5em;
+
+  padding: 1.3em;
 
   background-color: black;
-  border: 1px solid whitesmoke;
-  border-radius: 4px;
+  border: .7px solid whitesmoke;
+  border-radius: 8px;
   color: deepskyblue;
   width: 200px; 
   font-family: 'Courier New', Courier, monospace;
-  font-size: 22px;
-
+  font-size: 1.2em;
+  letter-spacing: 2px;
   font-weight: 600;
 
 }
