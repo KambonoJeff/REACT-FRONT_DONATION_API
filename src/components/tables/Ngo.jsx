@@ -10,8 +10,8 @@ const {admin} = useStateContext()
 let navigate = useNavigate();
   const _ngo =()=>{
     axiosClient.get('/ngo/show').then((res)=>{
-
-    setNgo(res.data.data)
+        console.log(res.data[0].data)
+    setNgo(res.data[0].data)
     })
     .catch(err => console.error(err));
    }
