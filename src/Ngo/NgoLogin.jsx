@@ -23,7 +23,7 @@ export default function NgoLogin() {
       setType(data.type);
       setToken(data.token);
 
-      
+
     }).catch(({err})=>{
       if(err == 422){
 
@@ -53,7 +53,9 @@ export default function NgoLogin() {
           <button  className="btn" type="submit"> Login </button>
           <button className='btn' onClick={()=>{navigate(-1)}}> Back </button>
           <br />
-          
+           <h3 align="center">
+            Not Registered ? <a href="/ngo/show/new">Register Now</a>
+          </h3>
           <br />
           
           </div>

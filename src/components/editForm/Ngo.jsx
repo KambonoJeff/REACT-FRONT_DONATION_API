@@ -42,7 +42,7 @@ export default function Ngo() {
     <br />
 
     <div className="brd">
-            <h2 align='center'> Add NGO </h2>
+            <h2 align='center'> NEW NGO </h2>
      
      <form action="" onSubmit={onSubmit} method="post">
        <div className="form-control">
