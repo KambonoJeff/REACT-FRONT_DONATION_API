@@ -62,34 +62,6 @@ p {
 img{
   margin: 1em;
 }
-select {
-margin: 9px;
-height: 40px;
-
-
-  padding: 1.3em;
-
-  background-color: black;
-  border: .7px solid whitesmoke;
-  border-radius: 8px;
-  color: deepskyblue;
-  width: 200px; 
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 1.2em;
-  letter-spacing: 2px;
-  font-weight: 600;
-
-}
-
-/* Styling the dropdown options */
-select option {
-  background-color: black;
-  color: deepskyblue;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 600;
-
-
-}
 
 .flex { 
   display: flex;
@@ -302,6 +274,37 @@ Link:hover{
   font-size: 20px;
   font-weight: bold;
 }
+select {
+  width: 100%;
+  margin: 9px;
+  border: .7px solid whitesmoke;
+  border-radius: 8px;
+  padding: 1.5em;
+  background-color: #000;
+  color:whitesmoke;
+  font-size: 1.2em;
+  letter-spacing: 2px;
+  color: deepskyblue;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 600;
+
+  
+  }
+  
+  /* Styling the dropdown options */
+  select option {
+    background-color: black;
+
+    padding: 1.5em;
+
+
+    color: deepskyblue;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+  
+  
+  }
+  
 form{
   margin: auto;
   width:40em;
