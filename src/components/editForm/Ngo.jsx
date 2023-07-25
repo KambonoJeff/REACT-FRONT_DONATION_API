@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
 import axiosClient from '../../axios-client';
 import {  useNavigate } from 'react-router-dom';
+import { useStateContext } from '../contexts/ContextProvider';
 
 export default function Ngo() {
   const nameRef = useRef();
@@ -10,6 +11,7 @@ export default function Ngo() {
   const phonenumberRef = useRef();
   const licenseNoRef = useRef();
   const licenseNo_confirmationRef = useRef();
+  const {setType, type}=useStateContext();
   let navigate = useNavigate();
 
 
@@ -25,7 +27,12 @@ export default function Ngo() {
       licenseNo_confirmation : licenseNo_confirmationRef.current.value,
     }
     console.log(payload)
-    axiosClient.post('/ngo/register').then((res)=>{console.log(res)}).catch((err)=>{
+    axiosClient.post('/ngo/register').then((res)=>{
+      
+      console.log(res);
+      setType(res.type)
+    
+    }).catch((err)=>{
       console.log(err)
     })
   }
