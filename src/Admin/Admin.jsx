@@ -26,7 +26,7 @@ export default function Admin() {
       }
       console.log(payload)
       axiosClient.post('/admin/login', payload).then((data)=>{
-        console.log(data);
+        console.log(data.type);
         setType(data.type);
         console.log(type);
 
