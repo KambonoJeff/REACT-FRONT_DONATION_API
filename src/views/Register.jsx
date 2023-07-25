@@ -13,7 +13,7 @@ export default function Register() {
   const passwordConfirmationRef = useRef();
   const [errors, setErrors] = useState()
 
-  const {setUser,setToken} = useStateContext()
+  const {setUser,setType,type,setToken} = useStateContext()
 
   const onSubmit=(event)=>{
     event.preventDefault()
@@ -25,6 +25,7 @@ export default function Register() {
       password_confirmation: passwordConfirmationRef.current.value,
     }
     axiosClient.post('/register',payload).then(({data})=>{
+      console.log(data.type)
       setUser(data.user)
       setToken(data.token)
     }).catch
@@ -69,8 +70,6 @@ export default function Register() {
           <input ref={emailRef} type="email" placeholder='Enter Email'/>
           <select className='form-control' ref={typeRef} name="type" id="type">
                 <option  value="Hospitality">Hospitality</option>
-                <option value="NGO">NGO</option>
-                <option value="Admin">Admin</option>
                 <option value="Voluntary">Voluntary</option>
                
               </select>
