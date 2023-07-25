@@ -8,7 +8,7 @@ export default function Login() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const [errors, setErrors] = useState()
-  const {setUser, setToken} = useStateContext()
+  const {setUser,setType,type, setToken} = useStateContext()
 
   const onSubmit=(event)=>{
     event.preventDefault()
@@ -20,7 +20,7 @@ export default function Login() {
     console.log(payload)
     axiosClient.post("/login",payload).then(
       ({data})=>{
-
+        console.log(data.type)
         setUser(data.user);
         setToken(data.token);
         
