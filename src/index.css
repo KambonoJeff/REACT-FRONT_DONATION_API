@@ -281,7 +281,6 @@ select {
   border-radius: 8px;
   padding: 1.5em;
   background-color: #000;
-  color:whitesmoke;
   font-size: 1.2em;
   letter-spacing: 2px;
   color: deepskyblue;
@@ -294,7 +293,11 @@ select {
   /* Styling the dropdown options */
   select option {
     background-color: black;
-
+    margin: 9px;
+    border: .7px solid whitesmoke;
+    border-radius: 8px;
+    padding: 1.5em;
+  
     padding: 1.5em;
 
 
