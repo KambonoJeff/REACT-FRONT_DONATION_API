@@ -11,7 +11,8 @@ export default function Admin() {
   const passwordRef = useRef();
   const passwordConfirmationRef = useRef();
 
-  const {setAdmin, setToken} = useStateContext();
+  const {setAdmin, setToken, setType} = useStateContext();
+  const {admin, type} = useStateContext();
   const  [error , setError] = useState();
 
 
@@ -25,7 +26,10 @@ export default function Admin() {
       }
       console.log(payload)
       axiosClient.post('/admin/login', payload).then((data)=>{
-        console.log(data)
+        console.log(data);
+        setType(data.type);
+        console.log(type);
+
 
       }).catch((err)=>{
         console.log(err)
