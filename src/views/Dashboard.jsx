@@ -22,6 +22,8 @@ export default function Dashboard() {
               <img src={image} alt="This is an image of a desert" />
           </div>
           </div>
+
+          
           <div className="box">
           <div className="flex box box mg-t">
           <div className="image">
@@ -38,6 +40,28 @@ export default function Dashboard() {
 
           </div>
           </p>
+
+          </div>
+          </div>
+
+          <div className="box">
+          <div className="flex box box mg-t">
+          <p>Through the selfless act of donation, a life was saved. In the darkest hour, compassion prevailed, providing vital resources and a second chance. It's a reminder that each contribution, no matter how small, holds the power to transform and bring hope where it's needed most.
+              <br />
+              <br />
+              <div className="flex box mg-t">
+            
+              <Link align='center' className='btn btn-w' to="/users/ngo"> N G O </Link>
+            <Link align='center' className='btn btn-w' to="/users/user">User</Link>
+
+          </div>
+          </p>
+          <div className="image">
+            
+              <img src={image2} alt="This is an image of a desert" />
+              </div>
+
+            
 
           </div>
           </div>

@@ -22,6 +22,8 @@ export default function NgoLogin() {
       setNgo(data.name);
       setType(data.type);
       setToken(data.token);
+
+      
     }).catch(({err})=>{
       if(err == 422){
 
