@@ -24,12 +24,10 @@ export default function Admin() {
         password_confirmation: passwordConfirmationRef.current.value,
       }
       console.log(payload)
-      axiosClient.post('/admin/login', payload).then(({data})=>{
+      axiosClient.post('/admin/login', payload).then((data)=>{
         console.log(data)
-        setAdmin("Admin :: ", data.name);
-        setToken("TOKEN ::", data.token);
 
-      }).catch(({err})=>{
+      }).catch((err)=>{
         console.log(err)
         setError("error from back ::", err)
       })
