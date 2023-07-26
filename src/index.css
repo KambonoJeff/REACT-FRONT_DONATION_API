@@ -286,7 +286,6 @@ select {
   font-family: 'Courier New', Courier, monospace;
   font-weight: 600;
   }
-  
   /* Styling the dropdown options */
   select option {
     background-color: black;
