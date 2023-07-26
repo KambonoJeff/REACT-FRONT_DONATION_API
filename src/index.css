@@ -124,8 +124,7 @@ span:hover{
   align-items: center;
   margin-bottom: 20px;
 }
-.box li{
-  
+.box li{ 
   padding: .7em;
   list-style: none;
 }
@@ -185,7 +184,6 @@ span:hover{
   font-family: inherit;
   letter-spacing: 5px;
 }
-
 .btn:hover{
   color: deeppink;
   border: 1px solid #fff;
