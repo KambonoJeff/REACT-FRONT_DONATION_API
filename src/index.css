@@ -67,7 +67,6 @@ img{
   display: flex;
   justify-content: space-between;
   align-items: center;
- 
 }
 .box{
   max-width: 95%;
@@ -84,7 +83,6 @@ header {
   width: 75%;
   margin-left: 25%;
   color: white;
-
 }
 nav{
   display: grid;
