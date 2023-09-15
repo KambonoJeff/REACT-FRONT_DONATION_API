@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import axiosClient from '../../axios-client';
-import {  useNavigate } from 'react-router-dom';
+import {  Link, useNavigate } from 'react-router-dom';
 import { useStateContext } from '../contexts/ContextProvider';
 
 export default function Ngo() {
@@ -75,7 +75,7 @@ export default function Ngo() {
        </div>
   
        <button align='center' type="submit"  className="btn"> Add Ngo </button>
-       <button className='btn' onClick={()=>navigate(-1)}>Back</button>
+       <Link to={'/users/ngo'} className='btn'>Back</Link>
      </form>
      <br />
 

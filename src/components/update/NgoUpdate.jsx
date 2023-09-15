@@ -1,9 +1,11 @@
-import React, { useCallback, useState } from 'react'
-import { Link, useParams } from 'react-router-dom';
+import React, {  useEffect, useState } from 'react'
+import {  useNavigate, useParams } from 'react-router-dom';
 import axiosClient from '../../axios-client';
 
-export default function NgoUpdate() {
+const NgoUpdate = ()=> {
     const {id} = useParams();
+    let navigate = useNavigate();
+
     const [ngo , setNgo] = useState(
         {
             id:null,
@@ -15,22 +17,21 @@ export default function NgoUpdate() {
         }
     );
     const [load ,setLoad]= useState(false);
-    if({id}){
-    
-        useCallback(()=>{
-                setLoad(true)
+    useEffect(()=>{
+
+        setLoad(true)
                 axiosClient.get(`/showngo/${id}`).then(({data})=>{
                     setLoad(false)
-                    console.log(data)
+                    console.log(data[0])
+                    setNgo(data[0])
+
                 }).catch((err)=>{
-                    setLoad(false)
-                    console.log(err)
+                  console.log('something is wrong the request for an individual id is not successful', err)
                 })
+    },[])
+                
 
 
-        },[])
-    }
-    
    
     const onSubmit=(event)=>{
         event.preventDefault()
@@ -47,7 +48,7 @@ export default function NgoUpdate() {
             <input placeholder='location' value={ngo.location} onChange={event => setNgo({...ngo , location: event.target.value})} />
             <input placeholder='beneficiaries' value={ngo.breakfast} onChange={event => setNgo({...ngo , breakfast: event.target.value})} />
             <button className='btn' align='center'> SAVE </button>
-            <Link to='/ngos/ngo' className='btn'> Back </Link> 
+            <button className='btn' onClick={()=>navigate(-1)}>Back</button>
             </div>
         
         
@@ -57,3 +58,5 @@ export default function NgoUpdate() {
     </>
   )
 }
+
+export default NgoUpdate

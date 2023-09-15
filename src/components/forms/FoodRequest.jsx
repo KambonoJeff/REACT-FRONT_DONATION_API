@@ -1,6 +1,5 @@
 import React from 'react'
 import {useRef} from 'react'
-import axiosClient from '../../axios-client';
 import { useNavigate } from 'react-router-dom';
 
 const FoodRequest = ()=>{

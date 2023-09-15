@@ -35,7 +35,7 @@ const Request_ = ()=>{
       <>
       <br />
       <div className="brd">
-      <h2 align='center'> Add a Request as NGO</h2>
+      <h2 align='center'> Add new Request</h2>
      
         <form action="" onSubmit={onSubmit} method="post">
           <div className="form-control">
@@ -43,8 +43,8 @@ const Request_ = ()=>{
   
           </div>
   
-          <div className="form-control">
-          <input ref={foodRef} type="text" name="typeoffood" placeholder='Fruits, Legumes,cereals, proteins,vitamins' /><select className="form-control" ref={foodRef} name="type" id="type">
+         <div className="form-control">
+            <select readOnly className="form-control" ref={foodRef} name="type" id="type">
                 <option  value="Cereals">Cereals</option>
                 <option value="snacks">snacks</option>
                 <option value="legumes">legumes</option>
@@ -71,9 +71,10 @@ const Request_ = ()=>{
           </div>
   
           <div className="form-control">
-          <select className="form-control" ref={statusRef} name="type" id="type">
+          <select readOnly className="form-control" ref={statusRef} name="type" id="type">
+          <option value="Not Approved">Not Approved</option>
+
                 <option  value="Approved">Approved</option>
-                <option value="Not Approved">Not Approved</option>
                 <option value="Pending">Pending</option>
                
               </select>

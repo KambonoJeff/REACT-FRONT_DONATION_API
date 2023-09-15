@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import axiosClient from '../../axios-client';
 
-export default function FoodUpdate() {
+const FoodUpdate = ()=> {
     const {id} = useParams();
     const [load,setLoad] = useState(false);
     let navigate = useNavigate();
@@ -16,30 +16,22 @@ export default function FoodUpdate() {
       cash:''
     });
     useEffect(()=>{
-        console.log('useEffect');
         setLoad(true);
-        if(id){
+        
             axiosClient.get(`/food/${id}`).then(({data})=>{
                 setLoad(false);
                 console.log(data);
-                setUser(data)
           
                 }).catch((err)=>{
                   setLoad(false)
+                  console.log('request not successful')
                 })
-        }
+        
         
     },[])
 
-    const onSubmit = ()=>{
-        console.log(user)
-        axiosClient.put(`/food/${id}`, user).then(({data})=>{
-            console.log(data);
-            return navigate('/users/food');
-
-        }).catch((err)=>{
-            console.log(err)
-        })
+    const onSubmit = (event)=>{
+      event.preventDefault()
     }
   return (
     <>
@@ -55,7 +47,7 @@ export default function FoodUpdate() {
             <input placeholder='snacks' value={user.snacks} onChange={event => setUser({...user , snacks: event.target.value})} />
             <input placeholder='cash' value={user.cash} onChange={event => setUser({...user , cash: event.target.value})} />
             <button className='btn' align='center'> SAVE </button>
-            <Link to='/users/food' className='btn'> Back </Link> 
+            <button className='btn' onClick={()=>navigate(-1)}>Back</button>
             </div>
         
         
@@ -65,3 +57,5 @@ export default function FoodUpdate() {
 
   )
 }
+
+export default FoodUpdate

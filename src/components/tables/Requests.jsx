@@ -18,7 +18,10 @@ const Requests = () => {
     if(!window.confirm('Are You Sure You Want to delete?')){
         return
     }else{
-        axiosClient.delete(`/PostRequest/${data.id}`).then((res)=>{console.log(res); _requests();}).catch((Err)=>{console.log(Err)})
+        axiosClient.delete(`/PostRequest/${data.id}`)
+        .then((res)=>{
+            console.log(res); _requests()
+        }).catch((Err)=>{console.log(Err)})
     }
 
    }
@@ -86,7 +89,7 @@ const Requests = () => {
                                   <td>{data.location}</td>
                                   <td style={getRowStyle((data.status))}>{data.status}</td>
                                   <td className='flex'>
-                                  <Link className='btn' to={'/PostRequest/'+ data.id}>Edit</Link>
+                                  <Link className='btn' to={'/request/update/'+ data.id}>Edit</Link>
                                     <button onClick={event=>onDelete(data)} className='btn'>DELETE</button>
                                   </td>
                               </tr>

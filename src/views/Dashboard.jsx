@@ -52,7 +52,7 @@ export default function Dashboard() {
               <div className="flex box mg-t">
             
               <Link align='center' className='btn btn-w' to="/users/ngo"> N G O </Link>
-            <Link align='center' className='btn btn-w' to="/users/user">User</Link>
+            <Link align='center' className='btn btn-w' to="/users/food">Food Bank</Link>
 
           </div>
           </p>

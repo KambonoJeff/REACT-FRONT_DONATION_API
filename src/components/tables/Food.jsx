@@ -5,13 +5,18 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const Food = () => {
   const[foods ,setFood]=useState([]);
+  const [sum,setSum]=useState([])
   const [load, setLoad] = useState()
   let navigate = useNavigate();
   const food =()=>{
     axiosClient.get('/food').then((res)=>{
       setLoad(false)
-      console.log(res);
-      setFood(res.data.data)})
+      console.log(res.data);
+      setFood(res.data[6].data)
+      setSum(res.data)
+      console.log('This the sum',sum[0])
+
+    })
       .catch(err =>{ setLoad(false); console.error(err)});
    }
    useEffect(()=>{
@@ -20,10 +25,12 @@ const Food = () => {
    },[])
   return (
     <>
-                  <h2 align='center'>Food Table</h2>
+                  <h2 align='center'>Food Table and Totals</h2>
             <br/>   
-            <Link className='btn-green' to={'/food/new'}>Donate</Link>
+            <Link className='btn-green' to={'/form/NgoRequest'}> Donate </Link>
             <br />
+            <div className="flex mg-t">
+
             <br />
                 <table>
                 <thead className="thead">             
@@ -35,7 +42,6 @@ const Food = () => {
                     <th>breakfast</th>
                     <th>snacks</th>
                     <th>cash</th>
-                    <th>other</th>
                 </tr>     
             </thead>
             {load &&<tbody>
@@ -48,18 +54,13 @@ const Food = () => {
                         foods.map((data, index)=>(
                             <tr key={index}>
                                 <td>{data.id}</td>
-                                <td>{data.cereals}</td>
-                                <td>{data.proteins}</td>
-                                <td>{data.legumes}</td>
-                                <td>{data.breakfast}</td>
-                                <td>{data.snacks}</td>
-                                <td>{data.cash}</td>
-                               
-                                        <td className='flex'>
-                                        <Link className='btn' to={'/food/'+data.id}>Edit</Link>
-                                    </td>
-                                
-                               
+                                <td>{data.cereals} kg</td>
+                                <td>{data.proteins} kg</td>
+                                <td>{data.legumes} kg</td>
+                                <td>{data.breakfast} kg</td>
+                                <td>{data.snacks} kg</td>
+                                <td>{data.cash} kshs</td>
+                                                
                                         
                                 
                                         
@@ -70,6 +71,18 @@ const Food = () => {
                 </tbody> 
                 </table>  
                 <br />
+
+                <div className="grid box">
+
+ <div className="flex box">cereals <div className="btn">{sum[0] } kgs</div></div> 
+
+ <div className="flex box">proteins <div className="btn">{sum[1] } kgs</div></div>
+<div className="flex box">legumes <div className="btn">{sum[2] } kgs</div></div>
+<div className="flex box">Breakfast <div className="btn">{sum[3] } kgs</div></div>
+<div className="flex box">Snacks <div className="btn">{sum[4] } kgs</div></div>
+<div className="flex box">Cash <div className="btn">{sum[5] } kshs</div></div> 
+                </div>
+                </div>
 
                 <button className='btn' onClick={()=>navigate(-1)}>Back</button>                  
     </>

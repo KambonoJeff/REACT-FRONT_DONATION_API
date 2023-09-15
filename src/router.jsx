@@ -23,6 +23,7 @@ import NgoUpdate from "./components/update/NgoUpdate";
 import Admin from "./Admin/Admin";
 import NgoLogin from "./Ngo/NgoLogin";
 import NotEmpty from "./components/NotEmpty";
+import RequestsUpdate from "./components/update/RequestsUpdate";
 
 const router = createBrowserRouter([
     {
@@ -97,18 +98,24 @@ const router = createBrowserRouter([
         
             },
             {
-                path: '/ngo/show/:id',
-                element: <NgoUpdate/>
-        
-            },
-            {
                 path: '/ngo/show/new',
                 element: <Ngo_/>
         
             },
             {
+                path: '/ngo/show/:id',
+                element: <NgoUpdate/>
+        
+            },
+            {
+                path: '/request/update/:id',
+                element: <RequestsUpdate/>
+        
+            },
+           
+            {
                 path: '/PostRequest/:id',
-                element: <Requests_/>
+                element: <FoodUpdate/>
         
             },
             {
