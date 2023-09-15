@@ -131,6 +131,10 @@ const router = createBrowserRouter([
                 element: <Requests_/>
         
             },
+            {
+                path:'/admin/register',
+                element: <AdminCreate/>
+            },
          
         ]
 
@@ -149,8 +153,9 @@ const router = createBrowserRouter([
             },
             {
                 path:'/admin/login',
-                element: <AdminCreate/>
+                element: <Admin/>
             },
+            
             {
                 path:'/ngo/login',
                 element: <NgoLogin/>

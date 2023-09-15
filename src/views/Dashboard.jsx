@@ -1,9 +1,43 @@
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import image from '../Assets/img/pic3.jpg'
 import image2 from '../Assets/img/pic2.jpg'
+import image3 from '../Assets/img/pic3.jpg'
+import image4 from '../Assets/img/pic4.jpg'
+import image5 from '../Assets/img/image1.jpg'
 import { useStateContext } from '../components/contexts/ContextProvider'
+import { useRef, useState } from 'react';
+import axiosClient from '../axios-client';
 export default function Dashboard() {
   const {user}=useStateContext();
+  const cashRef = useRef();
+  const redirect =()=>{
+    console.log('redirecting .....')
+    return <Navigate to="/users/food"/>
+  }
+
+  const onSubmit=(event)=>{
+    event.preventDefault()
+    const payload = {
+      cereals: 0,
+      proteins: 0,
+      legumes: 0,
+      breakfast: 0,
+      snacks: 0,
+      cash: cashRef.current.value,
+    }
+     axiosClient.post('/food',payload).then(({data})=>{
+       console.log(data);
+        redirect();
+      }).catch
+     (err=>{
+       const response = err.response;
+       if(response && response.status === (422 || 500 || 404) ){
+         console.log(response.data.errors)
+
+       };
+     })
+
+  }
   return (
     <section className='my-element'>
       <br />
@@ -15,20 +49,51 @@ export default function Dashboard() {
             <p>I hope this message finds you well. I want to share an incredible opportunity to make a lasting impact in our world. By donating to this just cause, you have the chance to be a catalyst for change. Your contribution will provide essential resources, uplift marginalized communities, and promote equality and justice. Every dollar you give has the power to transform lives, restore hope, and create a brighter future for those who need it most. Together, let's stand up for what is right and make a difference that resonates for generations to come. Please consider donating and being part of this extraordinary journey toward a more compassionate and equitable society.
               <br />
               <br />
-            <Link align="center" className='btn btn-w' to="/form/NgoRequest"> Donate </Link>
+            <Link align="center" className='btn btn-w' to="/form/NgoRequest"> Donate Food </Link>
 
 </p>
 
               <div className="image">
-              <img src={image} alt="This is an image of a desert" />
+              <img className='img' src={image} alt="This is an image of a desert" />
           </div>
           </div>
-
+          <form onSubmit={onSubmit}>
+          <div className="box flex form-control">
+            <button  type='submit' className="btn">DONATE IN CASH</button>
           
+              <input  ref={cashRef} placeholder='min 1000' className='short-w' type="number" />
+              <h1>kshs</h1>
+           
+          </div>
+          </form>
+          <div className='card-container'>
+				<div className="card">
+				  <img src={image5} alt="Image 1"/>
+				  <div className="details">
+					<h2>React-Front</h2>
+					<p>This is a React oriented project that combines full javaScript,HTML and CSS</p>
+				  </div>
+				</div>				
+				<div className="card">
+				  <img src={image4} alt="Image 2"/>
+				  <div className="details">
+					<h2>Python-Django</h2>
+					<p>Python Django is a robust framework that allows flexibilty and economic projects</p>
+				  </div>
+				</div>			
+				<div className="card">
+				  <img src={image3} alt="Image 3"/>
+				  <div className="details">
+					<h2>Laravel-PHP</h2>
+					<p>laravel-PHP is a robust framework that allows flexibilty and economic projects</p>
+				  </div>
+				</div>
+			  </div>
+			  
           <div className="box">
           <div className="flex box box mg-t">
           <div className="image">
-              <img src={image2} alt="This is an image of a desert" />
+              <img className='img' src={image2} alt="This is an image of a desert" />
               </div>
 
             <p>Through the selfless act of donation, a life was saved. In the darkest hour, compassion prevailed, providing vital resources and a second chance. It's a reminder that each contribution, no matter how small, holds the power to transform and bring hope where it's needed most.
@@ -59,7 +124,7 @@ export default function Dashboard() {
           </p>
           <div className="image">
             
-              <img src={image2} alt="This is an image of a desert" />
+              <img className='img' src={image2} alt="This is an image of a desert" />
               </div>
 
             

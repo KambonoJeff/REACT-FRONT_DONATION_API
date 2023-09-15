@@ -9,7 +9,7 @@ const Request=()=>{
     const legumesRef = useRef();
     const breakFastRef = useRef();
     const snacksRef = useRef();
-    const cashRef = useRef();
+    const cashRef = 0;
     let navigate = useNavigate();
 
     
@@ -21,18 +21,18 @@ const Request=()=>{
         legumes: legumesRef.current.value,
         breakfast: breakFastRef.current.value,
         snacks: snacksRef.current.value,
-        cash: cashRef.current.value,
+        cash: cashRef,
       }
-      axiosClient.post('/food',payload).then(({data})=>{
-        console.log(data)
-      }).catch
-      (err=>{
-        const response = err.response;
-        if(response && response.status === (422 || 500 || 404) ){
-          console.log(response.data.errors)
+       axiosClient.post('/food',payload).then(({data})=>{
+         console.log(data)
+       }).catch
+       (err=>{
+         const response = err.response;
+         if(response && response.status === (422 || 500 || 404) ){
+           console.log(response.data.errors)
   
-        };
-      })
+         };
+       })
   
 
       
@@ -67,10 +67,7 @@ const Request=()=>{
          <input type="number" name="Snacks" id="Snacks" ref={snacksRef} placeholder='Snacks' />
 
        </div>
-       <div className="form-control">
-         <input type="number" name="Cash" id="Cash" ref={cashRef} placeholder='USD|EUR|GBP' />
-
-       </div>
+      
        <button type="submit"  className="btn"> SUBMIT</button>
        <button className='btn' onClick={()=>navigate(-1)}>Back</button>
       </form>

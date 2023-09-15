@@ -11,7 +11,7 @@ export default function Admin() {
   const passwordRef = useRef();
   const adminnumberRef = useRef();
 
-  const {setToken, setType} = useStateContext();
+  const {setToken, setType, setUser} = useStateContext();
   const  [error , setError] = useState();
   const  [load , setLoad] = useState();
 
@@ -26,9 +26,12 @@ export default function Admin() {
       }
       console.log(payload)
       setLoad(true)
-      axiosClient.post('/admin/login', payload).then((data)=>{
+      axiosClient.post('/admin/login', payload).then(({data})=>{
         setLoad(false)
-        console.log(data);
+        console.log(data.token);
+        setToken(data.token)
+        setUser(data[0].firstname)
+        setType(data.type)
       }).catch((err)=>{
         setLoad(false)
         console.log(err)

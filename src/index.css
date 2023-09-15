@@ -46,7 +46,7 @@ p {
   font-size: 16px;
   line-height: 1.5;
 }
-img{
+.img{
   margin: 1em;
 }
 
@@ -345,14 +345,14 @@ option::placeholder{
   font-family: 'Courier New', Courier, monospace;
   font-size: 22px;
 }
-img {
+.img {
 	width:16em;
 	height: 19em;
 	border: 3px solid orange;
 	border-radius: 0.4em;
 
 }
-img:hover{
+.img:hover{
 	width:17em;
 	height: 20em;
 	border: 3px solid black;
@@ -366,13 +366,35 @@ img:hover{
   padding: 0.3em;
 }
 .brd-w{
-  width:50%;
+  width:60%;
   margin: auto;
   border: 1.5px solid black;
   border-radius: 5px;
   box-shadow: 0 1px 19px;
-  padding: 0.3em;
+  padding: 0.4em;
 }
 .btn-w{
   width: 60%;
 }
+.short-w{
+  width: 1em;
+}
+
+.card-container {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+  }
+  .card {
+	width: 30%;
+	margin-bottom: 30px;
+	background-color: #fff;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	border-radius: 12px;
+	overflow: hidden;
+  }
+  .card img {
+	width: 100%;
+	height: 200px;
+	object-fit: cover;
+  }

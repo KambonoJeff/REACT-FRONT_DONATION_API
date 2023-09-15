@@ -26,16 +26,16 @@ export default function Admin() {
         email: emailRef.current.value,
         adminnumber:adminnumberRef.current.value,
         password:passwordRef.current.value,
-        confirmpassword:confirmpasswordRef.current.value,
+        password_confirmation:confirmpasswordRef.current.value,
       }
       console.log('Payload before attack',payload)
       setLoad(true)
-      axiosClient.post('/admin/register', payload).then((data)=>{
+      axiosClient.post('/admin/register', payload).then(({data})=>{
         setLoad(false)
-        console.log(data);
+        console.log('this the logged data',data);
+        setToken(data.token)
       }).catch((err)=>{
         setLoad(false)
-        console.log(err.response.data.message)
         setError(err.response.data.message)
       })
 
@@ -46,10 +46,10 @@ export default function Admin() {
     <br></br>
     <br></br>
     <br></br>
-    <div className="brd-w">
+    <div className="brd-w brd-t">
       
-   <form align="center" onSubmit={onSubmit} method="post">
-   <h2>Admin Login Form </h2>
+   <form align="center"  onSubmit={onSubmit} method="post">
+   <h2>Admin registration Form </h2>
    <br />
    {load && <h4 align='center'>Loading . . . </h4>}      
    {error && <h4 align='center'>{error}</h4>}
@@ -62,7 +62,7 @@ export default function Admin() {
           <input ref={passwordRef} type="password" placeholder='Enter your Password' />
           <input ref={confirmpasswordRef} type="password" placeholder='confirm your Password' />
 
-          <button  className="btn" type="submit"> Login </button>
+          <button  className="btn" type="submit"> register </button>
           <button className='btn' onClick={()=>{navigate(-1)}}> Back </button>
           <br />
           
