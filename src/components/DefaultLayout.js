@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { Navigate, Outlet } from 'react-router'
-import { Link } from 'react-router-dom'
 import { useStateContext } from './contexts/ContextProvider'
 import Header from './Header'
 import axiosClient from '../axios-client'
@@ -8,7 +7,7 @@ import axiosClient from '../axios-client'
 
 export default function DefaultLayout() {
 
-  const {user, admin,ngo,token, setToken,setAdmin,setNgo, setUser} = useStateContext()
+  const {token, setToken, setUser} = useStateContext()
   if(!token){
     return <Navigate to="/login"/>
   }

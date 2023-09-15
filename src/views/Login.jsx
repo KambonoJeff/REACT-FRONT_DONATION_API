@@ -8,7 +8,7 @@ export default function Login() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const [errors, setErrors] = useState()
-  const {setUser,setType,type, setToken} = useStateContext()
+  const {setUser,setType, setToken} = useStateContext()
 
   const onSubmit=(event)=>{
     event.preventDefault()
@@ -23,8 +23,10 @@ export default function Login() {
         if(data.message == 'Credentials do not match'){
           setErrors(data.message)
         }
+        console.log(data[0])
         setType(data.type)
-        setUser(data.user);
+        
+        setUser(data[0]);
         setToken(data.token);
         
       }

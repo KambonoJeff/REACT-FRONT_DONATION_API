@@ -3,12 +3,12 @@ import image from '../Assets/img/pic3.jpg'
 import image2 from '../Assets/img/pic2.jpg'
 import { useStateContext } from '../components/contexts/ContextProvider'
 export default function Dashboard() {
-  const {user,admin,ngo}=useStateContext();
+  const {user}=useStateContext();
   return (
     <section className='my-element'>
       <br />
       <div className="box">
-        <h2 align="center"> Hello {admin} . </h2>
+        <h2 align="center"> Hello {user}  </h2>
         <br />
           <h3 align="center">Welcome to our donation app, where every act of generosity has the power to ignite positive change. Join us in making a difference today</h3>
           <div className="flex box box mg-t">

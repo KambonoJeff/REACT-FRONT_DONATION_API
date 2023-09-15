@@ -19,7 +19,7 @@ export default function NgoLogin() {
     }
     console.log(payload);
     axiosClient.post('/ngo/login',payload).then(({data})=>{
-      console.log(data.message)
+      console.log(data)
       if(data.message == 'Credential unmatched!'){
         setErrors(data.message)
       }

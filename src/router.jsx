@@ -33,7 +33,7 @@ const router = createBrowserRouter([
         children:[
             {
                 path:'/',
-                element: <Navigate to="/Notempty "/>
+                element: <Navigate to="/Dashboard "/>
             },
             {
                 path:'/users',
@@ -130,11 +130,7 @@ const router = createBrowserRouter([
                 element: <Requests_/>
         
             },
-            {
-                path: '/Notempty',
-                element: <NotEmpty/>
-        
-            },
+         
         ]
 
     },

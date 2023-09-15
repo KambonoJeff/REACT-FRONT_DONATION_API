@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom';
 import { Outlet } from 'react-router'
 import { useStateContext } from './contexts/ContextProvider'
 export default function GeustLayout() {
-  const {token} = useStateContext()
+  const {token,user} = useStateContext()
   if(token){
     return <Navigate to="/"/>
   }

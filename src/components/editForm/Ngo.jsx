@@ -26,10 +26,10 @@ export default function Ngo() {
       licenseNo : licenseNoRef.current.value,
       licenseNo_confirmation : licenseNo_confirmationRef.current.value,
     }
-    console.log(payload)
-    axiosClient.post('/ngo/register').then((res)=>{
+    console.log('This the Payload',payload)
+    axiosClient.post('/ngo/register',payload).then((res)=>{
       
-      console.log(res);
+      console.log('This the response',res);
       setType(res.type)
     
     }).catch((err)=>{
@@ -69,8 +69,8 @@ export default function Ngo() {
 
        </div>
        <div className="form-control">
-       <input type="password" name="licenseNo" id="licenseNo" placeholder='licenseNo' ref={licenseNoRef} />
-       <input type="password" name="licenseNo_confirmation" id="licenseNo_confirmation" placeholder='licenseNo_confirmation' ref={licenseNo_confirmationRef} />
+       <input type="number" name="licenseNo" id="licenseNo" placeholder='licenseNo' ref={licenseNoRef} />
+       <input type="number" name="licenseNo_confirmation" id="licenseNo_confirmation" placeholder='licenseNo_confirmation' ref={licenseNo_confirmationRef} />
 
        </div>
   
