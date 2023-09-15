@@ -384,13 +384,15 @@ option::placeholder{
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
+  margin-top: 2em;
   }
   .card {
 	width: 30%;
 	margin-bottom: 30px;
-	background-color: #fff;
+	background-color: transparent;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 	border-radius: 12px;
+  border: .7px solid whitesmoke;
 	overflow: hidden;
   }
   .card img {
@@ -398,3 +400,4 @@ option::placeholder{
 	height: 200px;
 	object-fit: cover;
   }
+  
