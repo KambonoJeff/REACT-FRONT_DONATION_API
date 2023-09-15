@@ -21,6 +21,7 @@ import Request from "./components/forms/Request";
 import FoodUpdate from "./components/update/FoodUpdate";
 import NgoUpdate from "./components/update/NgoUpdate";
 import Admin from "./Admin/Admin";
+import AdminCreate from "./Admin/AdminCreate";
 import NgoLogin from "./Ngo/NgoLogin";
 import NotEmpty from "./components/NotEmpty";
 import RequestsUpdate from "./components/update/RequestsUpdate";
@@ -148,7 +149,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'/admin/login',
-                element: <Admin/>
+                element: <AdminCreate/>
             },
             {
                 path:'/ngo/login',
