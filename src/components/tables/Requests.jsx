@@ -6,10 +6,16 @@ import { Link, useNavigate } from 'react-router-dom';
 const Requests = () => {
   const [requests , setRequests] =useState([]);
   let navigate = useNavigate();
+  const [load,setLoad]=useState();
   const _requests =()=>{
+    setLoad(true)
     axiosClient.get('/PostRequest').then((res)=>{
+        setLoad(false)
     setRequests(res.data.data)})
-    .catch(err => console.error(err));
+    .catch((err)=>{
+        setLoad(false)
+        console.log('error occured while making the request',err)
+    });
    }
    useEffect(()=>{
     _requests()
@@ -18,10 +24,12 @@ const Requests = () => {
     if(!window.confirm('Are You Sure You Want to delete?')){
         return
     }else{
+        setLoad(true)
         axiosClient.delete(`/PostRequest/${data.id}`)
         .then((res)=>{
+            setLoad(false)
             console.log(res); _requests()
-        }).catch((Err)=>{console.log(Err)})
+        }).catch((Err)=>{setLoad(false); console.log(Err)})
     }
 
    }
@@ -61,7 +69,8 @@ const Requests = () => {
               <h2 align='center'>Requests table</h2>
 
               <Link className='btn-green' to={'/PostRequest/new'}>Add Request</Link>
-              <br/>   
+              <br/> 
+              {load && <h4 align='center'>Loading . . .</h4>}  
               <br/>   
                   <table>
                  

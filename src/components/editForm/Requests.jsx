@@ -12,7 +12,7 @@ const Request_ = ()=>{
     const statusRef = useRef();
     let navigate = useNavigate();
 
-
+    
 
     const onSubmit=(event)=>{
       event.preventDefault()
@@ -26,7 +26,7 @@ const Request_ = ()=>{
       }
       console.log(payload)
     axiosClient.post('/debugtest',payload).then(({data})=>{
-      console.log(data)
+      console.log('this the response',data)
     }).catch((err)=>{
       console.log(err)
     })
@@ -72,7 +72,7 @@ const Request_ = ()=>{
   
           <div className="form-control">
           <select readOnly className="form-control" ref={statusRef} name="type" id="type">
-          <option value="Not Approved">Not Approved</option>
+          <option value="NotApproved">NotApproved</option>
 
                 <option  value="Approved">Approved</option>
                 <option value="Pending">Pending</option>

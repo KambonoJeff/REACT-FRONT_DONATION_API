@@ -28,13 +28,25 @@ useEffect(()=>{
 },[]);
 const onSubmit = ( event )=>{
     event.preventDefault()
+   
+    setLoad(true)
+    axiosClient.post(`PostRequest/${id}`,request)
+    .then(({data})=>{
+        setLoad(false)
+        console.log('this the request after submission',data)
+    })
+    .catch((err)=>{
+        setLoad(false)
+        console.log('An Error occured while making the request',err)
+    })
+   
 }
   return (
     <>
       <br />
       {request.id && <h2 align='center'>Request Id : {request.id}</h2>}
       {load && <h3 align='center'> Loading . . . </h3>}
-      <form onSubmit={onsubmit}>
+      <form onSubmit={onSubmit}>
         <div className="form-control">
             <input type="text" value={request.typeoffood} onChange={event => setRequest({...request, typeoffood: event.target.value})} />
             <input type="text" value={request.quantity} onChange={event => setRequest({...request, quantity: event.target.value })} />
@@ -44,7 +56,6 @@ const onSubmit = ( event )=>{
             <button className='btn' align='center' type='submit'> SAVE </button>
             <Link className='btn' to={'/users/requests'}>Back</Link>
         </div>
-
       </form>
     </>
   )
