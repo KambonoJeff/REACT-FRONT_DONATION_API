@@ -24,6 +24,7 @@ import Admin from "./Admin/Admin";
 import NgoLogin from "./Ngo/NgoLogin";
 import NotEmpty from "./components/NotEmpty";
 import RequestsUpdate from "./components/update/RequestsUpdate";
+import UserUpdate from "./components/update/UserUpdate";
 
 const router = createBrowserRouter([
     {
@@ -110,6 +111,12 @@ const router = createBrowserRouter([
             {
                 path: '/request/update/:id',
                 element: <RequestsUpdate/>
+        
+            },
+           
+            {
+                path: '/user/update/:id',
+                element: <UserUpdate/>
         
             },
            

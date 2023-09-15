@@ -6,11 +6,16 @@ import { Link, useNavigate } from 'react-router-dom';
 const UserTable = () => {
   const[users ,setUsers]=useState([]);
   let navigate = useNavigate();
+  const [load,setLoad]=useState()
   const _users =()=>{
+    setLoad(true)
     axiosClient.get('/showusers').then((res)=>{
-
+        setLoad(false)
     setUsers(res.data.data)})
-    .catch(err => console.error(err));
+    .catch((err)=>{
+        setLoad(false)
+        console.error(err)
+    });
    }
    useEffect(()=>{
     _users()
@@ -19,7 +24,8 @@ const UserTable = () => {
     if(!window.confirm('Are You Sure You want to Delete')){
         return
     }else{
-        axiosClient.delete(`/showusers/${user.id}`).then((res)=>{console.log(res); _users();}).catch((err)=>{console.log(err)})
+        setLoad(true)
+        axiosClient.delete(`/showusers/${user.id}`).then((res)=>{setLoad(false);console.log(res); _users();}).catch((err)=>{setLoad(false);console.log(err)})
     }
    }
   return (
@@ -29,7 +35,8 @@ const UserTable = () => {
             <br/>   
 
             <Link  align='right' className='btn-green' to={'/users/new'}>Add User</Link>
-            <br/>   
+            <br/>  
+            {load && <h4 align='center'> Loading . . . </h4>} 
             <br/>   
                 <table>
             
@@ -53,7 +60,7 @@ const UserTable = () => {
                                 <td>{user.type}</td>
                                 <td>{user.email_verified_at}</td>
                                 <td className='flex'>
-                                <Link className='btn' to={'/users/'+ user.id}>Edit</Link>
+                                <Link className='btn' to={'/user/update/'+ user.id}>Edit</Link>
                                     <button onClick={event=>onDelete(user)} className='btn'>Delete</button>
                                 </td>
                             </tr>
