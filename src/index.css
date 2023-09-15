@@ -401,3 +401,27 @@ option::placeholder{
 	object-fit: cover;
   }
   
+
+.card-container2 {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+  margin-top: 2em;
+  }
+  .card2 {
+	width: 45%;
+	margin-bottom: 30px;
+	background-color: transparent;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border: .7px solid whitesmoke;
+  padding: 0;
+	overflow: hidden;
+  }
+ 
+  .card2 p {
+    padding: .4em;
+    font-weight: 700;
+    font-family: 'Courier New', Courier, monospace;
+	
+  }
+ 

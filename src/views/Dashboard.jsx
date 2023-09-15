@@ -129,6 +129,35 @@ export default function Dashboard() {
           </div>
           </div>
 
+        <div className="card-container2">
+        <div className="card2">
+           
+					<h2 align='center'>Donate by Mail</h2>
+
+					<p align='center'>To donate by check or to a specific cause, please complete this donation form by printing and mailing to:
+
+ 
+
+American Red Cross 
+PO Box 37839
+Boone, IA 50037-0839
+
+Print Donation Form</p>
+				</div>	
+        <div className="card2">
+            
+         
+
+					<h2 align='center'>Donate By Phone</h2>
+
+					<p align='center'>To donate by phone or to get assistance with your donation, please contact us at 1-800-HELP NOW +254707973964.
+
+
+You can also reach us at:
+Español:+234234534534
+TDD Operator: +923746233242</p>
+				</div>	
+        </div>
 
           <div className="box">
           <div className="flex box box mg-t">
