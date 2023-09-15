@@ -20,7 +20,9 @@ export default function Login() {
     console.log(payload)
     axiosClient.post("/login",payload).then(
       ({data})=>{
-
+        if(data.message == 'Credentials do not match'){
+          setErrors(data.message)
+        }
         setType(data.type)
         setUser(data.user);
         setToken(data.token);
@@ -44,38 +46,30 @@ export default function Login() {
     <div className="brd-w">
       
    <form align="center" onSubmit={onSubmit} method="post">
-   <h2>Login Form </h2>      
+   <h2>Login Form </h2>    
+   <br />  
    {
-            errors &&
             <div className="alert">
-              {
-                Object.keys(errors).map(key =>(
-                  <h2 align="center" key={key}>
-                    {errors[key][0]}
-                  </h2>
-                ))
-              }
-
-
+             {errors && <h5 align='center'>{errors}</h5>}
             </div>
             
           }
           <div className="form-control">
-            <h2 align="center">{errors}</h2>
           <input ref={emailRef} type="email" placeholder='Enter your Email' />
           <input ref={passwordRef} type="password" placeholder='Enter your Password' />
 
           <button  className="btn" type="submit"> Login </button>
           <br />
-          <h3 align="center">
+          <h4 align="center">
             Not Registered ? <a href="/register">Register Now</a>
-          </h3>
+          </h4>
+          <br />
+          <h4 align="center">
+            Are you an NGO ? <a href="/ngo/login"> login here </a>
+          </h4>
           </div>
           <br />
           <div>
-
-          <Link className='btn' to='/admin/register'> Admin </Link>
-          <Link className='btn' to='/ngo/register'> Ngo </Link>
           </div>
    </form>
    

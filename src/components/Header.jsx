@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useStateContext } from './contexts/ContextProvider';
 
 import React from 'react'
@@ -9,19 +9,21 @@ export default function Header({ onLogout }) {
     admin,
     ngo,
   }=useStateContext();
-   let navigation = useNavigate();
 
-    if(admin){
-      console.log('somthing else')
-    }
-
+  
   return (
     <header>
         
         <div>
-            <ul className="flex box">
+            <ul className="flex sm-box ">
                 <li > <h4> {admin}</h4></li>
-                <li ><a href="#" onClick={onLogout} className="btn">Logout</a></li>
+                <div className="flex" align='right'>
+             
+                <Link className='link' to="/Dashboard">Dashboard</Link>
+              
+   
+                <li onClick={onLogout} className="link">Logout</li>
+                </div>
             </ul>
         </div>
       

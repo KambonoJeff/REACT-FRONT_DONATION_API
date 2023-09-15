@@ -151,11 +151,11 @@ const router = createBrowserRouter([
                 element: <Register/>
             },
             {
-                path:'/admin/register',
+                path:'/admin/login',
                 element: <Admin/>
             },
             {
-                path:'/ngo/register',
+                path:'/ngo/login',
                 element: <NgoLogin/>
             },
         ]

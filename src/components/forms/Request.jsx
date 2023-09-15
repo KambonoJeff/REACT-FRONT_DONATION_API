@@ -44,8 +44,9 @@ const Request=()=>{
       <br />
       <br />
       <div className="brd">
-      <h2 align='center'> Food Requesting Form</h2>   
-      <h4 align='center'> The form is also used by the hospitality based institutions to post their left overs and the voluntary contributers to also post there donations</h4>   
+      <h2 align='center'> Food Donation Form</h2>
+      <br />   
+      <h4 align='center'>Enter the units of food you donating in kilograms</h4>   
       <form action="" onSubmit={onSubmit}  method="post">
        <div className="form-control">
          <input type="number" name="Cereals" id="Cereals" ref={cerealsRef} placeholder='Cereals' />

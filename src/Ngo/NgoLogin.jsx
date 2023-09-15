@@ -19,6 +19,10 @@ export default function NgoLogin() {
     }
     console.log(payload);
     axiosClient.post('/ngo/login',payload).then(({data})=>{
+      console.log(data.message)
+      if(data.message == 'Credential unmatched!'){
+        setErrors(data.message)
+      }
       setNgo(data.name);
       setType(data.type);
       setToken(data.token);
@@ -44,11 +48,14 @@ export default function NgoLogin() {
     <div className="brd-w">
       
    <form align="center" onSubmit={onSubmit} method="post">
-   <h2>Ngo Login Form </h2>      
-   
+   <h2>Ngo Login Form </h2> 
+   <br />
+   <div className="alert">
+             {errors && <h5 align='center'>{errors}</h5>}
+            </div>
           <div className="form-control">
           <input ref={nameRef} type="text" placeholder='Enter your name' />
-          <input ref={passwordRef} type="password" placeholder='Enter your License Number' />
+          <input ref={passwordRef} type="number" placeholder='Enter your License Number' />
 
           <button  className="btn" type="submit"> Login </button>
           <button className='btn' onClick={()=>{navigate(-1)}}> Back </button>

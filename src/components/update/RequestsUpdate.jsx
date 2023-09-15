@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
 import axiosClient from '../../axios-client';
 
 const RequestsUpdate = () => {
@@ -33,7 +33,7 @@ const onSubmit = ( event )=>{
     axiosClient.post(`PostRequest/${id}`,request)
     .then(({data})=>{
         setLoad(false)
-        console.log('this the request after submission',data)
+        return <Navigate to="/users/requests"/>
     })
     .catch((err)=>{
         setLoad(false)

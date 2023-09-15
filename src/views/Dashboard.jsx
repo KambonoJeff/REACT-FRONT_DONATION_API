@@ -9,6 +9,7 @@ export default function Dashboard() {
       <br />
       <div className="box">
         <h2 align="center"> Hello {admin} . </h2>
+        <br />
           <h3 align="center">Welcome to our donation app, where every act of generosity has the power to ignite positive change. Join us in making a difference today</h3>
           <div className="flex box box mg-t">
             <p>I hope this message finds you well. I want to share an incredible opportunity to make a lasting impact in our world. By donating to this just cause, you have the chance to be a catalyst for change. Your contribution will provide essential resources, uplift marginalized communities, and promote equality and justice. Every dollar you give has the power to transform lives, restore hope, and create a brighter future for those who need it most. Together, let's stand up for what is right and make a difference that resonates for generations to come. Please consider donating and being part of this extraordinary journey toward a more compassionate and equitable society.

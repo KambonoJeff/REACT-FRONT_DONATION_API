@@ -27,15 +27,8 @@ export default function DefaultLayout() {
   return (
     <div className="flex">
       <Header  onLogout={onLogout}  />
-    <aside>
-      <nav>
-       <Link className='link' to="/Dashboard">Dashboard</Link>
-       <Link className='link' to="/form">Contribute</Link>
-      </nav>
-    </aside>
     <main>
-      <h3>default layout</h3>
-            
+      <h3>default layout</h3>        
       <br></br>
       <br></br>
       <Outlet />
