@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
+import { Link, Navigate,  useParams } from 'react-router-dom'
 import axiosClient from '../../axios-client';
 import { useStateContext } from '../contexts/ContextProvider';
 
@@ -17,9 +17,11 @@ const [request,setRequest]=useState({
 });
 
 const [load,setLoad]=useState();
+
 useEffect(()=>{
   if(type!=='admin'){
     window.alert('ONLY ADMIN CAN EDIT!!')
+    return <Navigate to='users/requests'/>
   }else{
     setLoad(true)
     axiosClient.get(`/requests/${id}`).then(({data})=>{

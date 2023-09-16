@@ -7,12 +7,17 @@ const Ngo = () => {
   const [ngo , setNgo] = useState([]);
 const {type} = useStateContext()
 let navigate = useNavigate();
+const[load,setLoad]=useState();
   const _ngo =()=>{
+    setLoad(true)
     axiosClient.get('/ngo/show').then((res)=>{
-        console.log(res.data[0].data)
+        setLoad(false)
     setNgo(res.data[0].data)
     })
-    .catch(err => console.error(err));
+    .catch((err)=>{
+        setLoad(false)
+        console.log('An error occured while performing the request',err)
+    });
    }
    useEffect(()=>{
     _ngo()
@@ -39,7 +44,9 @@ let navigate = useNavigate();
        <br />
        <br />
               <h2 align='center'>NGO Table</h2>
-        <br/>   
+        <br/>  
+        {load && <h4 align='center'>Loading . . .</h4>} 
+        <br />
             <table>
         
             <thead className="thead">             

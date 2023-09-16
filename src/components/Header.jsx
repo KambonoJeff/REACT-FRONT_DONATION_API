@@ -16,7 +16,10 @@ export default function Header({ onLogout }) {
         
         <div>
             <ul className="flex sm-box ">
-                <li > <h4> {type}</h4></li>
+              <div className='flex'>
+                 <h4> {type}</h4>&nbsp;&nbsp;&nbsp;
+                 <h4> {user}</h4>
+                 </div>
                 <div className="flex" align='right'>
                 {
                   type==='admin' &&    <Link className='link' to={'/admin/register'}> Register new admin</Link>
