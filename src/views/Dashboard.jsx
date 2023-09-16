@@ -1,6 +1,5 @@
 import { Link, Navigate } from 'react-router-dom'
-import image from '../Assets/img/pic3.jpg'
-import image2 from '../Assets/img/pic2.jpg'
+import image from '../Assets/img/pic1.jpeg'
 import image3 from '../Assets/img/opharned.jpg'
 import image4 from '../Assets/img/mulnutrition.jpg'
 import image5 from '../Assets/img/image1.jpg'
@@ -11,13 +10,12 @@ import { useStateContext } from '../components/contexts/ContextProvider'
 import { useRef, useState } from 'react';
 import axiosClient from '../axios-client';
 export default function Dashboard() {
-  const {user}=useStateContext();
+  const {user,type}=useStateContext();
   const cashRef = useRef();
   const redirect =()=>{
     console.log('redirecting .....')
     return <Navigate to="/users/food"/>
   }
-
   const onSubmit=(event)=>{
     event.preventDefault()
     const payload = {
@@ -45,19 +43,28 @@ export default function Dashboard() {
     <section className='my-element'>
       <br />
       <div className="box">
-        <h2 align="center"> Hello {user}  </h2>
+        <br />
+        <br />
         <br />
           <h3 align="center">Welcome to our donation app, where every act of generosity has the power to ignite positive change. Join us in making a difference today</h3>
           <div className="flex box box mg-t">
-            <p>I hope this message finds you well. I want to share an incredible opportunity to make a lasting impact in our world. By donating to this just cause, you have the chance to be a catalyst for change. Your contribution will provide essential resources, uplift marginalized communities, and promote equality and justice. Every dollar you give has the power to transform lives, restore hope, and create a brighter future for those who need it most. Together, let's stand up for what is right and make a difference that resonates for generations to come. Please consider donating and being part of this extraordinary journey toward a more compassionate and equitable society.
+            <div className="grid">
+            <h1 className='stroke-text' >WELCOME</h1>
+            <h2  className='huge'>{user}😇🥳</h2>
+            <h3 className='box'>Monthly giving is
+the perfect way
+to help our
+less fortunate brothers
+and sisters.</h3>
               <br />
               <br />
             <Link align="center" className='btn btn-w' to="/form/NgoRequest"> Donate Food </Link>
+            </div>
 
-</p>
+
 
               <div className="image">
-              <img className='img' src={image} alt="This is an image of a desert" />
+              <img className='img-s' src={image} alt="This is an image of a desert" />
           </div>
           </div>
           <form onSubmit={onSubmit}>
@@ -72,6 +79,7 @@ export default function Dashboard() {
           <div className='card-container'>
             <br />
             <h3 align='center'>PROVIDE SUPPORT FOR A SPECIFIC AREA OF NEED YOU ARE MOST PASSIONATE ABOUT.</h3>
+            <br />
             <br />
             <br />
 				<div className="card">
@@ -128,7 +136,7 @@ export default function Dashboard() {
 
           </div>
           </div>
-
+       {!type==='admin' &&
         <div className="card-container2">
         <div className="card2">
            
@@ -151,39 +159,21 @@ Print Donation Form</p>
 					<h2 align='center'>Donate By Phone</h2>
 
 					<p align='center'>To donate by phone or to get assistance with your donation, please contact us at 1-800-HELP NOW +254707973964.
-
-
-You can also reach us at:
-Español:+234234534534
-TDD Operator: +923746233242</p>
+          You can also reach us at:
+          Español:+234234534534
+          TDD Operator: +923746233242</p>
 				</div>	
         </div>
+       }
+       
 
-          <div className="box">
-          <div className="flex box box mg-t">
-          <p>Through the selfless act of donation, a life was saved. In the darkest hour, compassion prevailed, providing vital resources and a second chance. It's a reminder that each contribution, no matter how small, holds the power to transform and bring hope where it's needed most.
-              <br />
-              <br />
-              <div className="flex box mg-t">
-            
-              <Link align='center' className='btn btn-w' to="/users/ngo"> N G O </Link>
-            <Link align='center' className='btn btn-w' to="/users/food">Food Bank</Link>
+        <div className="flex box mg-t">
+            {type==='admin' &&           <Link align='center' className='btn btn-w' to="/users/food">Food Bank</Link>}
+            {type==='admin'&&  <Link align='center' className='btn btn-w' to="/users/ngo"> N G O </Link>}
+           
 
-          </div>
-          </p>
-          <div className="image">
-            
-              <img className='img' src={image2} alt="This is an image of a desert" />
-              </div>
 
-            
-
-          </div>
-          </div>
-          <div align='center'>
-          
-          </div>
-          
+        </div>
       </div>
     </section>
   )

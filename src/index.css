@@ -72,11 +72,12 @@ p {
   margin-top: 1.9em;
 }
 header {
-  background-color: #333;
+  background-color: black;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  height: fit-content;
   color: white;
 }
 nav{
@@ -86,7 +87,7 @@ nav{
 .link{
   border: none;
   padding: .9em;
-  width:11em;
+  width:9em;
   color: grey;
   height:fit-content;
 }
@@ -425,3 +426,74 @@ option::placeholder{
 	
   }
  
+/* testing for new cards */
+
+.card3 {
+  width: fit-content;
+  height: fit-content;
+  padding: .4em;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 20px;
+}
+
+/* Styling for the cash amount */
+.amount {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2ecc71; /* Green color for positive amounts */
+}
+
+/* Styling for the card title */
+.title {
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'Courier New', Courier, monospace;
+  margin-top: 10px;
+  color: #333;
+}
+
+/* Styling for negative amounts */
+.negative {
+  color: #e74c3c; /* Red color for negative amounts */
+}
+.fixed{
+  position: fixed;
+  top: 4.7em;
+  right: 6.9em;
+  width: fit-content;
+  display: flex;
+  
+  align-items: right;
+  align-content: right;
+}
+.stroke-text{
+  color: transparent;
+  font-size: 6em;
+  font-family: 'Courier New', Courier, monospace;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: white;
+
+
+}
+.img-s {
+	width:30em;
+	height: 25em;
+	border: 0 solid transparent;
+	border-radius: 0.4em;
+
+}
+.img-s:hover{
+	opacity: 60%;
+
+}
+.huge{
+  font-size: 3em;
+  margin-top: -15px;
+}

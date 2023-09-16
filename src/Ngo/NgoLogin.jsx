@@ -7,7 +7,7 @@ export default function NgoLogin() {
   let navigate = useNavigate();
   const [errors, setErrors] = useState()
 
-  const {setNgo,setType,type,setToken} = useStateContext();
+  const {setUser,setType,type,setToken} = useStateContext();
   const nameRef = useRef();
   const passwordRef = useRef();
 
@@ -19,11 +19,11 @@ export default function NgoLogin() {
     }
     console.log(payload);
     axiosClient.post('/ngo/login',payload).then(({data})=>{
-      console.log(data)
+      console.log(data[0])
       if(data.message == 'Credential unmatched!'){
         setErrors(data.message)
       }
-      setNgo(data.name);
+      setUser(data[0]);
       setType(data.type);
       setToken(data.token);
 

@@ -3,6 +3,7 @@ import { Navigate, Outlet } from 'react-router'
 import { useStateContext } from './contexts/ContextProvider'
 import Header from './Header'
 import axiosClient from '../axios-client'
+import FoodCard from './cards/FoodCard'
 
 
 export default function DefaultLayout() {
@@ -26,6 +27,7 @@ export default function DefaultLayout() {
   return (
     <div className="flex">
       <Header  onLogout={onLogout}  />
+      <FoodCard/>
     <main>
       <h3>default layout</h3>        
       <br></br>
