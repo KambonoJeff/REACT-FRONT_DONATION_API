@@ -17,7 +17,9 @@ const [request,setRequest]=useState({
 });
 
 const [load,setLoad]=useState();
-
+const redirect=()=>{
+  return <Navigate to='/users/requests'/>
+}
 useEffect(()=>{
   if(type!=='admin'){
     window.alert('ONLY ADMIN CAN EDIT!!')
@@ -27,11 +29,13 @@ useEffect(()=>{
     axiosClient.get(`/requests/${id}`).then(({data})=>{
         setLoad(false)
         setRequest(data)
+        redirect()
     }).catch((err)=>{
         setLoad(false)
         console.log('error occured when reusting for an individual request',err)
     })
   }
+
    
 },[]);
 const onSubmit = ( event )=>{
@@ -60,7 +64,7 @@ const onSubmit = ( event )=>{
             <input type="text" value={request.quantity} onChange={event => setRequest({...request, quantity: event.target.value })} />
             <input type="text" value={request.beneficiaries} onChange={event => setRequest({...request,beneficiaries:event.target.value})} />
             <input type="text" value={request.location} onChange={event=>setRequest({...request,location:event.target.value})} />
-            <input type="text" value={request.status} readOnly />
+            <input type="text" value={request.status} onChange={event=>setRequest({...request, status:event.target.value})} />
             <button className='btn' align='center' type='submit'> SAVE </button>
             <Link className='btn' to={'/users/requests'}>Back</Link>
         </div>
