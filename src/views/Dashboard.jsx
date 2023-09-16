@@ -12,32 +12,35 @@ import axiosClient from '../axios-client';
 export default function Dashboard() {
   const {user,type}=useStateContext();
   const cashRef = useRef();
-  const redirect =()=>{
-    console.log('redirecting .....')
-    return <Navigate to="/users/food"/>
-  }
+  const[load,setLoad]=useState();
   const onSubmit=(event)=>{
     event.preventDefault()
-    const payload = {
-      cereals: 0,
-      proteins: 0,
-      legumes: 0,
-      breakfast: 0,
-      snacks: 0,
-      cash: cashRef.current.value,
+    if(!window.confirm('THANK YOU FOR DONTING TO A JUST COURSE. WE HOPE TO SEE YOU AGAIN')){
+      return
+    }else{
+      const payload = {
+        cereals: 0,
+        proteins: 0,
+        legumes: 0,
+        breakfast: 0,
+        snacks: 0,
+        cash: cashRef.current.value,
+      }
+      setLoad(true)
+       axiosClient.post('/food',payload).then(({data})=>{
+         console.log(data);
+         setLoad(false)
+        }).catch
+       (err=>{
+        setLoad(false)
+         const response = err.response;
+         if(response && response.status === (422 || 500 || 404) ){
+           console.log(response.data.errors)
+  
+         };
+       })
+  
     }
-     axiosClient.post('/food',payload).then(({data})=>{
-       console.log(data);
-        redirect();
-      }).catch
-     (err=>{
-       const response = err.response;
-       if(response && response.status === (422 || 500 || 404) ){
-         console.log(response.data.errors)
-
-       };
-     })
-
   }
   return (
     <section className='my-element'>
@@ -75,6 +78,7 @@ export default function Dashboard() {
               <img className='img-s' src={image} alt="This is an image of a desert" />
           </div>
           </div>
+          {load && <h4 align='center'> D o n a t i n g . . </h4>}
           <form onSubmit={onSubmit}>
             {type==='user'&& <div className="box flex form-control">
             <button  type='submit' className="btn">DONATE IN CASH</button>

@@ -15,6 +15,10 @@ const Request=()=>{
     
     const onSubmit=(event)=>{
       event.preventDefault()
+      if(!window.confirm('THANK YOU FOR DONATING TO A JUST COURSE')){
+        return
+      }else{
+        
       const payload = {
         cereals: cerealsRef.current.value,
         proteins: proteinsRef.current.value,
@@ -33,7 +37,8 @@ const Request=()=>{
   
          };
        })
-  
+
+      }
 
       
       
