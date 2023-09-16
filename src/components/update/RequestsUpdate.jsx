@@ -4,7 +4,7 @@ import axiosClient from '../../axios-client';
 import { useStateContext } from '../contexts/ContextProvider';
 
 const RequestsUpdate = () => {
-const {id}=useParams();
+  const{id}= useParams();
 const{type}=useStateContext();
 const [request,setRequest]=useState({
     id:null,
@@ -17,19 +17,15 @@ const [request,setRequest]=useState({
 });
 
 const [load,setLoad]=useState();
-const redirect=()=>{
-  return <Navigate to='/users/requests'/>
-}
+
 useEffect(()=>{
   if(type!=='admin'){
     window.alert('ONLY ADMIN CAN EDIT!!')
-    return <Navigate to='users/requests'/>
   }else{
     setLoad(true)
     axiosClient.get(`/requests/${id}`).then(({data})=>{
         setLoad(false)
         setRequest(data)
-        redirect()
     }).catch((err)=>{
         setLoad(false)
         console.log('error occured when reusting for an individual request',err)

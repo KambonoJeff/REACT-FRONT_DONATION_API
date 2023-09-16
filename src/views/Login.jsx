@@ -10,6 +10,7 @@ export default function Login() {
   const [errors, setErrors] = useState();
   const {setUser,setType, setToken} = useStateContext()
   const[load,setLoad]=useState();
+
   const onSubmit=(event)=>{
     event.preventDefault()
     const payload = {
@@ -52,6 +53,7 @@ export default function Login() {
    <form align="center" onSubmit={onSubmit} method="post">
    <h2>Login Form </h2>    
    <br />  
+   {load && <h4 align='center'>Loading . . . </h4>}
    {
             <div className="alert">
              {errors && <h5 align='center'>{errors}</h5>}

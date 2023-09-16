@@ -23,10 +23,8 @@ import NgoUpdate from "./components/update/NgoUpdate";
 import Admin from "./Admin/Admin";
 import AdminCreate from "./Admin/AdminCreate";
 import NgoLogin from "./Ngo/NgoLogin";
-import NotEmpty from "./components/NotEmpty";
 import RequestsUpdate from "./components/update/RequestsUpdate";
 import UserUpdate from "./components/update/UserUpdate";
-import FoodCard from "./components/cards/FoodCard";
 
 const router = createBrowserRouter([
     {

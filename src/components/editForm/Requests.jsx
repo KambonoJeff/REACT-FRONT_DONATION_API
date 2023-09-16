@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {useRef} from 'react'
 import axiosClient from '../../axios-client';
 import {  useNavigate } from 'react-router-dom';
@@ -11,6 +11,7 @@ const Request_ = ()=>{
     const locationRef = useRef();
     const statusRef = useRef();
     let navigate = useNavigate();
+    const[load,setLaod]=useState();
 
     
 
@@ -22,12 +23,15 @@ const Request_ = ()=>{
         quantity: quantityRef.current.value,
         beneficiaries: beneficiariesRef.current.value,
         location: locationRef.current.value,
-        status: statusRef.current.value,
+        status: 'NotApproved'
       }
-      console.log(payload)
-    axiosClient.post('/debugtest',payload).then(({data})=>{
-      console.log('this the response',data)
-    }).catch((err)=>{
+
+      setLaod(true)
+      axiosClient.post('/debugtest',payload).then(({data})=>{
+        setLaod(false)
+
+      }).catch((err)=>{
+        setLaod(false)
       console.log(err)
     })
   }
@@ -36,7 +40,9 @@ const Request_ = ()=>{
       <br />
       <div className="brd">
       <h2 align='center'> Add new Request</h2>
-     
+      <br />
+      {load && <h4 align='center'>Loading . . . </h4>}
+     <br />
         <form action="" onSubmit={onSubmit} method="post">
           <div className="form-control">
           <input ref={user_idRef} type="number" name="user_id" id="user_id" placeholder='Enter The User Id'/>
@@ -44,7 +50,7 @@ const Request_ = ()=>{
           </div>
   
          <div className="form-control">
-            <select readOnly className="form-control" ref={foodRef} name="type" id="type">
+            <select  className="form-control" ref={foodRef} name="type" id="type">
                 <option  value="Cereals">Cereals</option>
                 <option value="snacks">snacks</option>
                 <option value="legumes">legumes</option>
