@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
 import axiosClient from '../../axios-client';
+import { useStateContext } from '../contexts/ContextProvider';
 
 const RequestsUpdate = () => {
 const {id}=useParams();
-let navigate = useNavigate();
+const{type}=useStateContext();
 const [request,setRequest]=useState({
     id:null,
     typeoffood:'',
@@ -17,6 +18,9 @@ const [request,setRequest]=useState({
 
 const [load,setLoad]=useState();
 useEffect(()=>{
+  if(type!=='admin'){
+    window.alert('ONLY ADMIN CAN EDIT!!')
+  }else{
     setLoad(true)
     axiosClient.get(`/requests/${id}`).then(({data})=>{
         setLoad(false)
@@ -25,6 +29,8 @@ useEffect(()=>{
         setLoad(false)
         console.log('error occured when reusting for an individual request',err)
     })
+  }
+   
 },[]);
 const onSubmit = ( event )=>{
     event.preventDefault()

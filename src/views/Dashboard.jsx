@@ -180,7 +180,7 @@ Print Donation Form</p>
 
         <div className="flex box mg-t">
             {type==='admin' &&           <Link align='center' className='btn btn-w' to="/users/food">Food Bank</Link>}
-            {type==='admin'&&  <Link align='center' className='btn btn-w' to="/users/ngo"> N G O </Link>}
+            {type!=='user'&&  <Link align='center' className='btn btn-w' to="/users/ngo"> N G O </Link>}
            
 
 

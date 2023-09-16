@@ -1,10 +1,12 @@
 import React, {  useEffect, useState } from 'react'
-import {  useNavigate, useParams } from 'react-router-dom';
+import {  Navigate, useNavigate, useParams } from 'react-router-dom';
 import axiosClient from '../../axios-client';
+import { useStateContext } from '../contexts/ContextProvider';
 
 const NgoUpdate = ()=> {
     const {id} = useParams();
     let navigate = useNavigate();
+    const{type}=useStateContext();
 
     const [ngo , setNgo] = useState(
         {
@@ -18,7 +20,10 @@ const NgoUpdate = ()=> {
     );
     const [load ,setLoad]= useState(false);
     useEffect(()=>{
-
+      if(type!=='admin'){
+        window.alert('ONLY ADMIN CAN EDIT DATA!')
+        return <Navigate to='users/ngo' />
+      }else{
         setLoad(true)
                 axiosClient.get(`/showngo/${id}`).then(({data})=>{
                     setLoad(false)
@@ -28,6 +33,8 @@ const NgoUpdate = ()=> {
                 }).catch((err)=>{
                   console.log('something is wrong the request for an individual id is not successful', err)
                 })
+      }
+        
     },[])
                 
 

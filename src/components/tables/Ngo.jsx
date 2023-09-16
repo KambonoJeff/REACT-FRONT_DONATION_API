@@ -5,7 +5,7 @@ import { useStateContext } from '../contexts/ContextProvider';
 
 const Ngo = () => {
   const [ngo , setNgo] = useState([]);
-const {admin} = useStateContext()
+const {type} = useStateContext()
 let navigate = useNavigate();
   const _ngo =()=>{
     axiosClient.get('/ngo/show').then((res)=>{
@@ -18,18 +18,27 @@ let navigate = useNavigate();
     _ngo()
    },[])
    const onDelete=(data)=>{
-    if(!window.confirm('Are You sure You want to delete this!?')){
-        return
+    if(type!=='admin'){
+        window.alert('ONLY ADMIN CAN DELETE!')
     }else{
-        axiosClient.delete(`/ngo/delete/ ${data.id}`).then((res)=>{console.log(res); _ngo();}).catch((err)=>{
-            console.log(err)
-        })
+        if(!window.confirm('Are You sure You want to delete this!?')){
+            return
+        }else{
+            axiosClient.delete(`/ngo/delete/ ${data.id}`).then((res)=>{console.log(res); _ngo();}).catch((err)=>{
+                console.log(err)
+            })
+        }
     }
    }
   return (
     <>
+       {type==='admin' && 
         <Link className='btn-green' to={'/ngo/show/new'}>Add NGO</Link>
-              <h2 align='center'>NGO {admin}</h2>
+       }
+       <br />
+       <br />
+       <br />
+              <h2 align='center'>NGO Table</h2>
         <br/>   
             <table>
         
