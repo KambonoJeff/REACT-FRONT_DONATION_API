@@ -25,6 +25,7 @@ import AdminCreate from "./Admin/AdminCreate";
 import NgoLogin from "./Ngo/NgoLogin";
 import RequestsUpdate from "./components/update/RequestsUpdate";
 import UserUpdate from "./components/update/UserUpdate";
+import RequestCards from "./components/cards/RequestCards";
 
 const router = createBrowserRouter([
     {
@@ -53,6 +54,11 @@ const router = createBrowserRouter([
             {
                 path:'/users/requests',
                 element: <Requests/>,
+      
+            },
+            {
+                path:'/requests',
+                element: <RequestCards/>,
       
             },
             {

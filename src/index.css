@@ -497,3 +497,32 @@ option::placeholder{
   font-size: 3em;
   margin-top: -15px;
 }
+/* Styles for the card container */
+.card4 {
+  width: 300px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for the card header */
+.header4 {
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 10px;
+  font-weight: bold;
+}
+
+/* Styles for the card content */
+.content4 {
+  padding: 10px;
+}
+
+/* Styles for the card footer */
+.footer4 {
+  background-color: #f0f0f0;
+  padding: 10px;
+  text-align: center;
+}
