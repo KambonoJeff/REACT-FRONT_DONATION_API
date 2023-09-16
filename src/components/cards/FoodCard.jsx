@@ -4,17 +4,17 @@ import axiosClient from '../../axios-client';
 const FoodCard = () => {
     const [sum,setSum]=useState([])
     const [load, setLoad] = useState()
-    const food =()=>{
+ 
+ 
+     useEffect(()=>{
+      setLoad(true)
       axiosClient.get('/food').then((res)=>{
         setLoad(false)
         setSum(res.data)
   
       })
         .catch(err =>{ setLoad(false); console.error(err)});
-     }
-     useEffect(()=>{
-      setLoad(true)
-      food()
+     
      },[])
      const cash = sum[5]
      const cereals = sum[0]

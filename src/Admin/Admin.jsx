@@ -28,14 +28,13 @@ export default function Admin() {
       setLoad(true)
       axiosClient.post('/admin/login', payload).then(({data})=>{
         setLoad(false)
-        console.log(data.token);
         setToken(data.token)
         setUser(data[0].firstname)
         setType(data.type)
       }).catch((err)=>{
         setLoad(false)
-        console.log(err)
-        setLoad("error from back ::", err)
+        console.log("error from back ::",err)
+        setLoad( err)
       })
 
     }

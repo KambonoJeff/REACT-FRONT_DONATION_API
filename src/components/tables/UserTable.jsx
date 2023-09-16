@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import Button from '../Button'
 import axiosClient from '../../axios-client';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -11,6 +10,7 @@ const UserTable = () => {
     setLoad(true)
     axiosClient.get('/showusers').then((res)=>{
         setLoad(false)
+        console.log(res.data)
     setUsers(res.data.data)})
     .catch((err)=>{
         setLoad(false)
@@ -58,7 +58,7 @@ const UserTable = () => {
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>{user.type}</td>
-                                <td>{user.email_verified_at}</td>
+                                <td>{user.created_at}</td>
                                 <td className='flex'>
                                 <Link className='btn' to={'/user/update/'+ user.id}>Edit</Link>
                                     <button onClick={event=>onDelete(user)} className='btn'>Delete</button>

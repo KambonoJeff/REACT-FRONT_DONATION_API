@@ -12,8 +12,8 @@ export default function Register() {
   const passwordRef = useRef();
   const passwordConfirmationRef = useRef();
   const [errors, setErrors] = useState()
-
-  const {setUser,setType,type,setToken} = useStateContext()
+  const[load,setLoad]=useState();
+  const {setUser,setType,type,setToken}=useStateContext()
 
   const onSubmit=(event)=>{
     event.preventDefault()
@@ -24,13 +24,18 @@ export default function Register() {
       password: passwordRef.current.value,
       password_confirmation: passwordConfirmationRef.current.value,
     }
+    console.log('this the payload',payload)
+    setLoad(true)
     axiosClient.post('/register',payload).then(({data})=>{
+      console.log(data)
       setType(data.type)
-
-      setUser(data.user)
+      setUser(data[0].name)
+      setLoad(false)
       setToken(data.token)
+      
     }).catch
     (err=>{
+      setLoad(false)
       const response = err.response;
       if(response && response.status === (422 || 500 || 404) ){
         console.log(response.data.errors)
@@ -50,7 +55,8 @@ export default function Register() {
     <div className="brd-w">
     <form align="center" onSubmit={onSubmit} method="post">
     <h2 align="center">Register Now For Free</h2>
-
+<br />
+{load && <h4 align='center'>Laoding . . . </h4>}
     {
             errors &&
             <div className="alert">

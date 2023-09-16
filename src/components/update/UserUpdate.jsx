@@ -25,19 +25,29 @@ const UserUpdate = () => {
             console.log('Error occured while making the rquest',err)
         })
     },[])
-    const onSubmit=(event)=>{
-        event.preventDafault()
-        console.log('this response after submit',user)
-    }
-
-
-
+    const onSubmit = ( event )=>{
+      event.preventDefault()
+     
+      setLoad(true)
+      axiosClient.post(`/edit/user/${id}`,user)
+      .then(({data})=>{
+          setLoad(false)
+          console.log('this data returned',data)
+      })
+      .catch(({err})=>{
+          setLoad(false)
+          console.log('An Error occured while making the request',err)
+      })
+     
+  }
 
 
 
 
   return (
     <>
+      <br />
+      <br />
       <br />
       {user.id && <h3 align='center'>user name: {user.name}</h3>}
       {load && <h4 align='center'> Loading . . . </h4>}

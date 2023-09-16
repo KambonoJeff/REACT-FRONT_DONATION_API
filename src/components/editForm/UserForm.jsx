@@ -10,7 +10,7 @@ export default function UserForm() {
   const passwordConfirmationRef = useRef();
   let navigate = useNavigate();
   const [errors, setErrors] = useState();
-
+  const [load,setLoad]=useState()
   const onSubmit =(event)=>{
     event.preventDefault()
   
@@ -22,12 +22,13 @@ export default function UserForm() {
       password:passwordRef.current.value,
       password_confirmation: passwordConfirmationRef.current.value,
     }
-    console.log(payload);
-    axiosClient.post('/register', payload).then((res)=>{
-      return <Navigate to={"/users/user"}/>
 
+    setLoad(true)
+    axiosClient.post('/register', payload).then(({res})=>{
+      setLoad(false)
     }).catch
     (err=>{
+      setLoad(false)
       const response = err.response;
       if(response && response.status === (422 || 500 || 404) ){
         console.log(response.data)
@@ -41,8 +42,11 @@ export default function UserForm() {
     <br />
     <br />
     <div className="brd">
+      <br />
       <form align='center' action="" onSubmit={onSubmit} method="post">
       <h2 align="center">Add User</h2>
+      <br />
+      {load && <h4 align='center'>Loading . . . </h4>}
       {
             errors &&
             <div className="alert">
