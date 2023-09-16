@@ -515,7 +515,7 @@ option::placeholder{
   font-weight: bold;
 }
 
-/* Styles for the card content */
+/* Styles for the card c.ontent */
 .content4 {
   padding: 10px;
   color:whitesmoke;
@@ -526,4 +526,7 @@ option::placeholder{
   background-color: rgba(128, 128, 128, 0.171);
   padding: 10px;
   text-align: center;
+}
+.wrap{
+  
 }

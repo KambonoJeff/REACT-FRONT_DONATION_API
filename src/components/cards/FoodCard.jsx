@@ -31,24 +31,24 @@ const FoodCard = () => {
     </div>
 
     <div align='right' class="card3">
-        <div class="amount">${cereals}</div> 
+        <div class="amount">Kgs {cereals}</div> 
         <div class="title">Cereals</div>
     </div>
 
     <div align='right' class="card3">
-        <div class="amount">${proteins}</div> 
+        <div class="amount">Kgs {proteins}</div> 
         <div class="title">Proteins</div>
     </div>
     <div align='right' class="card3">
-        <div class="amount">${legumes}</div> 
+        <div class="amount">Kgs {legumes}</div> 
         <div class="title">legumes</div>
     </div>
     <div align='right' class="card3">
-        <div class="amount">${breakfast}</div> 
+        <div class="amount">Kgs {breakfast}</div> 
         <div class="title">breakfast</div>
     </div>
     <div align='right' class="card3">
-        <div class="amount">${snacks}</div> 
+        <div class="amount">Kgs {snacks}</div> 
         <div class="title">snacks</div>
     </div>
     </div>

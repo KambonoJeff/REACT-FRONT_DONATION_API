@@ -1,18 +1,18 @@
 import React from 'react'
 
 
-const Card = ({ data }) => {
+const Card = ({ item, ngodata }) => {
 
        
   return (
     <>
     <div class="card4">
-        <div class="header4">{}</div>
+        <div class="header4">{item.typeoffood}</div>
         <div class="content4">
-            <p>This is some content4 for 4 1.</p>
-            <p>More content4 goes here.</p>
+            <p>Quantity needed {item.quantity} Kilograms</p>
+            <p>Number Of Beneficiaries are {item.beneficiaries}</p>
         </div>
-        <div class="footer4">Footer4 1</div>
+        <div class="footer4">Location {item.location}</div>
     </div>
       
     </>
