@@ -43,22 +43,30 @@ export default function Dashboard() {
     <section className='my-element'>
       <br />
       <div className="box">
+      <br />
+   
         <br />
-        <br />
-        <br />
-          <h3 align="center">Welcome to our donation app, where every act of generosity has the power to ignite positive change. Join us in making a difference today</h3>
+        {type==='admin'?(<h2 align='center'>ADMINSTRATOR</h2>):(
+
+<h3 align="center">Welcome to our donation app, where every act of generosity has the power to ignite positive change. Join us in making a difference today</h3>
+
+
+        )}
           <div className="flex box box mg-t">
             <div className="grid">
             <h1 className='stroke-text' >WELCOME</h1>
             <h2  className='huge'>{user}😇🥳</h2>
-            <h3 className='box'>Monthly giving is
-the perfect way
-to help our
-less fortunate brothers
-and sisters.</h3>
+   {
+    type!=='admin'&&   <h3 className='box'>Monthly giving is
+    the perfect way
+    to help our
+    less fortunate brothers
+    and sisters.</h3>
+   }
               <br />
               <br />
-            <Link align="center" className='btn btn-w' to="/form/NgoRequest"> Donate Food </Link>
+              {type==='user' && <Link align="center" className='btn btn-w' to="/form/NgoRequest"> Donate Food </Link>}
+           
             </div>
 
 
@@ -68,15 +76,17 @@ and sisters.</h3>
           </div>
           </div>
           <form onSubmit={onSubmit}>
-          <div className="box flex form-control">
+            {type==='user'&& <div className="box flex form-control">
             <button  type='submit' className="btn">DONATE IN CASH</button>
           
               <input  ref={cashRef} placeholder='min 1000' className='short-w' type="number" />
               <h1>kshs</h1>
            
-          </div>
+          </div>}
+         
           </form>
-          <div className='card-container'>
+          {type==='user' &&
+            <div className='card-container'>
             <br />
             <h3 align='center'>PROVIDE SUPPORT FOR A SPECIFIC AREA OF NEED YOU ARE MOST PASSIONATE ABOUT.</h3>
             <br />
@@ -103,8 +113,7 @@ and sisters.</h3>
 					<p align='center'>Orphaned or abandoned children deserve love, care, and support for a brighter, hopeful future</p>
 				  </div>
 				</div>
-			  </div>
-          <div className='card-container'>
+          
          
 				<div className="card">
 				  <img src={image6} alt="Image 1"/>
@@ -128,6 +137,8 @@ and sisters.</h3>
 				  </div>
 				</div>
 			  </div>
+          }
+        
         <div className="box">
         <div className="flex box mg-t">
             
@@ -136,7 +147,7 @@ and sisters.</h3>
 
           </div>
           </div>
-       {!type==='admin' &&
+       {type==='user' &&
         <div className="card-container2">
         <div className="card2">
            

@@ -5,7 +5,8 @@ import axiosClient from '../axios-client';
 
 export default function NgoLogin() {
   let navigate = useNavigate();
-  const [errors, setErrors] = useState()
+  const [errors, setErrors] = useState();
+  const[load,setLoad]=useState();
 
   const {setUser,setType,type,setToken} = useStateContext();
   const nameRef = useRef();
@@ -17,9 +18,9 @@ export default function NgoLogin() {
       name:nameRef.current.value,
       licenseNo: passwordRef.current.value,
     }
-    console.log(payload);
+    setLoad(true)
     axiosClient.post('/ngo/login',payload).then(({data})=>{
-      console.log(data[0])
+      setLoad(false)
       if(data.message == 'Credential unmatched!'){
         setErrors(data.message)
       }
@@ -29,6 +30,7 @@ export default function NgoLogin() {
 
 
     }).catch(({err})=>{
+      setLoad(false)
       if(err == 422){
 
       console.log('THIS AN UNPROCESSABLE CONTENT',err)
@@ -50,6 +52,7 @@ export default function NgoLogin() {
    <form align="center" onSubmit={onSubmit} method="post">
    <h2>Ngo Login Form </h2> 
    <br />
+   {load && <h4 align='center'>Loading . . .</h4>}
    <div className="alert">
              {errors && <h5 align='center'>{errors}</h5>}
             </div>

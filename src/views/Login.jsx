@@ -7,9 +7,9 @@ import { Link } from 'react-router-dom';
 export default function Login() {
   const emailRef = useRef();
   const passwordRef = useRef();
-  const [errors, setErrors] = useState()
+  const [errors, setErrors] = useState();
   const {setUser,setType, setToken} = useStateContext()
-
+  const[load,setLoad]=useState();
   const onSubmit=(event)=>{
     event.preventDefault()
     const payload = {
@@ -17,13 +17,14 @@ export default function Login() {
       password: passwordRef.current.value,
 
     }
-    console.log(payload)
+
+      setLoad(true)
     axiosClient.post("/login",payload).then(
       ({data})=>{
+        setLoad(false)
         if(data.message == 'Credentials do not match'){
           setErrors(data.message)
         }
-        console.log(data[0])
         setType(data.type)
         
         setUser(data[0]);
@@ -31,6 +32,7 @@ export default function Login() {
         
       }
     ).catch(err=>{
+      setLoad(false)
       const res = err.response;
       if(res && res.status === (401||403||404)){
         setErrors(res);

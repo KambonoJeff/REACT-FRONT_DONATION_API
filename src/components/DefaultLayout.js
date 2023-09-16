@@ -8,7 +8,7 @@ import FoodCard from './cards/FoodCard'
 
 export default function DefaultLayout() {
 
-  const {token, setToken, setUser} = useStateContext()
+  const {token,type, setToken, setUser} = useStateContext()
   if(!token){
     return <Navigate to="/login"/>
   }
@@ -27,7 +27,12 @@ export default function DefaultLayout() {
   return (
     <div className="flex">
       <Header  onLogout={onLogout}  />
+      {type!=='admin'&&
+      
       <FoodCard/>
+      
+      
+      }
     <main>
       <h3>default layout</h3>        
       <br></br>

@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import axiosClient from '../../axios-client';
 import { Link, useNavigate } from 'react-router-dom';
+import { useStateContext } from '../contexts/ContextProvider';
 
 
 const Requests = () => {
   const [requests , setRequests] =useState([]);
   let navigate = useNavigate();
   const [load,setLoad]=useState();
+  const{type}=useStateContext();
   const _requests =()=>{
     setLoad(true)
     axiosClient.get('/PostRequest').then((res)=>{
@@ -21,16 +23,22 @@ const Requests = () => {
     _requests()
    },[])
    const onDelete=(data)=>{
-    if(!window.confirm('Are You Sure You Want to delete?')){
-        return
+    if(type!=='admin'){
+        window.alert('ONLY ADMINSTRATOR CAN DELETE A RECORD!!!')
     }else{
-        setLoad(true)
-        axiosClient.delete(`/PostRequest/${data.id}`)
-        .then((res)=>{
-            setLoad(false)
-            console.log(res); _requests()
-        }).catch((Err)=>{setLoad(false); console.log(Err)})
+        if(!window.confirm('Are You Sure You Want to delete?')){
+            return
+        }else{
+            setLoad(true)
+            axiosClient.delete(`/PostRequest/${data.id}`)
+            .then((res)=>{
+                setLoad(false)
+                console.log(res); _requests()
+            }).catch((Err)=>{setLoad(false); console.log(Err)})
+        }
     }
+
+  
 
    }
     const getRowStyle=(value)=>{

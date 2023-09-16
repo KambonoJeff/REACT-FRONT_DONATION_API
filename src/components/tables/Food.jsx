@@ -1,9 +1,11 @@
 import React, { useState,useEffect } from 'react'
 import axiosClient from '../../axios-client';
 import { Link, useNavigate } from 'react-router-dom';
+import { useStateContext } from '../contexts/ContextProvider';
 
 
 const Food = () => {
+  const{type}=useStateContext();
   const[foods ,setFood]=useState([]);
   const [sum,setSum]=useState([])
   const [load, setLoad] = useState()
@@ -27,7 +29,10 @@ const Food = () => {
     <>
                   <h2 align='center'>Food Table and Totals</h2>
             <br/>   
+            {type!=='admin'&&
             <Link className='btn-green' to={'/form/NgoRequest'}> Donate </Link>
+            }
+            
             <br />
             <div className="flex mg-t">
 
