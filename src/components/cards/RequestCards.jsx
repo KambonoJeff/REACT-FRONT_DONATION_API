@@ -1,25 +1,32 @@
-import React from 'react'
-
+import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+import Card from './Card';
 const RequestCards = () => {
+    const [requests , setRequests] =useState([]);
+    let navigate = useNavigate();
+    const [load,setLoad]=useState();
+
+    const _requests =()=>{
+        setLoad(true)
+        axiosClient.get('/PostRequest').then((res)=>{
+            setLoad(false)
+        setRequests(res.data.data)})
+        .catch((err)=>{
+            setLoad(false)
+            console.log('error occured while making the request',err)
+        });
+       }
+       useEffect(()=>{
+        _requests()
+       },[])
   return (
     <>
-       <div class="4">
-        <div class="header">4 1</div>
-        <div class="content">
-            <p>This is some content for 4 1.</p>
-            <p>More content goes here.</p>
-        </div>
-        <div class="footer">Footer 1</div>
-    </div>
-
-    <div class="4">
-        <div class="header">Card 2</div>
-        <div class="content">
-            <p>This is some content for card 2.</p>
-            <p>More content goes here.</p>
-        </div>
-        <div class="footer">Footer 2</div>
-    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+       {load && <h4 align='center'>Loading . . . </h4>}
+    <Card data={requests}/>
     </>
   )
 }

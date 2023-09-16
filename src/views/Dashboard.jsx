@@ -141,8 +141,13 @@ export default function Dashboard() {
         
         <div className="box">
         <div className="flex box mg-t">
-            
-              <Link align='center' className='btn btn-w' to="/users/requests">Requests</Link>
+            {type==='user'?(
+              <Link align='center' className='btn btn-w' to="/requests">View Requests</Link>
+            ):(
+
+<Link align='center' className='btn btn-w' to="/users/requests">Requests</Link>
+
+            )}
             <Link align='center' className='btn btn-w' to="/users/user">User</Link>
 
           </div>

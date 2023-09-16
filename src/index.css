@@ -500,8 +500,8 @@ option::placeholder{
 /* Styles for the card container */
 .card4 {
   width: 300px;
-  background-color: #ffffff;
-  border: 1px solid #ccc;
+  background-color: rgba(128, 128, 128, 0.565);
+  border: 1px solid black;
   border-radius: 5px;
   margin: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -509,8 +509,8 @@ option::placeholder{
 
 /* Styles for the card header */
 .header4 {
-  background-color: #007bff;
-  color: #ffffff;
+  background-color: black;
+  color: whitesmoke;
   padding: 10px;
   font-weight: bold;
 }
@@ -518,11 +518,12 @@ option::placeholder{
 /* Styles for the card content */
 .content4 {
   padding: 10px;
+  color:whitesmoke;
 }
 
 /* Styles for the card footer */
 .footer4 {
-  background-color: #f0f0f0;
+  background-color: rgba(128, 128, 128, 0.171);
   padding: 10px;
   text-align: center;
 }

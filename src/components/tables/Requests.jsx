@@ -23,6 +23,7 @@ const Requests = () => {
    useEffect(()=>{
     _requests()
    },[])
+   
    const onDelete=(data)=>{
     if(type!=='admin'){
         window.alert('ONLY ADMINSTRATOR CAN DELETE A RECORD!!!')
