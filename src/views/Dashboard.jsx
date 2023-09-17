@@ -152,7 +152,14 @@ export default function Dashboard() {
 <Link align='center' className='btn btn-w' to="/users/requests">Requests</Link>
 
             )}
-            <Link align='center' className='btn btn-w' to="/users/user">User</Link>
+            {type==='user'?(
+
+<Link align='center' className='btn btn-w' to="/request/compare"> Donations </Link>
+            ):(
+
+<Link align='center' className='btn btn-w' to="/users/user">User</Link>
+            )}
+            
 
           </div>
           </div>

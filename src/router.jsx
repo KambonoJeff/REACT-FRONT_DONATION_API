@@ -26,6 +26,7 @@ import NgoLogin from "./Ngo/NgoLogin";
 import RequestsUpdate from "./components/update/RequestsUpdate";
 import UserUpdate from "./components/update/UserUpdate";
 import RequestCards from "./components/cards/RequestCards";
+import CompareCards from "./components/cards/CompareCards";
 
 const router = createBrowserRouter([
     {
@@ -139,6 +140,10 @@ const router = createBrowserRouter([
             {
                 path:'/admin/register',
                 element: <AdminCreate/>
+            },
+            {
+                path:'/request/compare',
+                element: <CompareCards/>
             },
          
         ]
