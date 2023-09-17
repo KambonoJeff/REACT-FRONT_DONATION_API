@@ -13,10 +13,8 @@ const Food = () => {
   const food =()=>{
     axiosClient.get('/food').then((res)=>{
       setLoad(false)
-      console.log(res.data);
       setFood(res.data[6].data)
       setSum(res.data)
-      console.log('This the sum',sum[0])
 
     })
       .catch(err =>{ setLoad(false); console.error(err)});

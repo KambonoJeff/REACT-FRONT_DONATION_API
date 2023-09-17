@@ -11,7 +11,6 @@ const FoodCard = () => {
       setLoad(true)
       axiosClient.get('/sumfood').then((res)=>{
         setLoad(false)
-        console.log('this the return data',res)
         setfood(res.data[0]);
         setcash(res.data[1])
       })
