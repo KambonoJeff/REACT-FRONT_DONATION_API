@@ -8,7 +8,8 @@ export default function CompareCards
     const [load, setLoad] = useState();
     let navigate = useNavigate();
       const [asset, setAsset]=useState([]);
-  const[a,setA]=useState('0');
+  const[a,setA]=useState([]);
+  const[riri , setRiri]=useState([]);
 
   const payload = 
  
@@ -26,13 +27,11 @@ export default function CompareCards
   function getData(){
        // second request
      setLoad(true);
-     console.log('FIRST request succesful!ROUTE::/food (Sets The asset[0] needed in the difrence)')
 
      axiosClient.get('/food')
      .then((res)=>{
          setLoad(false);
          setAsset(res.data);
-         console.log('The data is set from the first request made',asset);
        })
      .catch(err =>{ setLoad(false); console.error(err)});
      compare();
@@ -63,6 +62,7 @@ export default function CompareCards
       .then(({data})=>{
           setLoad(false)
           console.log('Diffrencee function paid its taxes',data)
+          setRiri(data[0])
       })
       .catch((err)=>{
           setLoad(false)
@@ -137,28 +137,28 @@ export default function CompareCards
                     <h3>Diffrence</h3>
                     <div className="grid">
                         <div class="card3 ">
-                    <div class="amount negative">Kgs {asset[0]}</div> 
+                    <div class="amount negative">Kgs {riri[0]}</div> 
                     <div class="title"> Cereals </div>
                 </div>
 
                 <div class="card3 ">
-                    <div class="amount negative">Kgs {asset[1]}</div> 
+                    <div class="amount negative">Kgs {riri[1]}</div> 
                     <div class="title"> Proteins </div>
                 </div>
                 <div class="card3 ">
-                    <div class="amount negative">Kgs {asset[2]}</div> 
+                    <div class="amount negative">Kgs {riri[2]}</div> 
                     <div class="title"> Legumes </div>
                 </div>
                 <div class="card3 ">
-                    <div class="amount negative">Kgs {asset[3]}</div> 
+                    <div class="amount negative">Kgs {riri[3]}</div> 
                     <div class="title"> Breakfast </div>
                 </div>
                 <div class="card3 ">
-                    <div class="amount negative">Kgs {asset[4]}</div> 
+                    <div class="amount negative">Kgs {riri[4]}</div> 
                     <div class="title"> Snacks </div>
                 </div>
                 <div class="card3 ">
-                    <div class="amount negative">${asset[5]}</div> 
+                    <div class="amount negative">$ cash</div> 
                     <div class="title"> Cash </div>
                 </div> 
                         </div>
@@ -166,7 +166,6 @@ export default function CompareCards
               
             </div>
         </div>
-        <div className="flex box">TOTAL</div>
         <button className='btn' onClick={()=>navigate(-1)}> Back </button>
       </div>
     </>
