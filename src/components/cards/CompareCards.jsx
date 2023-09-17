@@ -7,7 +7,29 @@ const CompareCards = () => {
     const [cash,setcash]=useState([]);
     const [load, setLoad] = useState();
     const [sum,setSum]=useState([])
+    const[a,setA]=useState();
     let navigate = useNavigate();
+    useEffect(()=>{
+        setLoad(false);
+        axiosClient.get('/requests/compare')
+        .then(({data})=>{
+            setLoad(false)
+            console.log(data)
+            setA(data)
+        })
+        .catch((err)=>{
+            setLoad(false)
+            console.log('error occured when making the request', err.response)
+        });
+        axiosClient.post('/requests/diffrence',payload)
+        .then(({data})=>{
+            console.log(data)
+        })
+        .catch((err)=>{
+            console.log('An error occured when get the diffrence', err.response)
+        })
+
+     },[])
     const food_ =()=>{
       axiosClient.get('/food').then((res)=>{
         setLoad(false)
@@ -31,19 +53,7 @@ const CompareCards = () => {
         .catch(err =>{ setLoad(false); console.error(err)});
      
      },[])
-     useEffect(()=>{
-        setLoad(false)
-        axiosClient.get('/requests/compare')
-        .then(({data})=>{
-            setLoad(false)
-            console.log(data)
-        })
-        .catch((err)=>{
-            setLoad(false)
-            console.log('error occured when making the request', err)
-        })
-
-     },[])
+     
 
   return (
     <>
@@ -87,24 +97,24 @@ const CompareCards = () => {
                     <h3>Requests</h3>
                     <div className="grid">
                         <div class="card3 ">
-                    <div class="amount negative">Kgs {sum[0]}</div> 
+                    <div class="amount negative">Kgs {a.Cereals}</div> 
                     <div class="title"> Cereals </div>
                 </div>
 
                 <div class="card3 ">
-                    <div class="amount negative">Kgs {sum[1]}</div> 
+                    <div class="amount negative">Kgs {a.Proteins}</div> 
                     <div class="title"> Proteins </div>
                 </div>
                 <div class="card3 ">
-                    <div class="amount negative">Kgs {sum[2]}</div> 
+                    <div class="amount negative">Kgs {a.Legumes}</div> 
                     <div class="title"> Legumes </div>
                 </div>
                 <div class="card3 ">
-                    <div class="amount negative">Kgs {sum[3]}</div> 
+                    <div class="amount negative">Kgs {a.BreakFast}</div> 
                     <div class="title"> Breakfast </div>
                 </div>
                 <div class="card3 ">
-                    <div class="amount negative">Kgs {sum[4]}</div> 
+                    <div class="amount negative">Kgs {a.Snacks}</div> 
                     <div class="title"> Snacks </div>
                 </div>
                 <div class="card3 ">
@@ -143,6 +153,7 @@ const CompareCards = () => {
                 </div> 
                         </div>
                 </div>
+              
             </div>
         </div>
         <div className="flex box">TOTAL</div>
