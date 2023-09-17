@@ -38,8 +38,6 @@ const Food = () => {
           axiosClient.delete(`/food/delete/${data.id}`)
           .then(({data})=>{
             setLoad(false);
-            console.log('this the returned data', data)
-            window.confirm('The record has been succesfully deleted!!')
           })
           .catch((err)=>{
             setLoad(false);
@@ -90,7 +88,7 @@ const Food = () => {
                                 <td>{data.breakfast} kg</td>
                                 <td>{data.snacks} kg</td>
                                 <td>{data.cash} kshs</td>
-                                <td>
+                                <td className='flex'>
                                   <Link className='btn' to={'/food/'+ data.id}> Edit </Link>
                                   <button className='btn' onClick={event=>{onDelete(data)}}> Delete </button>
                                 </td>
@@ -105,6 +103,7 @@ const Food = () => {
                 </tbody> 
                 </table>  
                 <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                 <div className="grid box">
 

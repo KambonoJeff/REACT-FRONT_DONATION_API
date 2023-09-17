@@ -21,10 +21,11 @@ const FoodUpdate = ()=> {
             axiosClient.get(`/food/${id}`).then(({data})=>{
                 setLoad(false);
                 console.log(data);
+                setUser(data);
           
                 }).catch((err)=>{
                   setLoad(false)
-                  console.log('request not successful')
+                  console.log('request not successful',err)
                 })
         
         
@@ -32,17 +33,17 @@ const FoodUpdate = ()=> {
 
     const onSubmit = (event)=>{
       event.preventDefault();
+      console.log('this the payload',user)
       setLoad(true);
       axiosClient.post(`/food/update/${id}`,user)
-      .then(({res})=>{
+      .then((res)=>{
         setLoad(false);
-        console.log(res);
-        window.confirm('The record has been Successfully updated!')
+        console.log('this the response after update',res);
       })
       .catch((err)=>{
         setLoad(false);
         console.log('An error occured when making the request!! ::', err);
-        
+
       })
 
     }
