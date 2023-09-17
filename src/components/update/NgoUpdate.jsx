@@ -43,7 +43,16 @@ const NgoUpdate = ()=> {
     const onSubmit=(event)=>{
         event.preventDefault()
         setLoad(true)
-        axiosClient.post(`/`)
+        axiosClient.post(`/ngo/update/${id}`,ngo)
+        .then(({data})=>{
+          setLoad(false)
+          console.log('This the response data', data)
+          window.confirm('The record has been succesfully updated!')
+        })
+        .catch((err)=>{
+          setLoad(false);
+          console.log('An error occured when making the request!!', err)
+        })
 
       }
   return (

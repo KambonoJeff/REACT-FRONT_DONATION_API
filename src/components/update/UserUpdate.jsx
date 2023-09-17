@@ -33,6 +33,7 @@ const UserUpdate = () => {
       .then(({data})=>{
           setLoad(false)
           console.log('this data returned',data)
+          window.confirm('The User has been successfully updated!')
       })
       .catch(({err})=>{
           setLoad(false)
