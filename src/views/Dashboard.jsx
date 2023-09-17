@@ -13,6 +13,9 @@ export default function Dashboard() {
   const {user,type}=useStateContext();
   const cashRef = useRef();
   const[load,setLoad]=useState();
+
+
+
   const onSubmit=(event)=>{
     event.preventDefault()
     if(!window.confirm('THANK YOU FOR DONTING TO A JUST COURSE. WE HOPE TO SEE YOU AGAIN')){
