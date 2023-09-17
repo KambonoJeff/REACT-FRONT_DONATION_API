@@ -31,13 +31,12 @@ export default function CompareCards
      axiosClient.get('/food')
      .then((res)=>{
          setLoad(false);
-         console.log('THIS THE FIRST RESPONSE FROM SERVER',res.data);
          setAsset(res.data);
          console.log('The data is set from the first request made',asset);
        })
      .catch(err =>{ setLoad(false); console.error(err)});
      compare();
-     getDiffrence();
+      getDiffrence();
 
   }
      
@@ -63,7 +62,7 @@ export default function CompareCards
       axiosClient.post('/requests/diffrence',payload)
       .then(({data})=>{
           setLoad(false)
-          console.log(data)
+          console.log('Diffrencee function paid its taxes',data)
       })
       .catch((err)=>{
           setLoad(false)
