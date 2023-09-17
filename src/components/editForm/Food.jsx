@@ -4,35 +4,44 @@ import axiosClient from '../../axios-client';
 import {  useNavigate, useParams } from 'react-router-dom';
 
 const Food_ = ()=>{
-    
+    const {id}=useParams();
+    const [load,setLoad] = useState();
     const user_idRef = useRef();
     const foodRef = useRef();
     const quantityRef = useRef();
     const beneficiariesRef = useRef();
     const locationRef = useRef();
     const statusRef = useRef();
-  let navigate = useNavigate();
+const [food,setFood]=useState()
+    let navigate = useNavigate();
 
 
    
     const onSubmit=(event)=>{
       event.preventDefault()
       const payload = {
-        user_id: user_idRef.current.value,
+        id: null,
         typeoffood: foodRef.current.value,
         quantity: quantityRef.current.value,
         beneficiaries: beneficiariesRef.current.value,
         location: locationRef.current.value,
         status: statusRef.current.value,
       }
-
-
-    axiosClient.post('/debugtest',payload).then(({data})=>{
-      console.log(data)
+      
+    
+  }
+  useEffect(()=>{
+    setLoad(true);
+    axiosClient.post(`/food/+${id}`).then(({data})=>{
+      console.log(data[6])
+      setLoad(false);
+      setFood(data[6])
     }).catch((err)=>{
       console.log(err)
     })
-  }
+
+  },[]);
+
     return (
       <><br />
       <div className="brd">

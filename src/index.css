@@ -436,8 +436,8 @@ option::placeholder{
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   background-color: #fff;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row-reverse;
+  justify-content: space-between;
   align-items: center;
   text-align: center;
   margin: 20px;
@@ -445,17 +445,19 @@ option::placeholder{
 
 /* Styling for the cash amount */
 .amount {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
-  color: #2ecc71; /* Green color for positive amounts */
+  color: #2ecc71;
+  margin-right: .3em; 
+  
 }
 
 /* Styling for the card title */
 .title {
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: bold;
   font-family: 'Courier New', Courier, monospace;
-  margin-top: 10px;
+  margin:.4em;
   color: #333;
 }
 
@@ -487,10 +489,11 @@ option::placeholder{
 	height: 25em;
 	border: 0 solid transparent;
 	border-radius: 0.4em;
+  opacity: 77%;
 
 }
 .img-s:hover{
-	opacity: 60%;
+	opacity: 110%;
 
 }
 .huge{
@@ -526,7 +529,4 @@ option::placeholder{
   background-color: rgba(128, 128, 128, 0.171);
   padding: 10px;
   text-align: center;
-}
-.wrap{
-  
 }

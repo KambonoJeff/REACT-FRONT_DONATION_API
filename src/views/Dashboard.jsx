@@ -51,7 +51,7 @@ export default function Dashboard() {
         <br />
         {type==='admin'?(<h2 align='center'>ADMINSTRATOR</h2>):(
 
-<h3 align="center">Welcome to our donation app, where every act of generosity has the power to ignite positive change. Join us in making a difference today</h3>
+<h3 typeof='hidden' align="center">Welcome to our donation app, where every act of generosity has the power to ignite positive change. Join us in making a difference today</h3>
 
 
         )}

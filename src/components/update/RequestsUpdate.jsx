@@ -41,7 +41,8 @@ const onSubmit = ( event )=>{
     axiosClient.post(`PostRequest/${id}`,request)
     .then(({data})=>{
         setLoad(false)
-        return <Navigate to="/users/requests"/>
+        window.confirm('The record has been Successfully updated!')
+
     })
     .catch((err)=>{
         setLoad(false)

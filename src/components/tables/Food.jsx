@@ -8,7 +8,7 @@ const Food = () => {
   const{type}=useStateContext();
   const[foods ,setFood]=useState([]);
   const [sum,setSum]=useState([])
-  const [load, setLoad] = useState()
+  const [load, setLoad] = useState();
   let navigate = useNavigate();
   const food =()=>{
     axiosClient.get('/food').then((res)=>{
@@ -25,6 +25,30 @@ const Food = () => {
     setLoad(true)
     food()
    },[])
+
+   const onDelete =(data)=>{
+      console.log(data)
+      if(type!=='admin'){
+        window.alert('ONLY ADMIN CAN DELETE!')
+      }else{
+        if(!window.confirm('Are you sure you want to delete this record?')){
+          return
+        }else{
+          setLoad(true)
+          axiosClient.delete(`/food/delete/${data.id}`)
+          .then(({data})=>{
+            setLoad(false);
+            console.log('this the returned data', data)
+            window.confirm('The record has been succesfully deleted!!')
+          })
+          .catch((err)=>{
+            setLoad(false);
+            console.log('An error occured when making the request', err)
+          })
+
+        }
+      }
+   }
   return (
     <>
                   <h2 align='center'>Food Table and Totals</h2>
@@ -47,6 +71,7 @@ const Food = () => {
                     <th>breakfast</th>
                     <th>snacks</th>
                     <th>cash</th>
+                    <th>Other</th>
                 </tr>     
             </thead>
             {load &&<tbody>
@@ -65,6 +90,10 @@ const Food = () => {
                                 <td>{data.breakfast} kg</td>
                                 <td>{data.snacks} kg</td>
                                 <td>{data.cash} kshs</td>
+                                <td>
+                                  <Link className='btn' to={'/food/'+ data.id}> Edit </Link>
+                                  <button className='btn' onClick={event=>{onDelete(data)}}> Delete </button>
+                                </td>
                                                 
                                         
                                 

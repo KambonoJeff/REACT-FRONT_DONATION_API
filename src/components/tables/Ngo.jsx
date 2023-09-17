@@ -29,7 +29,9 @@ const[load,setLoad]=useState();
         if(!window.confirm('Are You sure You want to delete this!?')){
             return
         }else{
-            axiosClient.delete(`/ngo/delete/ ${data.id}`).then((res)=>{console.log(res); _ngo();}).catch((err)=>{
+            setLoad(true)
+            axiosClient.delete(`/ngo/delete/ ${data.id}`).then((res)=>{setLoad(false);console.log(res); _ngo();}).catch((err)=>{
+                setLoad(false);
                 console.log(err)
             })
         }

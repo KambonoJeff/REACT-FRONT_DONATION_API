@@ -42,7 +42,10 @@ const NgoUpdate = ()=> {
    
     const onSubmit=(event)=>{
         event.preventDefault()
-    }
+        setLoad(true)
+        axiosClient.post(`/`)
+
+      }
   return (
     <>
       <br />
@@ -54,7 +57,7 @@ const NgoUpdate = ()=> {
             <input placeholder='email' value={ngo.email} onChange={event => setNgo({...ngo , email: event.target.value})} />
             <input placeholder='location' value={ngo.location} onChange={event => setNgo({...ngo , location: event.target.value})} />
             <input placeholder='beneficiaries' value={ngo.breakfast} onChange={event => setNgo({...ngo , breakfast: event.target.value})} />
-            <button className='btn' align='center'> SAVE </button>
+            <button type='submit' className='btn' align='center'> SAVE </button>
             <button className='btn' onClick={()=>navigate(-1)}>Back</button>
             </div>
         

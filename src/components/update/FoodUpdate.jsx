@@ -31,7 +31,20 @@ const FoodUpdate = ()=> {
     },[])
 
     const onSubmit = (event)=>{
-      event.preventDefault()
+      event.preventDefault();
+      setLoad(true);
+      axiosClient.post(`/food/update/${id}`,user)
+      .then(({res})=>{
+        setLoad(false);
+        console.log(res);
+        window.confirm('The record has been Successfully updated!')
+      })
+      .catch((err)=>{
+        setLoad(false);
+        console.log('An error occured when making the request!! ::', err);
+        
+      })
+
     }
   return (
     <>
