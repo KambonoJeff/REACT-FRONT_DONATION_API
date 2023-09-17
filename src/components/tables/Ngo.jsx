@@ -38,13 +38,10 @@ const[load,setLoad]=useState();
     }
    }
   return (
-    <>
+    <><br />
        {type==='admin' && 
         <Link className='btn-green' to={'/ngo/show/new'}>Add NGO</Link>
        }
-       <br />
-       <br />
-       <br />
               <h2 align='center'>NGO Table</h2>
         <br/>  
         {load && <h4 align='center'>Loading . . .</h4>} 

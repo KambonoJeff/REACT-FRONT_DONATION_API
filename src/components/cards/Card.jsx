@@ -9,10 +9,10 @@ const Card = ({ item, ngodata }) => {
     <div class="card4">
         <div class="header4">{item.typeoffood}</div>
         <div class="content4">
-            <p>Quantity needed {item.quantity} Kilograms</p>
-            <p>Number Of Beneficiaries are {item.beneficiaries}</p>
+            <p>Quantity needed <span> {item.quantity} Kilograms</span></p>
+            <p>Number Of Beneficiaries are <span> {item.beneficiaries}</span></p>
         </div>
-        <div class="footer4">Location {item.location}</div>
+        <div class="footer4">Location <span>{item.location}</span></div>
     </div>
       
     </>

@@ -102,8 +102,9 @@ nav{
   color:yellow;
 }
 span{
-  font-weight: 900;
-  font-size: 1.8em;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: black;
 }
 span:hover{
   padding: .9em;
@@ -445,7 +446,7 @@ option::placeholder{
 .card3-grid{
   display: grid;
   justify-content: space-between;
-  
+
 
 }
 /* Styling for the cash amount */

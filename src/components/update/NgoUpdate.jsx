@@ -14,7 +14,6 @@ const NgoUpdate = ()=> {
             name:'',
             email:'',
             location:'',
-            licenseNo:'',
             phonenumber:'',
             beneficiaries:'',
     
@@ -29,7 +28,7 @@ const NgoUpdate = ()=> {
         setLoad(true)
                 axiosClient.get(`/showngo/${id}`).then(({data})=>{
                     setLoad(false)
-                    console.log(data[0])
+                    console.log('this the returned data',data[0])
                     setNgo(data[0])
 
                 }).catch((err)=>{
@@ -69,7 +68,6 @@ const NgoUpdate = ()=> {
             <input placeholder='location' value={ngo.location} onChange={event => setNgo({...ngo , location: event.target.value})} />
             <input placeholder='beneficiaries' value={ngo.beneficiaries} onChange={event => setNgo({...ngo , beneficiaries: event.target.value})} />
             <input placeholder='phonenumber' value={ngo.phonenumber} onChange={event => setNgo({...ngo , phonenumber: event.target.value})} />
-            <input placeholder='licenseNo' value={ngo.licenseNo} onChange={event => setNgo({...ngo , licenseNo: event.target.value})} />
             <button type='submit' className='btn' align='center'> SAVE </button>
             <button className='btn' onClick={()=>navigate(-1)}>Back</button>
             </div>
