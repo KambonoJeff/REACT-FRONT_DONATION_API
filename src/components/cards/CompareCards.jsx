@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import axiosClient from '../../axios-client';
+import { useNavigate } from 'react-router-dom';
 
 const CompareCards = () => {
     const [food,setfood]=useState([]);
     const [cash,setcash]=useState([]);
     const [load, setLoad] = useState();
-    const{type}=useStateContext();
-    const[foods ,setFood]=useState([]);
     const [sum,setSum]=useState([])
     let navigate = useNavigate();
-    const food =()=>{
+    const food_ =()=>{
       axiosClient.get('/food').then((res)=>{
         setLoad(false)
         console.log(res.data);
-        setFood(res.data[6].data)
         setSum(res.data)
         console.log('This the sum',sum[0])
   
@@ -22,7 +20,7 @@ const CompareCards = () => {
      }
      useEffect(()=>{
       setLoad(true)
-      food()
+      food_()
      },[])
    
      useEffect(()=>{
@@ -45,6 +43,33 @@ const CompareCards = () => {
             <div className="flex box">
             <div className="card-container">
             <h3>Donations</h3>
+            <div className="grid">
+            <div class="card3 ">
+         <div class="amount">Kgs {sum[0]}</div> 
+        <div class="title"> Cereals </div>
+    </div>
+
+    <div class="card3 ">
+         <div class="amount">Kgs {sum[1]}</div> 
+        <div class="title"> Proteins </div>
+    </div>
+    <div class="card3 ">
+         <div class="amount">Kgs {sum[2]}</div> 
+        <div class="title"> Legumes </div>
+    </div>
+    <div class="card3 ">
+         <div class="amount">Kgs {sum[3]}</div> 
+        <div class="title"> Breakfast </div>
+    </div>
+    <div class="card3 ">
+         <div class="amount">Kgs {sum[4]}</div> 
+        <div class="title"> Snacks </div>
+    </div>
+    <div class="card3 ">
+         <div class="amount">${sum[5]}</div> 
+        <div class="title"> Cash </div>
+    </div> 
+            </div>
         </div>
         <div className="card-container">
             <h3>Requests</h3>
