@@ -10,22 +10,34 @@ const CompareCards = () => {
     const[a,setA]=useState();
     let navigate = useNavigate();
     useEffect(()=>{
-        setLoad(false);
+        // first request
+        setLoad(true)
+        axiosClient.get('/sumfood')
+        .then((res)=>{
+        setLoad(false)
+        setfood(res.data[0]);
+        setcash(res.data[1]);
+        })
+        .catch(err =>{ setLoad(false); console.error(err)});
+        // second request
+        setLoad(true);
         axiosClient.get('/requests/compare')
         .then(({data})=>{
             setLoad(false)
-            console.log(data)
             setA(data)
         })
         .catch((err)=>{
             setLoad(false)
             console.log('error occured when making the request', err.response)
         });
+        setLoad(true)
         axiosClient.post('/requests/diffrence',payload)
         .then(({data})=>{
+            setLoad(false)
             console.log(data)
         })
         .catch((err)=>{
+            setLoad(false)
             console.log('An error occured when get the diffrence', err.response)
         })
 
@@ -43,16 +55,7 @@ const CompareCards = () => {
       food_()
      },[])
    
-     useEffect(()=>{
-      setLoad(true)
-      axiosClient.get('/sumfood').then((res)=>{
-        setLoad(false)
-        setfood(res.data[0]);
-        setcash(res.data[1]);
-      })
-        .catch(err =>{ setLoad(false); console.error(err)});
-     
-     },[])
+    
      
 
   return (
