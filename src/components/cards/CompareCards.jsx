@@ -9,15 +9,19 @@ const CompareCards = () => {
     const [sum,setSum]=useState([])
     const[a,setA]=useState();
     let navigate = useNavigate();
+    const payload=
+    [
+        
+    ]
+
     useEffect(()=>{
         // first request
-        setLoad(true)
-        axiosClient.get('/sumfood')
+        setLoad(true);
+        axiosClient.get('/food')
         .then((res)=>{
-        setLoad(false)
-        setfood(res.data[0]);
-        setcash(res.data[1]);
-        })
+            setLoad(false)
+            setSum(res.data)
+          })
         .catch(err =>{ setLoad(false); console.error(err)});
         // second request
         setLoad(true);
@@ -30,6 +34,7 @@ const CompareCards = () => {
             setLoad(false)
             console.log('error occured when making the request', err.response)
         });
+        //third request
         setLoad(true)
         axiosClient.post('/requests/diffrence',payload)
         .then(({data})=>{
@@ -40,24 +45,17 @@ const CompareCards = () => {
             setLoad(false)
             console.log('An error occured when get the diffrence', err.response)
         })
-
-     },[])
-    const food_ =()=>{
-      axiosClient.get('/food').then((res)=>{
+        //fourth request
+        setLoad(true)
+        axiosClient.get('/sumfood')
+        .then((res)=>{
         setLoad(false)
-        setSum(res.data)
-  
-      })
+        setfood(res.data[0]);
+        setcash(res.data[1]);
+        })
         .catch(err =>{ setLoad(false); console.error(err)});
-     }
-     useEffect(()=>{
-      setLoad(true)
-      food_()
-     },[])
-   
-    
-     
 
+     },[])
   return (
     <>
     <br />
