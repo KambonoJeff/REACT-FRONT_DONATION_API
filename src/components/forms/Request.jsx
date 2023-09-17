@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {useRef} from 'react'
 import axiosClient from '../../axios-client';
 import { Navigate, redirect, useNavigate } from 'react-router-dom';
@@ -11,13 +11,11 @@ const Request=()=>{
     const snacksRef = useRef();
     const cashRef = 0;
     let navigate = useNavigate();
-
+  const [load, setLoad]=useState()
     
     const onSubmit=(event)=>{
       event.preventDefault()
-      if(!window.confirm('THANK YOU FOR DONATING TO A JUST COURSE')){
-        return
-      }else{
+     
         
       const payload = {
         cereals: cerealsRef.current.value,
@@ -27,10 +25,13 @@ const Request=()=>{
         snacks: snacksRef.current.value,
         cash: cashRef,
       }
+        setLoad(true)
        axiosClient.post('/food',payload).then(({data})=>{
-         console.log(data)
+        setLoad(false)
+        window.confirm('Thankyou For donating')
        }).catch
        (err=>{
+        setLoad(false)
          const response = err.response;
          if(response && response.status === (422 || 500 || 404) ){
            console.log(response.data.errors)
@@ -38,7 +39,7 @@ const Request=()=>{
          };
        })
 
-      }
+      
 
       
       
@@ -50,7 +51,9 @@ const Request=()=>{
       <br />
       <div className="brd">
       <h2 align='center'> Food Donation Form</h2>
-      <br />   
+      <br />  
+      {load && <h4 align='center'>Loading . . . </h4>}
+       
       <h4 align='center'>Enter the units of food you donating in kilograms</h4>   
       <form action="" onSubmit={onSubmit}  method="post">
        <div className="form-control">
