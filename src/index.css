@@ -442,7 +442,12 @@ option::placeholder{
   text-align: center;
   margin: 20px;
 }
+.card3-grid{
+  display: grid;
+  justify-content: space-between;
+  
 
+}
 /* Styling for the cash amount */
 .amount {
   font-size: 20px;

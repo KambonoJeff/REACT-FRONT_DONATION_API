@@ -50,15 +50,12 @@ const Food = () => {
   return (
     <>
                   <h2 align='center'>Food Table and Totals</h2>
-            <br/>   
             {type!=='admin'&&
             <Link className='btn-green' to={'/form/NgoRequest'}> Donate </Link>
             }
             
-            <br />
-            <div className="flex mg-t">
+            <div className="grid mg-t">
 
-            <br />
                 <table>
                 <thead className="thead">             
                 <tr>
@@ -105,15 +102,33 @@ const Food = () => {
                 <br />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-                <div className="grid box">
+                <div className="flex box">
 
- <div className="flex box">cereals <div className="btn">{sum[0] } kgs</div></div> 
+                <div class="card3 card3-grid ">
+         <div class="amount">Kgs {sum[0]}</div> 
+        <div class="title"> Cereals </div>
+    </div>
 
- <div className="flex box">proteins <div className="btn">{sum[1] } kgs</div></div>
-<div className="flex box">legumes <div className="btn">{sum[2] } kgs</div></div>
-<div className="flex box">Breakfast <div className="btn">{sum[3] } kgs</div></div>
-<div className="flex box">Snacks <div className="btn">{sum[4] } kgs</div></div>
-<div className="flex box">Cash <div className="btn">{sum[5] } kshs</div></div> 
+    <div class="card3 card3-grid ">
+         <div class="amount">Kgs {sum[1]}</div> 
+        <div class="title"> Proteins </div>
+    </div>
+    <div class="card3 card3-grid ">
+         <div class="amount">Kgs {sum[2]}</div> 
+        <div class="title"> Legumes </div>
+    </div>
+    <div class="card3 card3-grid ">
+         <div class="amount">Kgs {sum[3]}</div> 
+        <div class="title"> Breakfast </div>
+    </div>
+    <div class="card3 card3-grid ">
+         <div class="amount">Kgs {sum[4]}</div> 
+        <div class="title"> Snacks </div>
+    </div>
+    <div class="card3 card3-grid ">
+         <div class="amount">${sum[5]}</div> 
+        <div class="title"> Cash </div>
+    </div> 
                 </div>
                 </div>
 
