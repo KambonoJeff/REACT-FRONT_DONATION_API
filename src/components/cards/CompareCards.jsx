@@ -29,7 +29,7 @@ const CompareCards = () => {
         setLoad(false)
         console.log('this the return data',res)
         setfood(res.data[0]);
-        setcash(res.data[1])
+        setcash(res.data[1]);
       })
         .catch(err =>{ setLoad(false); console.error(err)});
      
@@ -42,6 +42,7 @@ const CompareCards = () => {
     <br />
     <br />
       <div align='center' className="grid box">
+        {load && <h4 align='center'>Loading . . . </h4>}
         <div className="grid box">
             <div className="flex box">
             <div className="card-container">
