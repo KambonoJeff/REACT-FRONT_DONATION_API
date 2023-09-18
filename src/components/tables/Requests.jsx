@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axiosClient from '../../axios-client';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link,  useNavigate } from 'react-router-dom';
 import { useStateContext } from '../contexts/ContextProvider';
-import RequestsUpdate from '../update/RequestsUpdate';
 
 
 const Requests = () => {
