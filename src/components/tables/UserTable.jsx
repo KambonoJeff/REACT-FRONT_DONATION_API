@@ -5,12 +5,13 @@ import { Link, useNavigate } from 'react-router-dom';
 const UserTable = () => {
   const[users ,setUsers]=useState([]);
   let navigate = useNavigate();
-  const [load,setLoad]=useState()
+  const [load,setLoad]=useState();
+  const [currentPage, setCurrentPage] = useState(1); // Track the current page
+
   const _users =()=>{
     setLoad(true)
-    axiosClient.get('/showusers').then((res)=>{
+    axiosClient.get(`/showusers?page=${currentPage}`).then((res)=>{
         setLoad(false)
-        console.log(res.data)
     setUsers(res.data.data)})
     .catch((err)=>{
         setLoad(false)
@@ -19,7 +20,18 @@ const UserTable = () => {
    }
    useEffect(()=>{
     _users()
-   },[])
+   },[currentPage]);
+   
+  const handleNextClick = () => {
+    setCurrentPage(currentPage + 1);
+  };
+
+  const handlePreviousClick = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
    const onDelete=(user)=>{
     if(!window.confirm('Are You Sure You want to Delete')){
         return
@@ -71,6 +83,13 @@ const UserTable = () => {
                 </table>
                 <br />
                 <button className='btn' onClick={()=>navigate(-1)}>Back</button>
+                <button className='btn' onClick={handlePreviousClick} disabled={currentPage === 1}>
+        Previous
+      </button>
+      <button className='btn' onClick={handleNextClick}>Next</button>
+    
+    
+    
     </>
   )
 }
