@@ -8,9 +8,12 @@ const Ngo = () => {
 const {type} = useStateContext()
 let navigate = useNavigate();
 const[load,setLoad]=useState();
+const [currentPage, setCurrentPage] = useState(1); // Track the current page
+
+
   const _ngo =()=>{
     setLoad(true)
-    axiosClient.get('/ngo/show').then((res)=>{
+    axiosClient.get(`/ngo/show?page=${currentPage}`).then((res)=>{
         setLoad(false)
     setNgo(res.data[0].data)
     })
@@ -21,7 +24,19 @@ const[load,setLoad]=useState();
    }
    useEffect(()=>{
     _ngo()
-   },[])
+   },[currentPage]);
+
+   const handleNextClick = () => {
+    setCurrentPage(currentPage + 1);
+  };
+
+  const handlePreviousClick = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+
    const onDelete=(data)=>{
     if(type!=='admin'){
         window.alert('ONLY ADMIN CAN DELETE!')
@@ -80,6 +95,11 @@ const[load,setLoad]=useState();
             </table>
             <br />
             <button className='btn' onClick={()=>navigate(-1)}>Back</button> 
+            <button className='btn' onClick={handlePreviousClick} disabled={currentPage === 1}>
+        Previous
+      </button>
+      <button className='btn' onClick={handleNextClick}>Next</button>
+    
     </>
   )
 }
