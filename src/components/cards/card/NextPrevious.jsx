@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios'; // You may need to install axios
 
 function PaginatedDataComponent() {
-  const [data, setData] = useState([]); // Store the fetched data
+  const [data, setData] = useState([]); 
   const [currentPage, setCurrentPage] = useState(1); // Track the current page
   const itemsPerPage = 10; 
 
