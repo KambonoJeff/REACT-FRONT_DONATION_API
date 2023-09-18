@@ -10,9 +10,11 @@ const Requests = () => {
   let navigate = useNavigate();
   const [load,setLoad]=useState();
   const{type}=useStateContext();
+  const [currentPage, setCurrentPage] = useState(1); // Track the current page
+
   const _requests =()=>{
     setLoad(true)
-    axiosClient.get('/PostRequest').then((res)=>{
+    axiosClient.get(`/PostRequest?page=${currentPage}`).then((res)=>{
         setLoad(false)
     setRequests(res.data.data)})
     .catch((err)=>{
@@ -22,7 +24,18 @@ const Requests = () => {
    }
    useEffect(()=>{
     _requests()
-   },[])
+   },[currentPage]);
+   
+  const handleNextClick = () => {
+    setCurrentPage(currentPage + 1);
+  };
+
+  const handlePreviousClick = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
    
    const onDelete=(data)=>{
     if(type!=='admin'){
@@ -120,7 +133,11 @@ const Requests = () => {
                   <br />
                   
                 <button className='btn' onClick={()=>navigate(-1)}>Back</button>  
-     
+                <button className='btn' onClick={handlePreviousClick} disabled={currentPage === 1}>
+        Previous
+      </button>
+      <button className='btn' onClick={handleNextClick}>Next</button>
+    
     </>
   )
 }

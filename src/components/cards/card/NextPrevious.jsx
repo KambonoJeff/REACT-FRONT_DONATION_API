@@ -42,6 +42,8 @@ function PaginatedDataComponent() {
         Previous
       </button>
       <button onClick={handleNextClick}>Next</button>
+    
+    
     </div>
   );
 }
