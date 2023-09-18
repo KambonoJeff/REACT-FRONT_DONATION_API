@@ -13,7 +13,7 @@ function PaginatedDataComponent() {
   const fetchData = async () => {
     try {
       const response = await axios.get(`/api/data?page=${currentPage}`);
-      setData(response.data.data); // Assuming the API response contains a "data" property
+      setData(response.data.data); 
     } catch (error) {
       console.error('Error fetching data:', error);
     }
