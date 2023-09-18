@@ -7,7 +7,6 @@ function PaginatedDataComponent() {
   const itemsPerPage = 10; // Define the number of items per page
 
   useEffect(() => {
-    // Fetch data from the Laravel API when the component mounts or currentPage changes
     fetchData();
   }, [currentPage]);
 
