@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import axiosClient from '../../axios-client';
-import {  Link, Navigate, useNavigate } from 'react-router-dom';
+import {   useNavigate, withRouter } from 'react-router-dom';
 ///////////////////////////////////////////////////
 export default function UserForm() {
   const nameRef = useRef();
@@ -26,15 +26,11 @@ export default function UserForm() {
     setLoad(true)
     axiosClient.post('/register', payload).then(({res})=>{
       setLoad(false)
+      window.confirm('New User Added succesfully!')
     }).catch
     (err=>{
       setLoad(false)
-      const response = err.response;
-      if(response && response.status === (422 || 500 || 404) ){
-        console.log(response.data)
-        setErrors(response.data.errors)
-
-      };
+      console.log('this the error',err)
     })
   }
   return (

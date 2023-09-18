@@ -58,7 +58,7 @@ const UserTable = () => {
                     <th>name</th>
                     <th>email</th>
                     <th>type</th>
-                    <th>verifiedAT</th>
+                    <th>Created AT</th>
                     <th>other</th>
                 </tr>     
                 </thead>

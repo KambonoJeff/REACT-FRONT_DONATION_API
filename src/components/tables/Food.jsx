@@ -10,8 +10,12 @@ const Food = () => {
   const [sum,setSum]=useState([])
   const [load, setLoad] = useState();
   let navigate = useNavigate();
+  const [currentPage, setCurrentPage] = useState(1); // Track the current page
+
+
+
   const food =()=>{
-    axiosClient.get('/food').then((res)=>{
+    axiosClient.get(`/food?page=${currentPage}`).then((res)=>{
       setLoad(false)
       setFood(res.data[6].data)
       setSum(res.data)
@@ -22,7 +26,19 @@ const Food = () => {
    useEffect(()=>{
     setLoad(true)
     food()
-   },[])
+   },[currentPage]);
+   
+  const handleNextClick = () => {
+    setCurrentPage(currentPage + 1);
+  };
+
+  const handlePreviousClick = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+
 
    const onDelete =(data)=>{
       console.log(data)
@@ -128,9 +144,17 @@ const Food = () => {
         <div class="title"> Cash </div>
     </div> 
                 </div>
+                <br />
+                {load && <h4 align='center'>Loading . . . </h4>}
                 </div>
 
                 <button className='btn' onClick={()=>navigate(-1)}>Back</button>                  
+                <button className='btn' onClick={handlePreviousClick} disabled={currentPage === 1}>
+        Previous
+      </button>
+      <button className='btn' onClick={handleNextClick}>Next</button>
+    
+    
     </>
   )
 }
