@@ -33,7 +33,6 @@ export default function Admin() {
       axiosClient.post('/admin/register', payload).then(({data})=>{
         setLoad(false)
         console.log('this the logged data',data);
-        setToken(data.token)
       }).catch((err)=>{
         setLoad(false)
         setError(err.response.data.message)

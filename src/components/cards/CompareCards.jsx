@@ -11,15 +11,6 @@ export default function CompareCards
   const[a,setA]=useState([]);
   const[riri , setRiri]=useState([]);
 
-  const payload = 
- 
-  {
-      cereals:asset[0],
-      proteins:asset[1],
-      legumes:asset[2],
-      breakfast:asset[3],
-      snacks:asset[4],
-  }
   useEffect(()=>{
       getData()
 
@@ -31,10 +22,12 @@ export default function CompareCards
      axiosClient.get('/food')
      .then((res)=>{
          setLoad(false);
-         setAsset(res.data);
+         setAsset(res.data[0]);
        })
      .catch(err =>{ setLoad(false); console.error(err)});
-     compare();
+
+
+      compare();
       getDiffrence();
 
   }
@@ -45,8 +38,7 @@ export default function CompareCards
       axiosClient.get('/requests/compare')
       .then(({data})=>{
           setLoad(false);
-          console.log('This the diffrence payload',payload);
-          setA(data);
+          setA(data)
       })
       .catch((err)=>{
           setLoad(false);
@@ -57,11 +49,10 @@ export default function CompareCards
   function getDiffrence(){
       //third request
       setLoad(true)
-      console.log('This the diffrence payload',payload)
-      axiosClient.post('/requests/diffrence',payload)
+      axiosClient.get('/requests/diffrence')
       .then(({data})=>{
           setLoad(false)
-          console.log('Diffrencee function paid its taxes',data)
+          console.log('Compare card retuerned dara',data)
           setRiri(data[0])
       })
       .catch((err)=>{

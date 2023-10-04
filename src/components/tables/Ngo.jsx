@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axiosClient from '../../axios-client';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { useStateContext } from '../contexts/ContextProvider';
 
 const Ngo = () => {
@@ -35,7 +35,6 @@ const [currentPage, setCurrentPage] = useState(1); // Track the current page
       setCurrentPage(currentPage - 1);
     }
   };
-
 
    const onDelete=(data)=>{
     if(type!=='admin'){
@@ -76,6 +75,7 @@ const [currentPage, setCurrentPage] = useState(1); // Track the current page
             <tbody>
                 {
                     ngo.map((data, index)=>(
+                      
                         <tr key={index}>
                             <td>{data.id}</td>
                             <td>{data.name}</td>
@@ -83,9 +83,12 @@ const [currentPage, setCurrentPage] = useState(1); // Track the current page
                             <td>{data.location}</td>
                             <td>{data.beneficiaries}</td>
                             <td className='flex'>
-                            <Link className='btn' to={'/ngo/show/'+data.id}>Edit</Link>
-                            <button onClick={event=>onDelete(data)} className='btn-red'>Delete</button>
+                              
+                              <Link className='btn' to={'/ngo/show/'+data.id}>Edit</Link>
+                              
+                              <button onClick={event=>onDelete(data)} className='btn-red'>Delete</button>
 
+                            
                             </td>
                         </tr>
                     ))

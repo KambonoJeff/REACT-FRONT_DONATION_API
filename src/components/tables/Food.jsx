@@ -17,8 +17,9 @@ const Food = () => {
   const food =()=>{
     axiosClient.get(`/food?page=${currentPage}`).then((res)=>{
       setLoad(false)
-      setFood(res.data[6].data)
-      setSum(res.data)
+      console.log(res.data[0])
+       setFood(res.data[1].data)
+       setSum(res.data[0])
 
     })
       .catch(err =>{ setLoad(false); console.error(err)});

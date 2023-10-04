@@ -7,17 +7,7 @@ const FoodCard = () => {
     const [load, setLoad] = useState();
   const[riri , setRiri]=useState([]);
   const [asset, setAsset]=useState([]);
-  const payload = 
- 
-  {
-      cereals:asset[0],
-      proteins:asset[1],
-      legumes:asset[2],
-      breakfast:asset[3],
-      snacks:asset[4],
-  }
 
-    
  
      useEffect(()=>{
       setLoad(true);
@@ -36,9 +26,10 @@ const FoodCard = () => {
       })
       .catch(err =>{ setLoad(false); console.error(err)});
         setLoad(true)
-        axiosClient.post('/requests/diffrence',payload)
+        axiosClient.get('/requests/diffrence')
         .then(({data})=>{
             setLoad(false)
+            console.log('data by the foodcard',data)
             setRiri(data[1])
         })
         .catch((err)=>{

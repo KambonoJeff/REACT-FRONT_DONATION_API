@@ -61,7 +61,7 @@ export default function Dashboard() {
           <div className="flex box box mg-t">
             <div className="grid">
             <h1 className='stroke-text' >WELCOME</h1>
-            <h2  className='huge'>{user}😇🥳</h2>
+            <h2  className='huge'>{user}</h2>
    {
     type!=='admin'&&   <h3 className='box'>Monthly giving is
     the perfect way
@@ -76,10 +76,10 @@ export default function Dashboard() {
             </div>
 
 
-
-              <div className="image">
+{type!=='admin' && <div className="image">
               <img className='img-s' src={image} alt="This is an image of a desert" />
-          </div>
+          </div>}
+              
           </div>
           {load && <h4 align='center'> D o n a t i n g . . </h4>}
           <form onSubmit={onSubmit}>
@@ -155,7 +155,7 @@ export default function Dashboard() {
 <Link align='center' className='btn btn-w' to="/users/requests">Requests</Link>
 
             )}
-            {type==='user'?(
+            {type==='user' || type==='ngo' ?(
 
 <Link align='center' className='btn btn-w' to="/request/compare"> Donations </Link>
             ):(
